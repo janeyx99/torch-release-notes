@@ -30,19 +30,14 @@ The categories below are as follows:
 ### deprecation
 ### new features
 ### improvements
-- Allow GradientEdge as torch.autograd.backward outputs ([#144744](https://github.com/pytorch/pytorch/pull/144744))
+- Allow `torch.autograd.graph.GradientEdge` as `torch.autograd.backward` outputs #144744
+- Implement gradient for the `residuals` of `torch.linalg.lstsq` #148526
 ### bug fixes
-- Fix allow_mutation_on_saved_tensors for inplace foreach ([#145520](https://github.com/pytorch/pytorch/pull/145520))
+- Fix `torch.autograd.graph.allow_mutation_on_saved_tensors` for inplace foreach ops #145520
 ### performance
 ### docs
+- Suppress vmap warning from `torch.autograd.gradcheck` #144287
 ### devs
 ### Untopiced
-- [BE] Actually suppress vmap warning from gradcheck ([#144287](https://github.com/pytorch/pytorch/pull/144287))
-- Revert D70262395 ([#148164](https://github.com/pytorch/pytorch/pull/148164))
-- Implement gradient for the `residuals` of `torch.linalg.lstsq` ([#148526](https://github.com/pytorch/pytorch/pull/148526))
-- [reland][ca] side-effect free inital trace: compiled_args ([#148376](https://github.com/pytorch/pytorch/pull/148376))
 ### not user facing
-- [3/N] Apply py39 ruff fixes ([#142115](https://github.com/pytorch/pytorch/pull/142115))
-- [gen_autograd_functions] rename some variables ([#143166](https://github.com/pytorch/pytorch/pull/143166))
-- [Submodule] Turning flash-attention integration into 3rd party submod (#144120) ([#146372](https://github.com/pytorch/pytorch/pull/146372))
 ### security
