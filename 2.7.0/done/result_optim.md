@@ -27,7 +27,24 @@ The categories below are as follows:
 
 ## optim
 ### bc breaking
-- Finish deprecation of LRScheduler.print_lr and verbose in `LRScheduler` (#147301) -- BC-breaking note in PR description
+**`LRScheduler.print_lr()` along with the `verbose` kwarg to the LRScheduler constructor has been deprecated since release 2.2. Please use `LRScheduler.get_last_lr()` to access the learning rate instead.** (#147301)
+
+`print_lr` and `verbose` were confusing, not properly documented and were little used, as described in #99270, so we deprecated them in 2.2. Now, we complete the deprecation by removing them completely. To access and print the learning rate of a LRScheduler:
+
+In 2.6.0
+```
+optim = ...
+lrsched = torch.optim.lr_scheduler.ReduceLROnPlateau(optim, verbose=True)
+// lrsched will internally call print_lr
+```
+
+In 2.7.0
+```
+optim = ...
+lrsched = torch.optim.lr_scheduler.ReduceLROnPlateau(optim)
+print(lrsched.get_last_lr())
+```
+
 ### deprecation
 ### new features
 ### improvements
