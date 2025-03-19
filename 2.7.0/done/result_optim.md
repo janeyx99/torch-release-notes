@@ -27,26 +27,40 @@ The categories below are as follows:
 
 ## optim
 ### bc breaking
-- Removed unused _RequiredParameter ([#144771](https://github.com/pytorch/pytorch/pull/144771))
+**`LRScheduler.print_lr()` along with the `verbose` kwarg to the LRScheduler constructor has been deprecated since release 2.2. Please use `LRScheduler.get_last_lr()` to access the learning rate instead.** (#147301)
+
+`print_lr` and `verbose` were confusing, not properly documented and were little used, as described in #99270, so we deprecated them in 2.2. Now, we complete the deprecation by removing them completely. To access and print the learning rate of a LRScheduler:
+
+In 2.6.0
+```
+optim = ...
+lrsched = torch.optim.lr_scheduler.ReduceLROnPlateau(optim, verbose=True)
+// lrsched will internally call print_lr
+```
+
+In 2.7.0
+```
+optim = ...
+lrsched = torch.optim.lr_scheduler.ReduceLROnPlateau(optim)
+print(lrsched.get_last_lr())
+```
+
 ### deprecation
 ### new features
 ### improvements
+- Refactor AdamW to subclass Adam (#143710, #144972)
+- Add support for differentiable LR and weight_decay in SGD, Adam(W) (#143510, #143679, #143726)
 ### bug fixes
-- Fix loading older state_dict into AdamW after refactor ([#144972](https://github.com/pytorch/pytorch/pull/144972))
 ### performance
 ### docs
-- Clarify what we mean by decoupled weight decay in the *AdamWs ([#144101](https://github.com/pytorch/pytorch/pull/144101))
-- Document decoupled_weight_decay for Adam for consistency with N/RAdam ([#144984](https://github.com/pytorch/pytorch/pull/144984))
+- Clarify what we mean by decoupled weight decay in the *AdamWs (#144101, #144984)
+- Corrected description of AMSGrad algorithm (#142351)
+
 ### devs
 ### Untopiced
-- Corrected description of AMSGrad algorithm ([#142351](https://github.com/pytorch/pytorch/pull/142351))
-- Add support for differentiable LR in SGD + test v2.0 ([#143510](https://github.com/pytorch/pytorch/pull/143510))
-- Refactor AdamW into Adam (heavily inspired by tfsingh) ([#143710](https://github.com/pytorch/pytorch/pull/143710))
-- Add support for differentiable weight decay ([#143679](https://github.com/pytorch/pytorch/pull/143679))
-- Adding support for differentiable lr, weight_decay, and betas in Adam/AdamW ([#143726](https://github.com/pytorch/pytorch/pull/143726))
-- [Easy][optim] Add LBFGS params optional desc ([#147579](https://github.com/pytorch/pytorch/pull/147579))
-- Remove deprecate method and attirbute in `LRScheduler` ([#147301](https://github.com/pytorch/pytorch/pull/147301))
 ### not user facing
 - PEP585 update -  torch/nn torch/optim torch/package torch/profiler torch/serialization torch/sparse torch/xpu ([#145175](https://github.com/pytorch/pytorch/pull/145175))
 - PEP585 update -  torch/nn torch/optim torch/package torch/profiler torch/serialization torch/sparse torch/xpu ([#145175](https://github.com/pytorch/pytorch/pull/145175))
+- Add LBFGS params optional desc ([#147579](https://github.com/pytorch/pytorch/pull/147579))
+- Removed unused _RequiredParameter ([#144771](https://github.com/pytorch/pytorch/pull/144771)) (was reverted)
 ### security
