@@ -29,18 +29,18 @@ The categories below are as follows:
 ### bc breaking
 ### deprecation
 ### new features
-- Add overload names to profiler ([#143114](https://github.com/pytorch/pytorch/pull/143114))
-- Enable profiling on all threads via experimentalConfig ([#143659](https://github.com/pytorch/pytorch/pull/143659))
+- Add overload names to profiler (#143114)
+- Enable profiling on all threads via experimentalConfig (#143659)
 ### improvements
-- Add optional flag to profiler to toggle external correlations([#143314](https://github.com/pytorch/pytorch/pull/143314))
-- Add delimeter in memory vizualizer to show where allocation addr begins ([#147461](https://github.com/pytorch/pytorch/pull/147461))
-- Add last entry to truncated values in Kineto args ([#148576](https://github.com/pytorch/pytorch/pull/148576))
-- Add profiler activity for HPU devices ([#148182](https://github.com/pytorch/pytorch/pull/148182))
+- Add optional flag to profiler to toggle external correlations (#143314)
+- Add delimeter in memory vizualizer to show where allocation addr begins (#147461)
+- Add last entry to truncated values in Kineto args (#148576)
+- Add profiler activity for HPU devices (#148182)
 ### bug fixes
-- Hide Kineto step() iterative on-demand step tracker behind environment variable ([#144494](https://github.com/pytorch/pytorch/pull/144494))
-- Enable CUPTI on Windows ([#141454](https://github.com/pytorch/pytorch/pull/141454))
-- Fix device setting error of other backends in torch.profiler ([#144237](https://github.com/pytorch/pytorch/pull/144237))
-- Fix assertion failure in pytorch profiler ([#143940](https://github.com/pytorch/pytorch/pull/143940))
+- Hide Kineto step() iterative on-demand step tracker behind environment variable (#144494)
+- Enable CUPTI on Windows (#141454)
+- Fix device setting error of other backends in torch.profiler (#144237)
+- Fix assertion failure in pytorch profiler (#143940)
 ### performance
 ### docs
 ### devs
