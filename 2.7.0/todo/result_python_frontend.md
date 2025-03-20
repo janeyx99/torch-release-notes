@@ -77,6 +77,8 @@ The categories below are as follows:
 - Support serialization for uintx/intx in weights_only ([#147500](https://github.com/pytorch/pytorch/pull/147500))
 - Define `__all__` for `torch.utils.tensorboard` ([#147550](https://github.com/pytorch/pytorch/pull/147550))
 - [Docs] update bucketize documentaion ([#148400](https://github.com/pytorch/pytorch/pull/148400))
+- Re-add stft option to align window for center = false ([#146379](https://github.com/pytorch/pytorch/pull/146379))
+- [BE][Ez]: Fix docs recommending inefficient tensor op order ([#144270](https://github.com/pytorch/pytorch/pull/144270))
 ### not user facing
 - Fix potentially undefined behaviour in index_put sample input ([#143116](https://github.com/pytorch/pytorch/pull/143116))
 - Bump `nn.functional.conv3d` tolerances for `test_comprehensive` ([#135719](https://github.com/pytorch/pytorch/pull/135719))
