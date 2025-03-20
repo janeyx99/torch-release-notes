@@ -108,7 +108,7 @@ m = prepare_pt2e(m, quantizer)
 ### performance
 - Add NEON implementation for 8 bit quantized embedding bag on aarch64 ([#147322](https://github.com/pytorch/pytorch/pull/147322))
 ### docs
-- Add Torchao docs link to Pytorch libraries ([#145412](https://github.com/pytorch/pytorch/pull/145412))
+- Add torchao docs link to PyTorch libraries ([#145412](https://github.com/pytorch/pytorch/pull/145412))
 
 ### devs
 ### Untopiced
