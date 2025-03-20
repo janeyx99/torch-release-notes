@@ -32,7 +32,7 @@ The categories below are as follows:
 - Context parallel
   - Implemented Ring Attention ([#131351](https://github.com/pytorch/pytorch/pull/131351))
   - Implemented AllGather-based Context Parallel where the all-gather happens after the local SDPA ([#132820](https://github.com/pytorch/pytorch/pull/132820)) and added user API to select the desired approach ([#142093](https://github.com/pytorch/pytorch/pull/142093))
-  - 3 variants of SDPA kernels are supported: SDPBackend.FLASH_ATTENTION, SDPBackend.EFFICIENT_ATTENTION, and SDPBackend.CUDNN_ATTENTION ([#148537](https://github.com/pytorch/pytorch/pull/148537))
+  - 3 variants of SDPA kernels are supported: `SDPBackend.FLASH_ATTENTION`, `SDPBackend.EFFICIENT_ATTENTION`, and `SDPBackend.CUDNN_ATTENTION` ([#148537](https://github.com/pytorch/pytorch/pull/148537))
   - Compatible with other parallelisms and torch.compile
 - c10d
   - Implemented ncclCommInitRankScalable (merging #136789) ([#144794](https://github.com/pytorch/pytorch/pull/144794))
