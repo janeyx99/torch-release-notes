@@ -35,9 +35,8 @@ The categories below are as follows:
 ### docs
 ### devs
 ### Untopiced
-- Add torch.func.debug_unwrap ([#146528](https://github.com/pytorch/pytorch/pull/146528))
-- Improve Pareto frontier plot for AutoAC ([#148678](https://github.com/pytorch/pytorch/pull/148678))
 ### not user facing
+- Add torch.func.debug_unwrap ([#146528](https://github.com/pytorch/pytorch/pull/146528))
 - [functorch] clean up asserts in `test_dims.py` ([#144276](https://github.com/pytorch/pytorch/pull/144276))
 - [Functorch] Refactor vmapify autograd function: remove cell mutation ([#143811](https://github.com/pytorch/pytorch/pull/143811))
 ### security
