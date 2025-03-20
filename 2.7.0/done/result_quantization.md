@@ -27,7 +27,37 @@ The categories below are as follows:
 
 ## quantization
 ### bc breaking
-- [BC-Breaking]Remove capture_pre_autograd_graph references in quantization ([#139505](https://github.com/pytorch/pytorch/pull/139505))
+- Remove capture_pre_autograd_graph references in quantization ([#139505](https://github.com/pytorch/pytorch/pull/139505))
+
+```python
+# pytorch 2.6
+from torch._export import capture_pre_autograd_graph
+from torch.ao.quantization.quantize_pt2e import prepare_pt2e
+from torch.ao.quantization.quantizer.xnnpack_quantizer import (
+    XNNPACKQuantizer,
+    get_symmetric_quantization_config,
+)
+quantizer = XNNPACKQuantizer().set_global(
+	get_symmetric_quantization_config()
+)
+m = capture_pre_autograd_graph(m, *example_inputs)
+m = prepare_pt2e(m, quantizer)
+
+# pytorch 2.7
+from torch.export import export_for_training
+from torch.ao.quantization.quantize_pt2e import prepare_pt2e
+# please get xnnpack quantizer from executorch (https://github.com/pytorch/executorch/)
+from executorch.backends.xnnpack.quantizer.xnnpack_quantizer import (
+    XNNPACKQuantizer,
+    get_symmetric_quantization_config,
+)
+quantizer = XNNPACKQuantizer().set_global(
+	get_symmetric_quantization_config()
+)
+m = export_for_training(m, *example_inputs)
+m = prepare_pt2e(m, quantizer)
+```
+
 ### deprecation
 - Add deprecation warning to XNNPACKQuantizer ([#144940](https://github.com/pytorch/pytorch/pull/144940))
 
@@ -39,22 +69,30 @@ from torch.ao.quantization.quantizer.xnnpack_quantizer import (
     XNNPACKQuantizer,
     get_symmetric_quantization_config,
 )
+quantizer = XNNPACKQuantizer().set_global(
+	get_symmetric_quantization_config()
+)
 m = capture_pre_autograd_graph(m, *example_inputs)
 m = prepare_pt2e(m, quantizer)
 
 # pytorch 2.7
+# we also updated the export call
 from torch.export import export_for_training
 from torch.ao.quantization.quantize_pt2e import prepare_pt2e
-from torch.ao.quantization.quantizer.xnnpack_quantizer import (
+# please get xnnpack quantizer from executorch (https://github.com/pytorch/executorch/)
+from executorch.backends.xnnpack.quantizer.xnnpack_quantizer import (
     XNNPACKQuantizer,
     get_symmetric_quantization_config,
+)
+quantizer = XNNPACKQuantizer().set_global(
+	get_symmetric_quantization_config()
 )
 m = export_for_training(m, *example_inputs)
 m = prepare_pt2e(m, quantizer)
 ```
 
+
 ### new features
-* pt2e numeric debugger
 - debug handler maintain through decomposition ([#141612](https://github.com/pytorch/pytorch/pull/141612))
 - Add support for list, tuple and dict in numeric debugger ([#143882](https://github.com/pytorch/pytorch/pull/143882))
 
