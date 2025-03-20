@@ -40,7 +40,7 @@ The categories below are as follows:
 - Hide Kineto `step()` for iterative on-demand tracking behind environment variable (#144494)
 - Enable CUPTI on Windows (#141454)
 - Fix device setting error of other backends in `torch.profiler` (#144237)
-- Fix assertion failure in pytorch profiler (#143940)
+- Fix assertion failure in PyTorch profiler (#143940)
 ### performance
 ### docs
 ### devs
