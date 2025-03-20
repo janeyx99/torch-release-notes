@@ -42,7 +42,6 @@ The categories below are as follows:
 - dont assign a size to _assert_scalar in partitioner ([#143877](https://github.com/pytorch/pytorch/pull/143877))
 - Add fake_impl for unique_consecutive ([#145649](https://github.com/pytorch/pytorch/pull/145649))
 - [opcheck] Improve error reporting; allow atol/rtol overrides ([#146488](https://github.com/pytorch/pytorch/pull/146488))
-- Re-add stft option to align window for center = false ([#146379](https://github.com/pytorch/pytorch/pull/146379))
 - [poc] force UntypedStorage.from_buffer(buf) to return meta storage under FakeTensorMode ([#146642](https://github.com/pytorch/pytorch/pull/146642))
 - support meta_tensor.to(device='cpu') under fake_mode ([#146729](https://github.com/pytorch/pytorch/pull/146729))
 - support input mutations on tangents in compile ([#141131](https://github.com/pytorch/pytorch/pull/141131))
