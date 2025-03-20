@@ -30,7 +30,7 @@ The categories below are as follows:
 ### deprecation
 ### new features
 - Context parallel
-  - [place holder for CP description] ([#132820](https://github.com/pytorch/pytorch/pull/132820), [#142093](https://github.com/pytorch/pytorch/pull/142093, [#148377](https://github.com/pytorch/pytorch/pull/148377))
+  - [place holder for CP description] ([#132820](https://github.com/pytorch/pytorch/pull/132820), [#142093](https://github.com/pytorch/pytorch/pull/142093), [#148377](https://github.com/pytorch/pytorch/pull/148377))
 - c10d
   - Implemented ncclCommInitRankScalable (merging #136789) ([#144794](https://github.com/pytorch/pytorch/pull/144794))
 ### improvements
