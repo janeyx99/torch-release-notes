@@ -49,7 +49,6 @@ The categories below are as follows:
 - Fix auto_functionalize x inference_mode ([#147925](https://github.com/pytorch/pytorch/pull/147925))
 ### not user facing
 - Back out "Fix undesired specialization on slice after split. (#142372)" ([#143356](https://github.com/pytorch/pytorch/pull/143356))
-- [BE][Ez]: Fix docs recommending inefficient tensor op order ([#144270](https://github.com/pytorch/pytorch/pull/144270))
 - remove allow-untyped-defs from torch/_prims/executor.py ([#144233](https://github.com/pytorch/pytorch/pull/144233))
 - Fix torch._refs.tensor error with empty list ([#143461](https://github.com/pytorch/pytorch/pull/143461))
 - Remove extra copy torch/_prims ([#144407](https://github.com/pytorch/pytorch/pull/144407))
