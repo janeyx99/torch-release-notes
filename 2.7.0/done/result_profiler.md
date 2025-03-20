@@ -1,5 +1,5 @@
 
-# Release Notes worksheet distributed (torchelastic)
+# Release Notes worksheet profiler
 
 The main goal of this process is to rephrase all the commit messages below to make them **clear and easy to read** by the end user. You should follow the following instructions to do so:
 
@@ -25,23 +25,25 @@ The categories below are as follows:
 * Developers: All commits that are not end-user facing but still impact people that compile from source, develop into pytorch, extend pytorch, etc
 * not user facing: All commits that are not public end-user facing and hence should be dropped from the release notes
 
-## distributed (torchelastic)
+## profiler
 ### bc breaking
 ### deprecation
 ### new features
+- Add overload names to profiler (#143114)
+- Enable profiling on all threads via `experimentalConfig` (#143659)
 ### improvements
+- Add optional flag to profiler to toggle external correlations (#143314)
+- Add delimeter in memory vizualizer to show where allocation addr begins (#147461)
+- Add last entry to truncated values in Kineto args (#148576)
+- Add profiler activity for HPU devices (#148182)
 ### bug fixes
+- Hide Kineto `step()` for iterative on-demand tracking behind environment variable (#144494)
+- Enable CUPTI on Windows (#141454)
+- Fix device setting error of other backends in `torch.profiler` (#144237)
+- Fix assertion failure in PyTorch profiler (#143940)
 ### performance
 ### docs
-- [BE] replace incorrect .. note:: invocations ([#142868](https://github.com/pytorch/pytorch/pull/142868))
 ### devs
 ### Untopiced
 ### not user facing
-- remove allow-untyped-defs from torch/distributed/elastic/multiprocessing/errors/handlers.py ([#143605](https://github.com/pytorch/pytorch/pull/143605))
-- remove allow-untyped-defs from distributed/elastic/multiprocessing/errors/handlers.py ([#143869](https://github.com/pytorch/pytorch/pull/143869))
-- remove allow-untyped-defs from distributed/elastic/multiprocessing/subprocess_handler/handlers.py ([#143917](https://github.com/pytorch/pytorch/pull/143917))
-- remove allow-untyped-defs from distributed/elastic/utils/data/cycling_iterator.py ([#144090](https://github.com/pytorch/pytorch/pull/144090))
-- PEP585 update - torch/distributed/elastic torch/distributed/checkpoint ([#145163](https://github.com/pytorch/pytorch/pull/145163))
-- Remove NO_MULTIPROCESSING_SPAWN checks ([#146705](https://github.com/pytorch/pytorch/pull/146705))
-- Remove NO_MULTIPROCESSING_SPAWN checks ([#146705](https://github.com/pytorch/pytorch/pull/146705))
 ### security

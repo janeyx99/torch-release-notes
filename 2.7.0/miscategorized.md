@@ -4,6 +4,8 @@ Welcome to the Pool of Miscategorized commits.
 Add any commits that were miscategorized for your domain below.
 Handle any commits that actually do belong to your domain and remove them from this list.
 
-- Remove deprecate method and attirbute in `LRScheduler` ([#147301](https://github.com/pytorch/pytorch/pull/147301))
 
 - [reland][ca] side-effect free inital trace: compiled_args ([#148376](https://github.com/pytorch/pytorch/pull/148376))
+
+
+- Improve Pareto frontier plot for AutoAC ([#148678](https://github.com/pytorch/pytorch/pull/148678))
