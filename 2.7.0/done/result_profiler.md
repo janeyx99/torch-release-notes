@@ -29,22 +29,21 @@ The categories below are as follows:
 ### bc breaking
 ### deprecation
 ### new features
+- Add overload names to profiler (#143114)
+- Enable profiling on all threads via `experimentalConfig` (#143659)
 ### improvements
-- [Profiler] Add Optional Flag to turn off external correlations v2 ([#143314](https://github.com/pytorch/pytorch/pull/143314))
-- Enable CUPTI on Windows ([#141454](https://github.com/pytorch/pytorch/pull/141454))
-- [Easy] Add Delimeter To Show Where Allocation Addr Begins ([#147461](https://github.com/pytorch/pytorch/pull/147461))
+- Add optional flag to profiler to toggle external correlations (#143314)
+- Add delimeter in memory vizualizer to show where allocation addr begins (#147461)
+- Add last entry to truncated values in Kineto args (#148576)
+- Add profiler activity for HPU devices (#148182)
 ### bug fixes
-- [Profiler] Hide Kineto Step Tracker Behind Env Var ([#144494](https://github.com/pytorch/pytorch/pull/144494))
-- Add overload names to profiler trace ([#143114](https://github.com/pytorch/pytorch/pull/143114))
+- Hide Kineto `step()` for iterative on-demand tracking behind environment variable (#144494)
+- Enable CUPTI on Windows (#141454)
+- Fix device setting error of other backends in `torch.profiler` (#144237)
+- Fix assertion failure in PyTorch profiler (#143940)
 ### performance
 ### docs
 ### devs
 ### Untopiced
-- [Profiler] Enable Iterative Step without profiler in fbcode ([#142077](https://github.com/pytorch/pytorch/pull/142077))
-- allow profiling on all threads via experimentalConfig ([#143659](https://github.com/pytorch/pytorch/pull/143659))
-- [Profiler] Fix device setting error of other backends in torch.profiler ([#144237](https://github.com/pytorch/pytorch/pull/144237))
-- [Easy/Profiler] Add last entry to truncated values ([#148576](https://github.com/pytorch/pytorch/pull/148576))
 ### not user facing
-- Fix assertion failure in pytorch profiler ([#143940](https://github.com/pytorch/pytorch/pull/143940))
-- [Profiler] Add profiler activity for HPU devices ([#148182](https://github.com/pytorch/pytorch/pull/148182))
 ### security
