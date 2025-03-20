@@ -70,7 +70,7 @@ from torch.ao.quantization.quantizer.xnnpack_quantizer import (
     get_symmetric_quantization_config,
 )
 quantizer = XNNPACKQuantizer().set_global(
-	get_symmetric_quantization_config()
+    get_symmetric_quantization_config()
 )
 m = capture_pre_autograd_graph(m, *example_inputs)
 m = prepare_pt2e(m, quantizer)
@@ -85,7 +85,7 @@ from executorch.backends.xnnpack.quantizer.xnnpack_quantizer import (
     get_symmetric_quantization_config,
 )
 quantizer = XNNPACKQuantizer().set_global(
-	get_symmetric_quantization_config()
+    get_symmetric_quantization_config()
 )
 m = export_for_training(m, *example_inputs)
 m = prepare_pt2e(m, quantizer)
