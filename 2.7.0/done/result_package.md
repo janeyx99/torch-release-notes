@@ -1,5 +1,5 @@
 
-# Release Notes worksheet intel
+# Release Notes worksheet package
 
 The main goal of this process is to rephrase all the commit messages below to make them **clear and easy to read** by the end user. You should follow the following instructions to do so:
 
@@ -25,17 +25,17 @@ The categories below are as follows:
 * Developers: All commits that are not end-user facing but still impact people that compile from source, develop into pytorch, extend pytorch, etc
 * not user facing: All commits that are not public end-user facing and hence should be dropped from the release notes
 
-## intel
+## package
 ### bc breaking
 ### deprecation
 ### new features
 ### improvements
 ### bug fixes
-- Implement blend operation for float, double, int in VEC ATen backend for SVE ([#146479](https://github.com/pytorch/pytorch/pull/146479))
 ### performance
-- [Feat]: Improve KleidiAI 4 bit kernel performance ([#146476](https://github.com/pytorch/pytorch/pull/146476))
 ### docs
 ### devs
 ### Untopiced
+- Add support for UntypedStorage tensors (#143930)
 ### not user facing
+- Remove outdated test skipif conditions for Python3.9 ([#146144](https://github.com/pytorch/pytorch/pull/146144))
 ### security

@@ -1,5 +1,5 @@
 
-# Release Notes worksheet package
+# Release Notes worksheet complex_frontend
 
 The main goal of this process is to rephrase all the commit messages below to make them **clear and easy to read** by the end user. You should follow the following instructions to do so:
 
@@ -25,17 +25,17 @@ The categories below are as follows:
 * Developers: All commits that are not end-user facing but still impact people that compile from source, develop into pytorch, extend pytorch, etc
 * not user facing: All commits that are not public end-user facing and hence should be dropped from the release notes
 
-## package
+## complex_frontend
 ### bc breaking
 ### deprecation
 ### new features
 ### improvements
 ### bug fixes
+- Fix `torch.acos`, `torch.asin`, `torch.atan`, `torch.exp`, `torch.sigmoid`, `torch.div`, for `torch.complex` datatypes on CPU (#134838, #140358, #140391, #140375, #144749)
 ### performance
 ### docs
 ### devs
 ### Untopiced
-- [Torch.package] Add support for UntypedStorage tensors ([#143930](https://github.com/pytorch/pytorch/pull/143930))
+
 ### not user facing
-- Remove outdated test skipif conditions for Python3.9 ([#146144](https://github.com/pytorch/pytorch/pull/146144))
 ### security

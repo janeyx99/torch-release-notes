@@ -36,5 +36,8 @@ The categories below are as follows:
 ### devs
 ### Untopiced
 - [ROCm] Improve backwards indexing when stride is not one ([#147630](https://github.com/pytorch/pytorch/pull/147630))
+- [ROCm] TunableOp use thread-safe getenv functions ([#142274](https://github.com/pytorch/pytorch/pull/142274))
+- [ROCm] Fix TunableOp UTs: Rotating Buffer ([#143172](https://github.com/pytorch/pytorch/pull/143172))
+- [ROCm] Fix unit test: matmul_offline_mgpu_tunableop ([#143507](https://github.com/pytorch/pytorch/pull/143507))
 ### not user facing
 ### security

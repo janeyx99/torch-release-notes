@@ -30,35 +30,17 @@ The categories below are as follows:
 ### deprecation
 ### new features
 ### improvements
+- Improve dim argument validation for empty inputs for `torch.cum{min,max}`. (#143920)
+- Properly throw an error when trying to sort complex numbers. (#144113)
+
 ### bug fixes
+- Fix workarea compute in `eigh` (#146456)
+
 ### performance
 ### docs
+
 ### devs
 ### Untopiced
-- [ROCm] TunableOp use thread-safe getenv functions ([#142274](https://github.com/pytorch/pytorch/pull/142274))
-- [ROCm] Fix TunableOp UTs: Rotating Buffer ([#143172](https://github.com/pytorch/pytorch/pull/143172))
-- [ROCm] Fix unit test: matmul_offline_mgpu_tunableop ([#143507](https://github.com/pytorch/pytorch/pull/143507))
-- [ReduceOps] Add dimension checking for cummin()/cummax(). ([#143920](https://github.com/pytorch/pytorch/pull/143920))
-- [Easy] Fix linalg.norm hint message typo ([#144323](https://github.com/pytorch/pytorch/pull/144323))
-- [cpu/sorting] Throw an error when trying to sort complex numbers. ([#144113](https://github.com/pytorch/pytorch/pull/144113))
-- [Feat]: Add Multithreading support for kleidiai groupwise GEMM kernels ([#144074](https://github.com/pytorch/pytorch/pull/144074))
-- Reverting the PR adding Kleidiai-based int4 kernels ([#145392](https://github.com/pytorch/pytorch/pull/145392))
-- Revert "Reverting the PR adding Kleidiai-based int4 kernels (#145392)" ([#145505](https://github.com/pytorch/pytorch/pull/145505))
-- Fix workarea compute in lapackSyevd ([#146456](https://github.com/pytorch/pytorch/pull/146456))
-- Fix logging and test files which misspell "precision" ([#146113](https://github.com/pytorch/pytorch/pull/146113))
-- [Quant][CPU] add a wrapper op for _weight_int4pack_mm_for_cpu with tensor args ([#145245](https://github.com/pytorch/pytorch/pull/145245))
 ### not user facing
-- [ROCm] Fix unit test: matmul_offline_tunableop ([#143322](https://github.com/pytorch/pytorch/pull/143322))
-- [CUDA] Bump tolerances in `test_svd_lowrank_cuda_float64` ([#143049](https://github.com/pytorch/pytorch/pull/143049))
-- [BE][Easy] enable PYFMT for `torch/[a-s]*/` ([#138447](https://github.com/pytorch/pytorch/pull/138447))
-- [ARM] Fix bf32 and tf32 precision for tensordot unit test ([#141136](https://github.com/pytorch/pytorch/pull/141136))
-- [ROCm][TunableOp] Future proof TunableOp unit test. ([#146548](https://github.com/pytorch/pytorch/pull/146548))
-- [ROCm][TunableOp] resolve the rocBLAS version dynamically ([#147363](https://github.com/pytorch/pytorch/pull/147363))
-- Also support non-contiguous activation for torch._weight_int8pack_mm on CPU ([#147588](https://github.com/pytorch/pytorch/pull/147588))
-- [ROCm][TunableOp] Speed-up matmul_small_brute_force_tunableop unit test ([#147659](https://github.com/pytorch/pytorch/pull/147659))
-- [ROCm] [TunableOp] Unit tests for scaled GEMM and GEMM with bias ([#147890](https://github.com/pytorch/pytorch/pull/147890))
-- [ROCm][TunableOp] Unit test for offline tuning of GEMM with bias ([#148371](https://github.com/pytorch/pytorch/pull/148371))
-- [Test][Linalg][CUDA] Increase niter in test_svd_lowrank_cuda_float64 ([#145930](https://github.com/pytorch/pytorch/pull/145930))
-- [ROCm][TunableOp] Add support for rowwise scaling on scaled GEMM. ([#148238](https://github.com/pytorch/pytorch/pull/148238))
-- [ROCm][TunableOp] Add bias data type to params signature. ([#146227](https://github.com/pytorch/pytorch/pull/146227))
+
 ### security

@@ -1,5 +1,5 @@
 
-# Release Notes worksheet mobile
+# Release Notes worksheet lazy
 
 The main goal of this process is to rephrase all the commit messages below to make them **clear and easy to read** by the end user. You should follow the following instructions to do so:
 
@@ -25,17 +25,16 @@ The categories below are as follows:
 * Developers: All commits that are not end-user facing but still impact people that compile from source, develop into pytorch, extend pytorch, etc
 * not user facing: All commits that are not public end-user facing and hence should be dropped from the release notes
 
-## mobile
+## lazy
 ### bc breaking
 ### deprecation
 ### new features
 ### improvements
+- Introduce cache clearing APIs for the lazy graph executor (#144489)
 ### bug fixes
 ### performance
 ### docs
 ### devs
 ### Untopiced
-- Modernize C++ code ([#144603](https://github.com/pytorch/pytorch/pull/144603))
-- Typo Errors fixed in multiple files ([#148262](https://github.com/pytorch/pytorch/pull/148262))
 ### not user facing
 ### security

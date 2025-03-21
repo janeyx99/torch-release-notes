@@ -1,5 +1,5 @@
 
-# Release Notes worksheet complex_frontend
+# Release Notes worksheet intel
 
 The main goal of this process is to rephrase all the commit messages below to make them **clear and easy to read** by the end user. You should follow the following instructions to do so:
 
@@ -25,20 +25,23 @@ The categories below are as follows:
 * Developers: All commits that are not end-user facing but still impact people that compile from source, develop into pytorch, extend pytorch, etc
 * not user facing: All commits that are not public end-user facing and hence should be dropped from the release notes
 
-## complex_frontend
+## intel
 ### bc breaking
 ### deprecation
 ### new features
 ### improvements
+- Add support for int8 `brgemm` (#143384)
+- Upgrade submodule oneDNN to v3.7.1 (#148293)
 ### bug fixes
+- Constrain the shape of other tensor for `Conv/Linear` + broadcast `add` fusion (#141759)
+- Use sleef implementation for CPP backend `asinh` codegen (#142360)
 ### performance
+- Set `prop_kind` to `forward_inference` when grad is not needed for `mkldnn_convolution_pointwise` (#142855)
+- Support reduce ops for `add` and `max` (#144065)
 ### docs
 ### devs
 ### Untopiced
-- fix torch.acos and torch.asin for torch.complex datatypes on CPU ([#134838](https://github.com/pytorch/pytorch/pull/134838))
-- fix torch.exp for torch.complex datatypes on CPU ([#140358](https://github.com/pytorch/pytorch/pull/140358))
-- fix sigmoid for torch.complex datatypes on CPU ([#140391](https://github.com/pytorch/pytorch/pull/140391))
-- fix torch.div for torch.complex datatypes on CPU ([#140375](https://github.com/pytorch/pytorch/pull/140375))
-- fix torch.atan for torch.complex datatypes on CPU ([#144749](https://github.com/pytorch/pytorch/pull/144749))
 ### not user facing
+- Fuse `SmoothQuant` int8 `linear` pattern (#139595)
+- Separate binary post op fusion and lowering for `qlinear` (#144224)
 ### security

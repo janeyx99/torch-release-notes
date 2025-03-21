@@ -35,10 +35,7 @@ The categories below are as follows:
 ### docs
 ### devs
 ### Untopiced
-- Fix unused-variable issues in caffe2 ([#143639](https://github.com/pytorch/pytorch/pull/143639))
-- Fix unused-variable issues in caffe2 ([#143639](https://github.com/pytorch/pytorch/pull/143639))
-- [caffe2] disable warning for unused arguments ([#147411](https://github.com/pytorch/pytorch/pull/147411))
-- [caffe2/torch] Fixup upstream LLVM (major version 21) API changes ([#148833](https://github.com/pytorch/pytorch/pull/148833))
+
 ### not user facing
 - [caffe2] Move vectorized templates into a separate file for box_cox operator ([#143556](https://github.com/pytorch/pytorch/pull/143556))
 - [Codemod][AddExplicitStrictExportArg] caffe2/torch/onnx/_internal/exporter ([#143542](https://github.com/pytorch/pytorch/pull/143542))
@@ -54,4 +51,8 @@ The categories below are as follows:
 - [codemod] Fix missing field initializer in caffe2/torch/lib/libshm/manager.cpp +1 ([#148393](https://github.com/pytorch/pytorch/pull/148393))
 - [Codemod][AddExplicitStrictExportArg] caffe2/test/inductor ([#148781](https://github.com/pytorch/pytorch/pull/148781))
 - [Codemod][AddExplicitStrictExportArg] caffe2/test/inductor ([#148928](https://github.com/pytorch/pytorch/pull/148928))
+- Fix unused-variable issues in caffe2 ([#143639](https://github.com/pytorch/pytorch/pull/143639))
+- Fix unused-variable issues in caffe2 ([#143639](https://github.com/pytorch/pytorch/pull/143639))
+- [caffe2] disable warning for unused arguments ([#147411](https://github.com/pytorch/pytorch/pull/147411))
+- [caffe2/torch] Fixup upstream LLVM (major version 21) API changes ([#148833](https://github.com/pytorch/pytorch/pull/148833))
 ### security
