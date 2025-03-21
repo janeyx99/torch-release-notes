@@ -1,5 +1,5 @@
 
-# Release Notes worksheet sparse_frontend
+# Release Notes worksheet complex_frontend
 
 The main goal of this process is to rephrase all the commit messages below to make them **clear and easy to read** by the end user. You should follow the following instructions to do so:
 
@@ -25,24 +25,17 @@ The categories below are as follows:
 * Developers: All commits that are not end-user facing but still impact people that compile from source, develop into pytorch, extend pytorch, etc
 * not user facing: All commits that are not public end-user facing and hence should be dropped from the release notes
 
-## sparse_frontend
+## complex_frontend
 ### bc breaking
 ### deprecation
 ### new features
 ### improvements
 ### bug fixes
+- Fix `torch.acos`, `torch.asin`, `torch.atan`, `torch.exp`, `torch.sigmoid`, `torch.div`, for `torch.complex` datatypes on CPU (#134838, #140358, #140391, #140375, #144749)
 ### performance
 ### docs
 ### devs
 ### Untopiced
-- Add cutlass version guard in prep for upgrade ([#143551](https://github.com/pytorch/pytorch/pull/143551))
-- [cutlass-3] Update third-party/cutlass-3 from 3.4 to 3.5.1 ([#143515](https://github.com/pytorch/pytorch/pull/143515))
-- Back out "[Submodule] Upgrade to Cutlass 3.6" ([#144738](https://github.com/pytorch/pytorch/pull/144738))
-- [Submodule] Upgrade to Cutlass 3.6 part deux ([#144911](https://github.com/pytorch/pytorch/pull/144911))
-- Allow XPU device for validating the arguments to sparse compressed tensor factory functions ([#147306](https://github.com/pytorch/pytorch/pull/147306))
-- Remove unnecessary tensor clone ([#148159](https://github.com/pytorch/pytorch/pull/148159))
+
 ### not user facing
-- [CUDA][64-bit indexing] Fix some existing problematic `int64_t _ = blockIdx.* * blockDim.*` code ([#142010](https://github.com/pytorch/pytorch/pull/142010))
-- [BE][Sparse] Get rid of gcc-5 workaround ([#143653](https://github.com/pytorch/pytorch/pull/143653))
-- [Intel GPU] Support SparseCsrXPU codegen ([#144722](https://github.com/pytorch/pytorch/pull/144722))
 ### security

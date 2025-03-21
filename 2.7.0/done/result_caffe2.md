@@ -1,5 +1,5 @@
 
-# Release Notes worksheet package
+# Release Notes worksheet caffe2
 
 The main goal of this process is to rephrase all the commit messages below to make them **clear and easy to read** by the end user. You should follow the following instructions to do so:
 
@@ -25,7 +25,7 @@ The categories below are as follows:
 * Developers: All commits that are not end-user facing but still impact people that compile from source, develop into pytorch, extend pytorch, etc
 * not user facing: All commits that are not public end-user facing and hence should be dropped from the release notes
 
-## package
+## caffe2
 ### bc breaking
 ### deprecation
 ### new features
@@ -35,7 +35,24 @@ The categories below are as follows:
 ### docs
 ### devs
 ### Untopiced
-- [Torch.package] Add support for UntypedStorage tensors ([#143930](https://github.com/pytorch/pytorch/pull/143930))
+
 ### not user facing
-- Remove outdated test skipif conditions for Python3.9 ([#146144](https://github.com/pytorch/pytorch/pull/146144))
+- [caffe2] Move vectorized templates into a separate file for box_cox operator ([#143556](https://github.com/pytorch/pytorch/pull/143556))
+- [Codemod][AddExplicitStrictExportArg] caffe2/torch/onnx/_internal/exporter ([#143542](https://github.com/pytorch/pytorch/pull/143542))
+- [Codemod][AddExplicitStrictExportArg] caffe2/benchmarks/dynamo ([#143686](https://github.com/pytorch/pytorch/pull/143686))
+- [Codemod][AddExplicitStrictExportArg] caffe2/test/inductor ([#143929](https://github.com/pytorch/pytorch/pull/143929))
+- Fix ruff warnings in caffe2 and functorch ([#144182](https://github.com/pytorch/pytorch/pull/144182))
+- [caffe2] Add AVX512 support for box_cox operator ([#143627](https://github.com/pytorch/pytorch/pull/143627))
+- [caffe2] Use the manifold cache backend as the default ([#144773](https://github.com/pytorch/pytorch/pull/144773))
+- Add "//caffe2:libtorch"  to minifier TARGET file ([#146203](https://github.com/pytorch/pytorch/pull/146203))
+- [Codemod][AddExplicitStrictExportArg] caffe2/torch ([#146439](https://github.com/pytorch/pytorch/pull/146439))
+- [codemod] Fix unused-value issue in caffe2/aten/src/ATen/native/miopen/Conv_miopen.cpp +1 ([#147496](https://github.com/pytorch/pytorch/pull/147496))
+- [caffe2] Ignore compiler option when building using clang ([#147556](https://github.com/pytorch/pytorch/pull/147556))
+- [codemod] Fix missing field initializer in caffe2/torch/lib/libshm/manager.cpp +1 ([#148393](https://github.com/pytorch/pytorch/pull/148393))
+- [Codemod][AddExplicitStrictExportArg] caffe2/test/inductor ([#148781](https://github.com/pytorch/pytorch/pull/148781))
+- [Codemod][AddExplicitStrictExportArg] caffe2/test/inductor ([#148928](https://github.com/pytorch/pytorch/pull/148928))
+- Fix unused-variable issues in caffe2 ([#143639](https://github.com/pytorch/pytorch/pull/143639))
+- Fix unused-variable issues in caffe2 ([#143639](https://github.com/pytorch/pytorch/pull/143639))
+- [caffe2] disable warning for unused arguments ([#147411](https://github.com/pytorch/pytorch/pull/147411))
+- [caffe2/torch] Fixup upstream LLVM (major version 21) API changes ([#148833](https://github.com/pytorch/pytorch/pull/148833))
 ### security

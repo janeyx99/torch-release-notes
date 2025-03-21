@@ -1,5 +1,5 @@
 
-# Release Notes worksheet lazy
+# Release Notes worksheet benchmark
 
 The main goal of this process is to rephrase all the commit messages below to make them **clear and easy to read** by the end user. You should follow the following instructions to do so:
 
@@ -25,7 +25,7 @@ The categories below are as follows:
 * Developers: All commits that are not end-user facing but still impact people that compile from source, develop into pytorch, extend pytorch, etc
 * not user facing: All commits that are not public end-user facing and hence should be dropped from the release notes
 
-## lazy
+## benchmark
 ### bc breaking
 ### deprecation
 ### new features
@@ -34,7 +34,11 @@ The categories below are as follows:
 ### performance
 ### docs
 ### devs
+- Remove old ONNX benchmarks from operator benchmarks (#146325)
+- Add option to write operator benchmark output to a JSON (#142809)
+- Improve operator benchmark results parsing (#144297)
+- Add more operators {`add_`, `addcmul`, `arange`, `baddbmm`, `bmm`, `clamp`, `div`, `div_`, `gelu`, `index_add`, `logical_and`, `mul_`, `sub_`, `topk`, `where`} to operator benchmark (#145625)
+- Add cachebench to operator benchmarks for PT2 caching (#147537)
 ### Untopiced
-- Introduce cache clearing APIs for the lazy graph executor ([#144489](https://github.com/pytorch/pytorch/pull/144489))
 ### not user facing
 ### security
