@@ -30,11 +30,6 @@ The categories below are as follows:
 ### deprecation
 ### new features
 ### improvements
-### bug fixes
-### performance
-### docs
-### devs
-### Untopiced
 
 **AOTDispatcher**
 
@@ -70,6 +65,13 @@ We made many improvements and bugfixes to dynamic shapes in torch.compile
 * dynamic shape support for `interpolate(antialias=True)` backward (#141198)
 * Better unbacked symint handling in the partitioner (#143877)
 * Support dynamic shape inputs to `nonzer_static` (#146006)
+
+### bug fixes
+### performance
+### docs
+### devs
+### Untopiced
+
 
 ### not user facing
 - remove allow-untyped-defs from torch/_prims/executor.py ([#144233](https://github.com/pytorch/pytorch/pull/144233))
