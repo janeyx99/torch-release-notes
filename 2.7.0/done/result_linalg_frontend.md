@@ -30,11 +30,11 @@ The categories below are as follows:
 ### deprecation
 ### new features
 ### improvements
-- Improve dim argument validation for empty inputs for `torch.cum{min,max}`. ([#143920](https://github.com/pytorch/pytorch/pull/143920))
-- Properly throw an error when trying to sort complex numbers. ([#144113](https://github.com/pytorch/pytorch/pull/144113))
+- Improve dim argument validation for empty inputs for `torch.cum{min,max}`. (#143920)
+- Properly throw an error when trying to sort complex numbers. (#144113)
 
 ### bug fixes
-- Fix workarea compute in `eigh` ([#146456](https://github.com/pytorch/pytorch/pull/146456))
+- Fix workarea compute in `eigh` (#146456)
 
 ### performance
 ### docs
