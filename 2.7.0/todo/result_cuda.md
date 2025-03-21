@@ -33,6 +33,8 @@ The categories below are as follows:
 - Make torch.cuda.gds APIs public ([#147120](https://github.com/pytorch/pytorch/pull/147120))
 ### improvements
 - Refine CUDA Stream priority ([#143849](https://github.com/pytorch/pytorch/pull/143849))
+- Expose sharedMemPerMultiprocessor device property to python ([#143119](https://github.com/pytorch/pytorch/pull/143119))
+- Expose remaining sharedMem cudaDeviceProps to python ([#143226](https://github.com/pytorch/pytorch/pull/143226))
 ### bug fixes
 - Let PYTORCH_NO_CUDA_MEMORY_CACHING has effect only when value is 1 ([#145905](https://github.com/pytorch/pytorch/pull/145905))
 ### performance
@@ -57,6 +59,9 @@ The categories below are as follows:
 - [torch] Make amdsmi cdll hook private ([#147207](https://github.com/pytorch/pytorch/pull/147207))
 - Fix linter warnings ([#147386](https://github.com/pytorch/pytorch/pull/147386))
 - Add cutlass kernel for rowwise scaled mm on sm100 ([#148421](https://github.com/pytorch/pytorch/pull/148421))
+- Add get_stream_from_external API for CUDA backend ([#143799](https://github.com/pytorch/pytorch/pull/143799))
+- Support with statement on torch.Stream ([#140138](https://github.com/pytorch/pytorch/pull/140138))
+
 ### not user facing
 - [ROCM] Enable *_load_dwordx4 ISA for BFloat16 and Half. ([#141397](https://github.com/pytorch/pytorch/pull/141397))
 - [ATen][Native][CUDA][SCALED_MM] limit f8f8bf16 rowwise scaled matmul to sm_90 ([#145728](https://github.com/pytorch/pytorch/pull/145728))
