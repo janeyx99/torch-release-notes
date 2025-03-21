@@ -31,9 +31,10 @@ The categories below are as follows:
 ### new features
 - Context parallel
   - We provided a [Context Parallel API](https://github.com/pytorch/pytorch/pull/131351) for users to parallelize `torch.nn.functional.scaled_dot_product_attention` over the sequence dimension. We implemented
-  [Ring Attention](https://github.com/pytorch/pytorch/pull/131351) and an [AllGather-based approach](https://github.com/pytorch/pytorch/pull/132820) where the all-gather happens after the local SDPA,
-  and offered a [user API](https://github.com/pytorch/pytorch/pull/142093) to select the desired approach. Currently we support three SDPA kernels: `SDPBackend.FLASH_ATTENTION`, `SDPBackend.EFFICIENT_ATTENTION`,
-  and `SDPBackend.CUDNN_ATTENTION` ([#148537](https://github.com/pytorch/pytorch/pull/148537)). We also verified that our Context Parallel implementation is compatible with other parallelisms and `torch.compile`.
+  [Ring Attention](https://github.com/pytorch/pytorch/pull/131351) and an [AllGather-based approach](https://github.com/pytorch/pytorch/pull/132820) where the all-gather is issued before the first local SDPA
+  and the subsequent local SDPAs will have to wait until the all-gather completes, and offered a [user API](https://github.com/pytorch/pytorch/pull/142093) to select the desired approach. Currently we support
+  three SDPA kernels: `SDPBackend.FLASH_ATTENTION`, `SDPBackend.EFFICIENT_ATTENTION`, and `SDPBackend.CUDNN_ATTENTION` ([#148537](https://github.com/pytorch/pytorch/pull/148537)). We also verified that our
+  Context Parallel implementation is compatible with other parallelisms and `torch.compile`.
 - c10d
   - Implemented ncclCommInitRankScalable (merging #136789) ([#144794](https://github.com/pytorch/pytorch/pull/144794))
 ### improvements
