@@ -9,3 +9,7 @@ Handle any commits that actually do belong to your domain and remove them from t
 
 
 - Improve Pareto frontier plot for AutoAC ([#148678](https://github.com/pytorch/pytorch/pull/148678))
+
+- Implement blend operation for float, double, int in VEC ATen backend for SVE ([#146479]())
+
+- [Feat]: Improve KleidiAI 4 bit kernel performance ([#146476](https://github.com/pytorch/pytorch/pull/146476))

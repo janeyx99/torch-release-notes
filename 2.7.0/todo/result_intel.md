@@ -30,12 +30,18 @@ The categories below are as follows:
 ### deprecation
 ### new features
 ### improvements
+- Upgrade submodule oneDNN to v3.7.1 ([#148293](https://github.com/pytorch/pytorch/pull/148293))
+- [CPU][Brgemm] add support for int8 brgemm ([#143384](https://github.com/pytorch/pytorch/pull/143384))
 ### bug fixes
-- Implement blend operation for float, double, int in VEC ATen backend for SVE ([#146479](https://github.com/pytorch/pytorch/pull/146479))
+- [Inductor] Use sleef implementation for CPP backend asinh codegen ([#142360](https://github.com/pytorch/pytorch/pull/142360))
+- [Inductor] Constrain the shape of other tensor for Conv/Linear + broadcast add fusion. ([#141759](https://github.com/pytorch/pytorch/pull/141759))
 ### performance
-- [Feat]: Improve KleidiAI 4 bit kernel performance ([#146476](https://github.com/pytorch/pytorch/pull/146476))
+- [cpu][vec] support reduce ops for add and max ([#144065](https://github.com/pytorch/pytorch/pull/144065))
+- Set prop_kind to forward_inference when grad is not needed for mkldnn_convolution_pointwise ([#142855](https://github.com/pytorch/pytorch/pull/142855))
 ### docs
 ### devs
 ### Untopiced
 ### not user facing
+- [Quant][Inductor][X86] Separate binary post op fusion and lowering for qlinear ([#144224](https://github.com/pytorch/pytorch/pull/144224))
+- [Inductor][CPU] Fuse SmoothQuant int8 linear pattern ([#139595](https://github.com/pytorch/pytorch/pull/139595))
 ### security
