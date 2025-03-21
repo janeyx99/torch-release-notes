@@ -27,7 +27,7 @@ The categories below are as follows:
 
 ## quantization
 ### bc breaking
-- Please use `torch.export.export_for_training` instead of `capture_pre_autograd_graph` to export the model for pytorch 2 export quantization ([#139505](https://github.com/pytorch/pytorch/pull/139505))
+- Please use `torch.export.export_for_training` instead of `capture_pre_autograd_graph` to export the model for pytorch 2 export quantization (#139505)
 
 `capture_pre_autograd_graph` is a temporary API in torch.export, now we have a better longer term API: `export_for_training` available (starting PyTorch 2.5), we can deprecate it.
 
@@ -61,7 +61,7 @@ m = prepare_pt2e(m, quantizer)
 ```
 
 ### deprecation
-- `XNNPACKQuantizer` is deprecated in pytorch and moved to ExecuTorch, please use it from `executorch.backends.xnnpack.quantizer.xnnpack_quantizer` instead of `torch.ao.quantization.quantizer.xnnpack_quantizer`. ([#144940](https://github.com/pytorch/pytorch/pull/144940))
+- `XNNPACKQuantizer` is deprecated in pytorch and moved to ExecuTorch, please use it from `executorch.backends.xnnpack.quantizer.xnnpack_quantizer` instead of `torch.ao.quantization.quantizer.xnnpack_quantizer`. (#144940)
 
 `XNNPACKQuantizer` is a quantizer for xnnpack, it was added in pytorch core for initial development, but it's not related to core quantization flow. Now we move it to ExecuTorch instead. Please use it from `executorch.backends.xnnpack.quantizer.xnnpack_quantizer` instead of `torch.ao.quantization.quantizer.xnnpack_quantizer`.
 
@@ -99,17 +99,17 @@ m = prepare_pt2e(m, quantizer)
 ### new features
 
 ### improvements
-- Add an option `keep_original_weights` in `_lower_to_native_backend` ([#141049](https://github.com/pytorch/pytorch/pull/141049))
-- Handle meta tensors in FX quantization ([#144726](https://github.com/pytorch/pytorch/pull/144726))
-- Add fp8 support to index_cuda ([#144747](https://github.com/pytorch/pytorch/pull/144747))
-- Add the `torch.float8_e8m0fnu` dtype to PyTorch ([#147466](https://github.com/pytorch/pytorch/pull/147466))
+- Add an option `keep_original_weights` in `_lower_to_native_backend` (#141049)
+- Handle meta tensors in FX quantization (#144726)
+- Add fp8 support to index_cuda (#144747)
+- Add the `torch.float8_e8m0fnu` dtype to PyTorch (#147466)
 
 
 ### bug fixes
 ### performance
-- Add NEON implementation for 8 bit quantized embedding bag on aarch64 ([#147322](https://github.com/pytorch/pytorch/pull/147322))
+- Add NEON implementation for 8 bit quantized embedding bag on aarch64 (#147322)
 ### docs
-- Add torchao docs link to PyTorch libraries ([#145412](https://github.com/pytorch/pytorch/pull/145412))
+- Add torchao docs link to PyTorch libraries (#145412)
 
 ### devs
 ### Untopiced
