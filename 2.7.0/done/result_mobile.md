@@ -1,5 +1,5 @@
 
-# Release Notes worksheet benchmark
+# Release Notes worksheet mobile
 
 The main goal of this process is to rephrase all the commit messages below to make them **clear and easy to read** by the end user. You should follow the following instructions to do so:
 
@@ -25,7 +25,7 @@ The categories below are as follows:
 * Developers: All commits that are not end-user facing but still impact people that compile from source, develop into pytorch, extend pytorch, etc
 * not user facing: All commits that are not public end-user facing and hence should be dropped from the release notes
 
-## benchmark
+## mobile
 ### bc breaking
 ### deprecation
 ### new features
@@ -34,11 +34,8 @@ The categories below are as follows:
 ### performance
 ### docs
 ### devs
-- [benchmark] Remove ONNX ([#146325](https://github.com/pytorch/pytorch/pull/146325))
 ### Untopiced
-- operator benchmark: write output to a JSON ([#142809](https://github.com/pytorch/pytorch/pull/142809))
-- operator benchmark change parsing from regex based to manual ([#144297](https://github.com/pytorch/pytorch/pull/144297))
-- Additional operators in operator benchmark ([#145625](https://github.com/pytorch/pytorch/pull/145625))
-- Add cachebench ([#147537](https://github.com/pytorch/pytorch/pull/147537))
 ### not user facing
+- Modernize C++ code ([#144603](https://github.com/pytorch/pytorch/pull/144603))
+- Typo Errors fixed in multiple files ([#148262](https://github.com/pytorch/pytorch/pull/148262))
 ### security

@@ -1,5 +1,5 @@
 
-# Release Notes worksheet foreach_frontend
+# Release Notes worksheet sparse_frontend
 
 The main goal of this process is to rephrase all the commit messages below to make them **clear and easy to read** by the end user. You should follow the following instructions to do so:
 
@@ -25,18 +25,25 @@ The categories below are as follows:
 * Developers: All commits that are not end-user facing but still impact people that compile from source, develop into pytorch, extend pytorch, etc
 * not user facing: All commits that are not public end-user facing and hence should be dropped from the release notes
 
-## foreach_frontend
+## sparse_frontend
 ### bc breaking
 ### deprecation
 ### new features
 ### improvements
 ### bug fixes
 ### performance
+- Remove unnecessary tensor `clone`s throughout codebase (#148159)
 ### docs
 ### devs
 ### Untopiced
-- [HPU] Add hpu to fused kernels supported devices ([#148666](https://github.com/pytorch/pytorch/pull/148666))
+- Allow XPU device in sparse compressed tensor factory functions (#147306)
+
 ### not user facing
-- PEP585 update - torch/_higher_order_ops torch/_subclasses torch/backends torch/compiler torch/cuda torch/masked torch/mtia torch/nested ([#145202](https://github.com/pytorch/pytorch/pull/145202))
-- PEP585 update - torch/utils ([#145201](https://github.com/pytorch/pytorch/pull/145201))
+- [CUDA][64-bit indexing] Fix some existing problematic `int64_t _ = blockIdx.* * blockDim.*` code ([#142010](https://github.com/pytorch/pytorch/pull/142010))
+- [BE][Sparse] Get rid of gcc-5 workaround ([#143653](https://github.com/pytorch/pytorch/pull/143653))
+- [Intel GPU] Support SparseCsrXPU codegen ([#144722](https://github.com/pytorch/pytorch/pull/144722))
+- Add cutlass version guard in prep for upgrade ([#143551](https://github.com/pytorch/pytorch/pull/143551))
+- [cutlass-3] Update third-party/cutlass-3 from 3.4 to 3.5.1 ([#143515](https://github.com/pytorch/pytorch/pull/143515))
+- Back out "[Submodule] Upgrade to Cutlass 3.6" ([#144738](https://github.com/pytorch/pytorch/pull/144738))
+- [Submodule] Upgrade to Cutlass 3.6 part deux ([#144911](https://github.com/pytorch/pytorch/pull/144911))
 ### security

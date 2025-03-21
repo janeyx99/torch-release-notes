@@ -1,5 +1,5 @@
 
-# Release Notes worksheet complex_frontend
+# Release Notes worksheet foreach_frontend
 
 The main goal of this process is to rephrase all the commit messages below to make them **clear and easy to read** by the end user. You should follow the following instructions to do so:
 
@@ -25,7 +25,7 @@ The categories below are as follows:
 * Developers: All commits that are not end-user facing but still impact people that compile from source, develop into pytorch, extend pytorch, etc
 * not user facing: All commits that are not public end-user facing and hence should be dropped from the release notes
 
-## complex_frontend
+## foreach_frontend
 ### bc breaking
 ### deprecation
 ### new features
@@ -35,10 +35,8 @@ The categories below are as follows:
 ### docs
 ### devs
 ### Untopiced
-- fix torch.acos and torch.asin for torch.complex datatypes on CPU ([#134838](https://github.com/pytorch/pytorch/pull/134838))
-- fix torch.exp for torch.complex datatypes on CPU ([#140358](https://github.com/pytorch/pytorch/pull/140358))
-- fix sigmoid for torch.complex datatypes on CPU ([#140391](https://github.com/pytorch/pytorch/pull/140391))
-- fix torch.div for torch.complex datatypes on CPU ([#140375](https://github.com/pytorch/pytorch/pull/140375))
-- fix torch.atan for torch.complex datatypes on CPU ([#144749](https://github.com/pytorch/pytorch/pull/144749))
+- Add HPU to fused kernels supported devices (#148666)
 ### not user facing
+- PEP585 update - torch/_higher_order_ops torch/_subclasses torch/backends torch/compiler torch/cuda torch/masked torch/mtia torch/nested (#145202)
+- PEP585 update - torch/utils (#145201)
 ### security
