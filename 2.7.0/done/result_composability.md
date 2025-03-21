@@ -30,38 +30,58 @@ The categories below are as follows:
 ### deprecation
 ### new features
 ### improvements
+
+**AOTDispatcher**
+
+AOTDispatcher is a "middleware" component of torch.compile, responsible for normalizing the graph captured by dynamo
+and adding training support. Some improvements:
+* Fix a quadratic compile time edge case during training when you have long parallel chains of compute (#145082)
+* handle compiling mutations on tangents in custom autograd.Functions (#141131)
+* handle compiling buffer input mutations of the form `buffer.copy_(int)` (#141161)
+* Fix handling of mutable custom operators in compile when used with `torch.inference_mode` (#147925)
+
+** Decompositions, FakeTensor and meta tensors **
+
+Operator decompositions, FakeTensors and meta tensors are used to trace out a graph in torch.compile and torch.export. They received several improvements:
+
+Several operator decomps received improvements/bugfixes:
+* `torch._refs.tensor` (#143461)
+* `torch._refs.mean` (#147188)
+* `linspace` (#147997)
+* `addmv` (#143792)
+New meta tensor implementations for a few pytorch operators:
+* `nonzero` (#144727)
+* `silu`, `sigmoid`, `_softmax`, `embedding` (#147862)
+New fake tensor implementation for a few pytorch operators:
+* `unique_consecutive` (#145649)
+Several general FakeTensor improvements
+* force `UntypedStorage.from_buffer(buf)` to return meta storage under FakeTensorMode (#146642)
+* support `meta_tensor.to(device='cpu')` under `fake_mode` (#146729)
+
+** Dynamic Shapes **
+
+We made many improvements and bugfixes to dynamic shapes in torch.compile
+* Better unbacked symint handling for `topk` (#147017)
+* dynamic shape support for `interpolate(antialias=True)` backward (#141198)
+* Better unbacked symint handling in the partitioner (#143877)
+* Support dynamic shape inputs to `nonzer_static` (#146006)
+
 ### bug fixes
 ### performance
 ### docs
 ### devs
 ### Untopiced
-- Register nonzero for meta device for FBLSim ([#144727](https://github.com/pytorch/pytorch/pull/144727))
-- support numbers as tensors for aten.copy(Tensor, Tensor) ([#141161](https://github.com/pytorch/pytorch/pull/141161))
-- dynamic shape support for interpolate(antialias=True) backward ([#141198](https://github.com/pytorch/pytorch/pull/141198))
-- partitioner: avoid inserting duplicates into heap ([#145082](https://github.com/pytorch/pytorch/pull/145082))
-- dont assign a size to _assert_scalar in partitioner ([#143877](https://github.com/pytorch/pytorch/pull/143877))
-- Add fake_impl for unique_consecutive ([#145649](https://github.com/pytorch/pytorch/pull/145649))
-- [opcheck] Improve error reporting; allow atol/rtol overrides ([#146488](https://github.com/pytorch/pytorch/pull/146488))
-- [poc] force UntypedStorage.from_buffer(buf) to return meta storage under FakeTensorMode ([#146642](https://github.com/pytorch/pytorch/pull/146642))
-- support meta_tensor.to(device='cpu') under fake_mode ([#146729](https://github.com/pytorch/pytorch/pull/146729))
-- support input mutations on tangents in compile ([#141131](https://github.com/pytorch/pytorch/pull/141131))
-- Fix auto_functionalize x inference_mode ([#147925](https://github.com/pytorch/pytorch/pull/147925))
+
+
 ### not user facing
-- Back out "Fix undesired specialization on slice after split. (#142372)" ([#143356](https://github.com/pytorch/pytorch/pull/143356))
 - remove allow-untyped-defs from torch/_prims/executor.py ([#144233](https://github.com/pytorch/pytorch/pull/144233))
-- Fix torch._refs.tensor error with empty list ([#143461](https://github.com/pytorch/pytorch/pull/143461))
-- Remove extra copy torch/_prims ([#144407](https://github.com/pytorch/pytorch/pull/144407))
 - [BE]: Remove redundant contiguous copy in torch/_decomp/decompositions ([#144472](https://github.com/pytorch/pytorch/pull/144472))
 - [Break XPU][Inductor UT] Fix broken XPU CI introduced by community changes ([#145058](https://github.com/pytorch/pytorch/pull/145058))
 - PEP585 update - torch/_C torch/_decomp torch/_lazy torch/_library torch/_numpy torch/_prims torch/_refs torch/_strobelight ([#145102](https://github.com/pytorch/pytorch/pull/145102))
-- nonzero_static with symint size ([#146006](https://github.com/pytorch/pytorch/pull/146006))
-- Fix meta impl for topk ([#147017](https://github.com/pytorch/pytorch/pull/147017))
 - [Break XPU] Align meta calculation for fft_r2c with _fft_r2c_mkl ([#146763](https://github.com/pytorch/pytorch/pull/146763))
-- Fix torch.mean out dtype check ([#147188](https://github.com/pytorch/pytorch/pull/147188))
 - [BE][Ez]: Remove redundant empty tensor copies in meta-reg ([#147978](https://github.com/pytorch/pytorch/pull/147978))
 - [BE][PYFMT] migrate PYFMT for `torch._dynamo` to `ruff format` ([#144549](https://github.com/pytorch/pytorch/pull/144549))
-- Add some more meta kernels ([#147862](https://github.com/pytorch/pytorch/pull/147862))
-- Fix decomp for linspace ([#147997](https://github.com/pytorch/pytorch/pull/147997))
-- Fix empty matrix handling of addmv in inductor ([#143792](https://github.com/pytorch/pytorch/pull/143792))
+- [opcheck] Improve error reporting; allow atol/rtol overrides ([#146488](https://github.com/pytorch/pytorch/pull/146488))
+- Back out "Fix undesired specialization on slice after split. (#142372)" ([#143356](https://github.com/pytorch/pytorch/pull/143356))
 - Update decompositions_for_jvp.py ([#148821](https://github.com/pytorch/pytorch/pull/148821))
 ### security
