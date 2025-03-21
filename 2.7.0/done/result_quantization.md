@@ -27,42 +27,94 @@ The categories below are as follows:
 
 ## quantization
 ### bc breaking
-- [BC-Breaking]Remove capture_pre_autograd_graph references in quantization ([#139505](https://github.com/pytorch/pytorch/pull/139505))
+- Please use `torch.export.export_for_training` instead of `capture_pre_autograd_graph` to export the model for pytorch 2 export quantization (#139505)
+
+`capture_pre_autograd_graph` is a temporary API in torch.export, now we have a better longer term API: `export_for_training` available (starting PyTorch 2.5), we can deprecate it.
+
+```python
+# pytorch 2.6
+from torch._export import capture_pre_autograd_graph
+from torch.ao.quantization.quantize_pt2e import prepare_pt2e
+from torch.ao.quantization.quantizer.xnnpack_quantizer import (
+    XNNPACKQuantizer,
+    get_symmetric_quantization_config,
+)
+quantizer = XNNPACKQuantizer().set_global(
+    get_symmetric_quantization_config()
+)
+m = capture_pre_autograd_graph(m, *example_inputs)
+m = prepare_pt2e(m, quantizer)
+
+# pytorch 2.7
+from torch.export import export_for_training
+from torch.ao.quantization.quantize_pt2e import prepare_pt2e
+# please get xnnpack quantizer from executorch (https://github.com/pytorch/executorch/)
+from executorch.backends.xnnpack.quantizer.xnnpack_quantizer import (
+    XNNPACKQuantizer,
+    get_symmetric_quantization_config,
+)
+quantizer = XNNPACKQuantizer().set_global(
+    get_symmetric_quantization_config()
+)
+m = export_for_training(m, *example_inputs)
+m = prepare_pt2e(m, quantizer)
+```
+
 ### deprecation
+- `XNNPACKQuantizer` is deprecated in pytorch and moved to ExecuTorch, please use it from `executorch.backends.xnnpack.quantizer.xnnpack_quantizer` instead of `torch.ao.quantization.quantizer.xnnpack_quantizer`. (#144940)
+
+`XNNPACKQuantizer` is a quantizer for xnnpack, it was added in pytorch core for initial development, but it's not related to core quantization flow. Now we move it to ExecuTorch instead. Please use it from `executorch.backends.xnnpack.quantizer.xnnpack_quantizer` instead of `torch.ao.quantization.quantizer.xnnpack_quantizer`.
+
+```python
+# pytorch 2.6
+from torch._export import capture_pre_autograd_graph
+from torch.ao.quantization.quantize_pt2e import prepare_pt2e
+from torch.ao.quantization.quantizer.xnnpack_quantizer import (
+    XNNPACKQuantizer,
+    get_symmetric_quantization_config,
+)
+quantizer = XNNPACKQuantizer().set_global(
+    get_symmetric_quantization_config()
+)
+m = capture_pre_autograd_graph(m, *example_inputs)
+m = prepare_pt2e(m, quantizer)
+
+# pytorch 2.7
+# we also updated the export call
+from torch.export import export_for_training
+from torch.ao.quantization.quantize_pt2e import prepare_pt2e
+# please get xnnpack quantizer from executorch (https://github.com/pytorch/executorch/)
+from executorch.backends.xnnpack.quantizer.xnnpack_quantizer import (
+    XNNPACKQuantizer,
+    get_symmetric_quantization_config,
+)
+quantizer = XNNPACKQuantizer().set_global(
+    get_symmetric_quantization_config()
+)
+m = export_for_training(m, *example_inputs)
+m = prepare_pt2e(m, quantizer)
+```
+
+
 ### new features
+
 ### improvements
+- Add an option `keep_original_weights` in `_lower_to_native_backend` (#141049)
+- Handle meta tensors in FX quantization (#144726)
+- Add fp8 support to index_cuda (#144747)
+- Add the `torch.float8_e8m0fnu` dtype to PyTorch (#147466)
+
+
 ### bug fixes
 ### performance
-- Add NEON implementation for 8 bit quantized embedding bag on aarch64 ([#147322](https://github.com/pytorch/pytorch/pull/147322))
+- Add NEON implementation for 8 bit quantized embedding bag on aarch64 (#147322)
 ### docs
+- Add torchao docs link to PyTorch libraries (#145412)
+
 ### devs
 ### Untopiced
-- debug handler maintain through decomposition ([#141612](https://github.com/pytorch/pytorch/pull/141612))
-- [15/N] Fix extra warnings brought by clang-tidy-17 ([#143100](https://github.com/pytorch/pytorch/pull/143100))
-- [5/N] Apply bugprone-unchecked-optional-access  ([#143111](https://github.com/pytorch/pytorch/pull/143111))
-- Remove deprecated branch after capture_pre_autograd_graph fully migrate to training IR ([#143228](https://github.com/pytorch/pytorch/pull/143228))
-- [easy] Set feature use for aot autograd remote cache ([#143674](https://github.com/pytorch/pytorch/pull/143674))
-- Fix cppcoreguidelines-pro-type-member-init ([#141787](https://github.com/pytorch/pytorch/pull/141787))
-- [Quantization] add an option keep_original_weights in _lower_to_native_backend ([#141049](https://github.com/pytorch/pytorch/pull/141049))
-- Add support for list, tuple and dict in numeric debugger ([#143882](https://github.com/pytorch/pytorch/pull/143882))
-- change import relative paths due to internal build failures ([#143968](https://github.com/pytorch/pytorch/pull/143968))
-- [4/N] Apply py39 ruff and pyupgrade fixes ([#143257](https://github.com/pytorch/pytorch/pull/143257))
-- [torch][ao][EASY] Change print to log in numeric debugger to avoid large output ([#144790](https://github.com/pytorch/pytorch/pull/144790))
-- Handle meta tensors in FX quantization ([#144726](https://github.com/pytorch/pytorch/pull/144726))
-- [BE] typing for decorators - library ([#138969](https://github.com/pytorch/pytorch/pull/138969))
-- [Accelerator] Use uniform `GetAllocator` for devices in `new_qtensor` function ([#144849](https://github.com/pytorch/pytorch/pull/144849))
-- add fp8 support to index_cuda ([#144747](https://github.com/pytorch/pytorch/pull/144747))
-- [2/N] Remove unnecessary once flag usage ([#145057](https://github.com/pytorch/pytorch/pull/145057))
-- [WIP] Move XNNPACKQuantizer from PyTorch to ExecuTorch ([#144940](https://github.com/pytorch/pytorch/pull/144940))
-- Add Torchao docs link to Pytorch libraries ([#145412](https://github.com/pytorch/pytorch/pull/145412))
-- Fix cppcoreguidelines-init-variables ignorance ([#141795](https://github.com/pytorch/pytorch/pull/141795))
-- Resolve affine quantization namespace collision with torchao ([#145941](https://github.com/pytorch/pytorch/pull/145941))
-- Remove NOLINTNEXTLINE ([#146238](https://github.com/pytorch/pytorch/pull/146238))
-- fix pt2e block wise quantization test ([#147035](https://github.com/pytorch/pytorch/pull/147035))
-- Fix arvr macOS buck pytorch builds ([#147292](https://github.com/pytorch/pytorch/pull/147292))
-- patch for block-wise quantization + pt2e ([#146946](https://github.com/pytorch/pytorch/pull/146946))
-- add the `torch.float8_e8m0fnu` dtype to PyTorch ([#147466](https://github.com/pytorch/pytorch/pull/147466))
-- [Intel GPU] qconv.pointwise with mixed dtype XPU support ([#135465](https://github.com/pytorch/pytorch/pull/135465))
+
+
 ### not user facing
 - Turn on AOTAutogradCache by default on open source ([#141981](https://github.com/pytorch/pytorch/pull/141981))
 - Improve implementation of quantized_batch_norm ([#141570](https://github.com/pytorch/pytorch/pull/141570))
@@ -99,4 +151,22 @@ The categories below are as follows:
 - Enable UBSAN test ([#147511](https://github.com/pytorch/pytorch/pull/147511))
 - Use the device interface for detecting Triton availability ([#139171](https://github.com/pytorch/pytorch/pull/139171))
 - Skip ao_sparsity TestComposability for missing FBGEMM ([#144146](https://github.com/pytorch/pytorch/pull/144146))
+- [15/N] Fix extra warnings brought by clang-tidy-17 ([#143100](https://github.com/pytorch/pytorch/pull/143100))
+- [5/N] Apply bugprone-unchecked-optional-access  ([#143111](https://github.com/pytorch/pytorch/pull/143111))
+- Remove deprecated branch after capture_pre_autograd_graph fully migrate to training IR ([#143228](https://github.com/pytorch/pytorch/pull/143228))
+- [easy] Set feature use for aot autograd remote cache ([#143674](https://github.com/pytorch/pytorch/pull/143674))
+- Fix cppcoreguidelines-pro-type-member-init ([#141787](https://github.com/pytorch/pytorch/pull/141787))
+- change import relative paths due to internal build failures ([#143968](https://github.com/pytorch/pytorch/pull/143968))
+- [4/N] Apply py39 ruff and pyupgrade fixes ([#143257](https://github.com/pytorch/pytorch/pull/143257))
+- [torch][ao][EASY] Change print to log in numeric debugger to avoid large output ([#144790](https://github.com/pytorch/pytorch/pull/144790))
+- [BE] typing for decorators - library ([#138969](https://github.com/pytorch/pytorch/pull/138969))
+- [Accelerator] Use uniform `GetAllocator` for devices in `new_qtensor` function ([#144849](https://github.com/pytorch/pytorch/pull/144849))
+- [2/N] Remove unnecessary once flag usage ([#145057](https://github.com/pytorch/pytorch/pull/145057))
+- Fix cppcoreguidelines-init-variables ignorance ([#141795](https://github.com/pytorch/pytorch/pull/141795))
+- Resolve affine quantization namespace collision with torchao ([#145941](https://github.com/pytorch/pytorch/pull/145941))
+- Remove NOLINTNEXTLINE ([#146238](https://github.com/pytorch/pytorch/pull/146238))
+- fix pt2e block wise quantization test ([#147035](https://github.com/pytorch/pytorch/pull/147035))
+- Fix arvr macOS buck pytorch builds ([#147292](https://github.com/pytorch/pytorch/pull/147292))
+- Intel XPU support for qconv.pointwise with mixed dtype ([#135465](https://github.com/pytorch/pytorch/pull/135465))
+
 ### security
