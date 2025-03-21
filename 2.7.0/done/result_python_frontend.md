@@ -30,7 +30,7 @@ The categories below are as follows:
 
 #### Change `torch.Tensor.new_tensor()` be on the given Tensor's device by default ([#144958](https://github.com/pytorch/pytorch/pull/144958))
 
-This function was always creating the new Tensor on the "cpu" device and will now use the same device as the current Tensor object. This behavior is not consistent with other `.new_*` methods.
+This function was always creating the new Tensor on the "cpu" device and will now use the same device as the current Tensor object. This behavior is now consistent with other `.new_*` methods.
 
 
 ### deprecation
