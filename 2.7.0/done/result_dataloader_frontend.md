@@ -30,21 +30,12 @@ The categories below are as follows:
 ### deprecation
 ### new features
 ### improvements
+- Dataloader distributes tasks to workers as they become available when in_order is False #142324
+- Update pin memory related APIs to not pass 'device' argument. `device` and `pin_memory_device` are discouraged and will be removed in the future. #131858
 ### bug fixes
 ### performance
 ### docs
 ### devs
 ### Untopiced
-- Dataloader distribute tasks to workers when in_order is False ([#142324](https://github.com/pytorch/pytorch/pull/142324))
-- Update pin memory related APIs to not pass 'device' argument ([#131858](https://github.com/pytorch/pytorch/pull/131858))
 ### not user facing
-- remove allow-untyped-defs for utils/data/datapipes/dataframe/structures.py ([#143273](https://github.com/pytorch/pytorch/pull/143273))
-- Use default_collate from public API ([#143616](https://github.com/pytorch/pytorch/pull/143616))
-- remove allow-untyped-defs from utils/data/datapipes/iter/streamreader.py ([#144088](https://github.com/pytorch/pytorch/pull/144088))
-- Migrate from Tuple -> tuple in torch/utils/data ([#144255](https://github.com/pytorch/pytorch/pull/144255))
-- Backout PEP585 use of Iterable ([#145438](https://github.com/pytorch/pytorch/pull/145438))
-- Enable some tests on MacOS ([#146268](https://github.com/pytorch/pytorch/pull/146268))
-- Remove unactivated test ([#146233](https://github.com/pytorch/pytorch/pull/146233))
-- Fixed a typo in dataset.py ([#146600](https://github.com/pytorch/pytorch/pull/146600))
-- Fix PEP585 update ([#147536](https://github.com/pytorch/pytorch/pull/147536))
 ### security
