@@ -30,27 +30,12 @@ The categories below are as follows:
 ### deprecation
 ### new features
 ### improvements
+- Relax type-checks for empty dicts (#147167)
 ### bug fixes
 ### performance
 ### docs
-- Add warning to torch.jit.load ([#143403](https://github.com/pytorch/pytorch/pull/143403))
 ### devs
 ### Untopiced
-- Fix floating point literals in IRPrinter ([#142119](https://github.com/pytorch/pytorch/pull/142119))
-- [ODML] Make the ML feature provider thread safe ([#143418](https://github.com/pytorch/pytorch/pull/143418))
-- Remove unneeded std::make_optional ([#143575](https://github.com/pytorch/pytorch/pull/143575))
-- Apply Ruff fixes and pyupgrade to torch/jit ([#144208](https://github.com/pytorch/pytorch/pull/144208))
-- Expose ToIValueAllowNumbersAsTensors to TORCH_PYTHON_API so we can use it in monarch ([#146087](https://github.com/pytorch/pytorch/pull/146087))
-- [torch] fix exception types in custom class magic setattr/getattr ([#146516](https://github.com/pytorch/pytorch/pull/146516))
-- [torch] fix builds for older pybind ([#146630](https://github.com/pytorch/pytorch/pull/146630))
-- [StaticRuntime] Fix a bug that memory planner ignores subblocks (#146728) ([#146855](https://github.com/pytorch/pytorch/pull/146855))
-- [StaticRuntime] Support a new pattern for ClipRangesToGatherToOffsets ([#146931](https://github.com/pytorch/pytorch/pull/146931))
-- Fix clang-tidy warnings in torch/jit ([#146963](https://github.com/pytorch/pytorch/pull/146963))
-- [StaticRuntime] Support a new pattern (aten::to with 5 inputs) for ClipRangesToGatherToOffsets ([#147189](https://github.com/pytorch/pytorch/pull/147189))
-- [PT2]: allow empty dict to pass type check (#147167) ([#147480](https://github.com/pytorch/pytorch/pull/147480))
-- Turn onnx functions into static ([#147598](https://github.com/pytorch/pytorch/pull/147598))
-- Fix crash in -[PTMCoreMLCompiler _compileModel:atPath:] ([#147809](https://github.com/pytorch/pytorch/pull/147809))
-- Make record/storage alignment in torch.save configurable ([#147788](https://github.com/pytorch/pytorch/pull/147788))
 - Suppress build warnings when gcc-11 is used ([#148763](https://github.com/pytorch/pytorch/pull/148763))
 ### not user facing
 - remove allow-untyped-defs for torch/jit/_ir_utils.py ([#143366](https://github.com/pytorch/pytorch/pull/143366))
@@ -62,4 +47,19 @@ The categories below are as follows:
 - [ROCm][Windows] Remove external linkage from an anonymous namespace ([#146607](https://github.com/pytorch/pytorch/pull/146607))
 - [ROCm][Windows] Fix clang-cl error related to -Wmissing prototypes enabled ([#146981](https://github.com/pytorch/pytorch/pull/146981))
 - scriptfunction: Make sure we have valid __name__ and __qualname__ ([#147906](https://github.com/pytorch/pytorch/pull/147906))
+- Fix floating point literals in IRPrinter ([#142119](https://github.com/pytorch/pytorch/pull/142119))
+- [ODML] Make the ML feature provider thread safe ([#143418](https://github.com/pytorch/pytorch/pull/143418))
+- Remove unneeded std::make_optional ([#143575](https://github.com/pytorch/pytorch/pull/143575))
+- Apply Ruff fixes and pyupgrade to torch/jit ([#144208](https://github.com/pytorch/pytorch/pull/144208))
+- Expose ToIValueAllowNumbersAsTensors to TORCH_PYTHON_API so we can use it in monarch ([#146087](https://github.com/pytorch/pytorch/pull/146087))
+- [torch] fix exception types in custom class magic setattr/getattr ([#146516](https://github.com/pytorch/pytorch/pull/146516))
+- [torch] fix builds for older pybind ([#146630](https://github.com/pytorch/pytorch/pull/146630))
+- [StaticRuntime] Fix a bug that memory planner ignores subblocks (#146728) ([#146855](https://github.com/pytorch/pytorch/pull/146855))
+- [StaticRuntime] Support a new pattern for ClipRangesToGatherToOffsets ([#146931](https://github.com/pytorch/pytorch/pull/146931))
+- Fix clang-tidy warnings in torch/jit ([#146963](https://github.com/pytorch/pytorch/pull/146963))
+- [StaticRuntime] Support a new pattern (aten::to with 5 inputs) for ClipRangesToGatherToOffsets ([#147189](https://github.com/pytorch/pytorch/pull/147189))
+- Turn onnx functions into static ([#147598](https://github.com/pytorch/pytorch/pull/147598))
+- Fix crash in -[PTMCoreMLCompiler _compileModel:atPath:] ([#147809](https://github.com/pytorch/pytorch/pull/147809))
+- Add warning to torch.jit.load ([#143403](https://github.com/pytorch/pytorch/pull/143403))
+- Make record/storage alignment in torch.save configurable ([#147788](https://github.com/pytorch/pytorch/pull/147788))
 ### security
