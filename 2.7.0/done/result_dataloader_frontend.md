@@ -30,8 +30,8 @@ The categories below are as follows:
 ### deprecation
 ### new features
 ### improvements
-- Dataloader distributes tasks to workers as they become available when in_order is False #142324
-- Update pin memory related APIs to not pass 'device' argument. `device` and `pin_memory_device` are discouraged and will be removed in the future. #131858
+- Dataloader distributes tasks to workers as they become available when `in_order` is `False` #142324
+- Update pin memory related APIs to not pass `device` argument. `device` and `pin_memory_device` are discouraged and will be deprecated in the future. #131858
 ### bug fixes
 ### performance
 ### docs
