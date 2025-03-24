@@ -31,12 +31,15 @@ The categories below are as follows:
 ### new features
 ### improvements
 - Relax type-checks for empty dicts (#147167)
+
+
 ### bug fixes
 ### performance
 ### docs
 ### devs
 ### Untopiced
-- Suppress build warnings when gcc-11 is used ([#148763](https://github.com/pytorch/pytorch/pull/148763))
+
+
 ### not user facing
 - remove allow-untyped-defs for torch/jit/_ir_utils.py ([#143366](https://github.com/pytorch/pytorch/pull/143366))
 - clean up type nits on torch/jit/_ir_utils.py ([#143371](https://github.com/pytorch/pytorch/pull/143371))
@@ -60,6 +63,7 @@ The categories below are as follows:
 - [StaticRuntime] Support a new pattern (aten::to with 5 inputs) for ClipRangesToGatherToOffsets ([#147189](https://github.com/pytorch/pytorch/pull/147189))
 - Turn onnx functions into static ([#147598](https://github.com/pytorch/pytorch/pull/147598))
 - Fix crash in -[PTMCoreMLCompiler _compileModel:atPath:] ([#147809](https://github.com/pytorch/pytorch/pull/147809))
-- Add warning to torch.jit.load ([#143403](https://github.com/pytorch/pytorch/pull/143403))
-- Make record/storage alignment in torch.save configurable ([#147788](https://github.com/pytorch/pytorch/pull/147788))
+- Suppress build warnings when gcc-11 is used ([#148763](https://github.com/pytorch/pytorch/pull/148763))
+
+
 ### security
