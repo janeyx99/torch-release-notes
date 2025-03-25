@@ -40,7 +40,7 @@ The categories below are as follows:
 ### Improvements
 - Enable FP64 GEMM ([#140677](https://github.com/pytorch/pytorch/pull/140677))
 - Support SparseCsrXPU codegen ([#144722](https://github.com/pytorch/pytorch/pull/144722))
-- Improve XPU Stream implemenation([#141123](https://github.com/pytorch/pytorch/pull/141123),[#141119](https://github.com/pytorch/pytorch/pull/141119)),[#142347](https://github.com/pytorch/pytorch/pull/142347))
+- Improve XPU Stream implemenation([#141123](https://github.com/pytorch/pytorch/pull/141123),[#141119](https://github.com/pytorch/pytorch/pull/141119),[#142347](https://github.com/pytorch/pytorch/pull/142347))
 - Enable XPU for Inductor MM Triton Kernel Benchmark ([#148237](https://github.com/pytorch/pytorch/pull/148237))
 - Improve Intel GPU ability on oneDNN ([#137570](https://github.com/pytorch/pytorch/pull/137570),[#147926](https://github.com/pytorch/pytorch/pull/147926), [#147969](https://github.com/pytorch/pytorch/pull/147969), [#147349](https://github.com/pytorch/pytorch/pull/147349))
 - Align XPU convolution_backward output layout between fake tensor and real output tensor ([#146880](https://github.com/pytorch/pytorch/pull/146880))
