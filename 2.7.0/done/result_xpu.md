@@ -57,15 +57,14 @@ The categories below are as follows:
 ### Performance
 - Optimize SDPA Inference Performance for XPU ([#147614](https://github.com/pytorch/pytorch/pull/147614), [#147612](https://github.com/pytorch/pytorch/pull/147612))
 - Improve zero-point memory creation ([#148640](https://github.com/pytorch/pytorch/pull/148640))
-- Avoid unnecessary copy when the dst of Matmul is non-contiguous or input is broadcasted ([#144759](https://github.com/pytorch/pytorch/pull/144759), [#143784](https://github.com/pytorch/pytorch/pull/143784))
-- Convert Conv1D to 2D in inductor ([#144140](https://github.com/pytorch/pytorch/pull/144140))
+- Avoid unnecessary copy when the destination tensor of Matmul is non-contiguous or input is broadcasted  ([#144759](https://github.com/pytorch/pytorch/pull/144759), [#143784](https://github.com/pytorch/pytorch/pull/143784))
 
 ### Documentation
 - Improve "Getting Started on Intel GPU" hardware requirements and notes([#147802](https://github.com/pytorch/pytorch/pull/147802), [#148168](https://github.com/pytorch/pytorch/pull/148168))
 - Improve SYCL extension, source build and AOT Inductor documentation ([#147988](https://github.com/pytorch/pytorch/pull/147988), [#143476](https://github.com/pytorch/pytorch/pull/143476), [#149299](https://github.com/pytorch/pytorch/pull/149299))
 
 ### Developer
-- Upgrade Windows XPU support package for binary compression ([#148313](https://github.com/pytorch/pytorch/pull/148313))
+- Reduce the binary size of the XPU Windows package ([#148313](https://github.com/pytorch/pytorch/pull/148313))
 - Add Python 3.13 build for XPU ([#146614](https://github.com/pytorch/pytorch/pull/146614))
 - Add XPU Linux build into pull workflow and unify XPU Windows CI/CD installation scripts([#145084](https://github.com/pytorch/pytorch/pull/145084), [#143185](https://github.com/pytorch/pytorch/pull/143185))
 - Make XPU Triton build supports manylinux 2.28 ([#148195](https://github.com/pytorch/pytorch/pull/148195))
