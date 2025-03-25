@@ -45,7 +45,6 @@ The categories below are as follows:
 - Improve Intel GPU ability on oneDNN ([#137570](https://github.com/pytorch/pytorch/pull/137570),[#147926](https://github.com/pytorch/pytorch/pull/147926), [#147969](https://github.com/pytorch/pytorch/pull/147969), [#147349](https://github.com/pytorch/pytorch/pull/147349))
 - Align XPU convolution_backward output layout between fake tensor and real output tensor ([#146880](https://github.com/pytorch/pytorch/pull/146880))
 - Improve error handling and reporting in CMake files ([#149353](https://github.com/pytorch/pytorch/pull/149353))
-
 - Refine torch.xpu.get_device_properties API error message ([#144379](https://github.com/pytorch/pytorch/pull/144379))
 - Add XPU device to nested_layer_norm ([#148593](https://github.com/pytorch/pytorch/pull/148593))
 - Generalize `is_big_gpu()` check in Inductor ([#143491](https://github.com/pytorch/pytorch/pull/143491))
