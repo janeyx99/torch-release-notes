@@ -28,73 +28,73 @@ The categories below are as follows:
 
 ### bc breaking
 
-- Set USE_EXPERIMENTAL_LOGIC to True ([#137296](https://github.com/pytorch/pytorch/pull/137296))
+- Set `USE_EXPERIMENTAL_LOGIC` to True (#137296)
 
 ### deprecation
 
-- Create deprecation warning on dynamo_export ([#146003](https://github.com/pytorch/pytorch/pull/146003))
-- Create deprecation warning on dynamo_export ([#146425](https://github.com/pytorch/pytorch/pull/146425))
-- Adjust and add deprecation messages ([#146639](https://github.com/pytorch/pytorch/pull/146639))
+- Create deprecation warning on `dynamo_export` (#146003)
+- Create deprecation warning on `dynamo_export` (#146425)
+- Adjust and add deprecation messages (#146639)
 
 ### new features
 
-- Support custom axis name through dynamic_shapes ([#146321](https://github.com/pytorch/pytorch/pull/146321))
+- Support custom axis name through `dynamic_shapes` (#146321)
 
 ### improvements
 
-- Automatically convert dynamic_axes to dynamic_shapes with torch.export.Dim.AUTO ([#143158](https://github.com/pytorch/pytorch/pull/143158))
-- Fix bug for exporting torch.cdist into onnx and support 'compute_mode' ([#144213](https://github.com/pytorch/pytorch/pull/144213))
-- Use python_dispatcher in type promotion ([#144801](https://github.com/pytorch/pytorch/pull/144801))
-- Remove LegacyDynamoStrategy ([#145442](https://github.com/pytorch/pytorch/pull/145442))
-- torch.onnx.export(dynamo=True) changes optimization to default ([#146187](https://github.com/pytorch/pytorch/pull/146187))
-- Set warning stacklevel so it appears at the torch.onnx call site ([#147165](https://github.com/pytorch/pytorch/pull/147165))
-- Pick up missing types in dynamic shapes renaming ([#147407](https://github.com/pytorch/pytorch/pull/147407))
-- Update saved exported program in debugging report if the exporting passes run_decomposition() ([#148617](https://github.com/pytorch/pytorch/pull/148617))
-- Use torch export to get dynamic shapes for JIT convert strategy ([#148627](https://github.com/pytorch/pytorch/pull/148627))
-- Use torch.export.Dim.AUTO in dynamo_export ([#144356](https://github.com/pytorch/pytorch/pull/144356))
-- Support complex comparison when verify=True ([#148619](https://github.com/pytorch/pytorch/pull/148619))
+- Automatically convert `dynamic_axes` to `dynamic_shapes` with `torch.export.Dim.AUTO` (#143158)
+- Fix bug for exporting `torch.cdist` into onnx and support 'compute_mode' (#144213)
+- Use `python_dispatcher` in type promotion (#144801)
+- Remove `LegacyDynamoStrategy` (#145442)
+- `torch.onnx.export(dynamo=True)` changes optimization to default (#146187)
+- Set warning stacklevel so it appears at the `torch.onnx` call site (#147165)
+- Pick up missing types in `dynamic_shapes` renaming (#147407)
+- Update saved exported program in debugging report if the exporting passes `run_decomposition()` (#148617)
+- Use `torch export` to get `dynamic_shapes` for JIT convert strategy (#148627)
+- Use `torch.export.Dim.AUTO` in `dynamo_export` (#144356)
+- Support complex comparison when `verify=True` (#148619)
 
 ### bug fixes
 
-- Support subgraphs with 1+ outputs ([#145860](https://github.com/pytorch/pytorch/pull/145860))
-- Delete `rename_dynamic_shapes_with_model_inputs` ([#146002](https://github.com/pytorch/pytorch/pull/146002))
-- Handle number of outputs in builder ([#147164](https://github.com/pytorch/pytorch/pull/147164))
-- Fix missed None type support in dyamic shapes string cases ([#148025](https://github.com/pytorch/pytorch/pull/148025))
+- Support subgraphs with 1+ outputs (#145860)
+- Delete `rename_dynamic_shapes_with_model_inputs` (#146002)
+- Handle number of outputs in builder (#147164)
+- Fix missed None type support in `dynamic_shapes` string cases (#148025)
 
 ### performance
 
 ### docs
 
-- Update TorchDynamo-based ONNX Exporter memory usage example code. ([#144139](https://github.com/pytorch/pytorch/pull/144139))
-- Deprecation message follow up ([#147005](https://github.com/pytorch/pytorch/pull/147005))
+- Update TorchDynamo-based ONNX Exporter memory usage example code. (#144139)
+- Deprecation message follow up (#147005)
 
 ### devs
 
 ### Untopiced
 
-- Create deprecation warning on dynamo_export ([#146923](https://github.com/pytorch/pytorch/pull/146923))
+- Create deprecation warning on `dynamo_export` (#146923)
 
 ### not user facing
 
-- Fix a misspelling ([#143301](https://github.com/pytorch/pytorch/pull/143301))
-- remove allow-untyped-defs from onnx/_internal/_lazy_import.py ([#143943](https://github.com/pytorch/pytorch/pull/143943))
-- remove allow-untyped-defs from torch/onnx/operators.py ([#144133](https://github.com/pytorch/pytorch/pull/144133))
-- remove allow-untyped-defs onnx/_internal/exporter/_fx_passes.py ([#144134](https://github.com/pytorch/pytorch/pull/144134))
-- PEP585 update - torch/onnx ([#145174](https://github.com/pytorch/pytorch/pull/145174))
-- Migrate test_torch_export_with_onnxruntime.py to test_small_models_e2e.py ([#146095](https://github.com/pytorch/pytorch/pull/146095))
-- Apply ruff fixes to tests ([#146140](https://github.com/pytorch/pytorch/pull/146140))
-- PEP585: Add noqa to necessary tests ([#146391](https://github.com/pytorch/pytorch/pull/146391))
-- Remove reference to onnxscript rewriter ([#147003](https://github.com/pytorch/pytorch/pull/147003))
-- Consolidate constants to a single location ([#147166](https://github.com/pytorch/pytorch/pull/147166))
-- Move and improve error reproduction logic in test ([#147391](https://github.com/pytorch/pytorch/pull/147391))
-- Refactor dispatcher and registry ([#147396](https://github.com/pytorch/pytorch/pull/147396))
-- Add scaffolding for onnx decomp and logic for op tests ([#147392](https://github.com/pytorch/pytorch/pull/147392))
-- Update ruff linter for PEP585 ([#147540](https://github.com/pytorch/pytorch/pull/147540))
-- Create VerificationInterpreter ([#148396](https://github.com/pytorch/pytorch/pull/148396))
-- Use onnxscript apis for 2.7 ([#148453](https://github.com/pytorch/pytorch/pull/148453))
-- Assert capture strategy in tests ([#148348](https://github.com/pytorch/pytorch/pull/148348))
-- Improve verify_onnx_program to use VerificationInterpreter ([#148706](https://github.com/pytorch/pytorch/pull/148706))
-- Handle error in verification interpreter ([#148730](https://github.com/pytorch/pytorch/pull/148730))
-- Remove inaccurate test comment ([#148813](https://github.com/pytorch/pytorch/pull/148813))
+- Fix a misspelling (#143301)
+- remove allow-untyped-defs from `onnx/_internal/_lazy_import.py` (#143943)
+- remove allow-untyped-defs from `torch/onnx/operators.py` (#144133)
+- remove allow-untyped-defs `onnx/_internal/exporter/_fx_passes.py` (#144134)
+- PEP585 update - `torch/onnx` (#145174)
+- Migrate `test_torch_export_with_onnxruntime.py` to `test_small_models_e2e.py` (#146095)
+- Apply ruff fixes to tests (#146140)
+- PEP585: Add noqa to necessary tests (#146391)
+- Remove reference to `onnxscript` rewriter (#147003)
+- Consolidate constants to a single location (#147166)
+- Move and improve error reproduction logic in test (#147391)
+- Refactor dispatcher and registry (#147396)
+- Add scaffolding for onnx decomp and logic for op tests (#147392)
+- Update ruff linter for PEP585 (#147540)
+- Create `VerificationInterpreter` (#148396)
+- Use `onnxscript` apis for 2.7 (#148453)
+- Assert capture strategy in tests (#148348)
+- Improve `verify_onnx_program` to use `VerificationInterpreter` (#148706)
+- Handle error in `verification_interpreter` (#148730)
+- Remove inaccurate test comment (#148813)
 
 ### security
