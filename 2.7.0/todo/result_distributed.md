@@ -57,8 +57,8 @@ The categories below are as follows:
   - Enabled sharding prop to handle cross mesh computation ([#147869](https://github.com/pytorch/pytorch/pull/147869))
   - Added CuDNN SDPA op support to DTensor ([#148537](https://github.com/pytorch/pytorch/pull/148537))
   - Optimized `shard_dim_alltoall` to use `alltoall_single` ([#148868](https://github.com/pytorch/pytorch/pull/148868))
-  - deprecate _shard_tensor to use src_data_rank=None ([#144171](https://github.com/pytorch/pytorch/pull/144171))
-  - Add pointwise ops strategy for `aten.minimum` ([#145816](https://github.com/pytorch/pytorch/pull/145816))
+  - Deprecated `_shard_tensor` to use `src_data_rank=None` ([#144171](https://github.com/pytorch/pytorch/pull/144171))
+  - Added pointwise ops strategy for `aten.minimum` ([#145816](https://github.com/pytorch/pytorch/pull/145816))
 
 - FullyShardedDataParallel2 (FSDP2)
   - Clamp `reduce_dtype` in lazy init ([#143297](https://github.com/pytorch/pytorch/pull/143297))
@@ -97,8 +97,8 @@ The categories below are as follows:
 - DTensor
   - Fixed `torch.distributed._functional_collectives.AsyncCollectiveTensor` for `aten.to`. ([#134661](https://github.com/pytorch/pytorch/pull/134661))
   - Deferred DTensor RNG state sync until first random op call or manual_seed call to support more flexible OffsetBasedRNGTracker init ([#147025](https://github.com/pytorch/pytorch/pull/147025))
-  - Fix _scaled_dot_product_flash_attention sharding ([#148125](https://github.com/pytorch/pytorch/pull/148125))
-  - Fix redistribution cost for all-reduce ([#148761](https://github.com/pytorch/pytorch/pull/148761))
+  - Fixed `_scaled_dot_product_flash_attention` sharding ([#148125](https://github.com/pytorch/pytorch/pull/148125))
+  - Fixed redistribution cost for `all-reduce` ([#148761](https://github.com/pytorch/pytorch/pull/148761))
 
 - FullyShardedDataParallel2 (FSDP2)
   - Rooted fix for FP8 tensor ([#143248](https://github.com/pytorch/pytorch/pull/143248))
@@ -141,7 +141,7 @@ The categories below are as follows:
   - Caught c10 error and log message inside monitoring thread ([#145413](https://github.com/pytorch/pytorch/pull/145413))
   - Added an API to get the status/error code at the PG level ([#144498](https://github.com/pytorch/pytorch/pull/144498))
   - Moved record param for init to the right place ([#148571](https://github.com/pytorch/pytorch/pull/148571))
-  - Tests Generelization for multiple accelerator devices ([#139749](https://github.com/pytorch/pytorch/pull/139749))
+  - Enabled testing generelization for multiple accelerator devices ([#139749](https://github.com/pytorch/pytorch/pull/139749))
 
 - FullyShardedDataParallel2 (FSDP2)
   - Enabled the typing of `fully_shard` so that the return value can be chained with typing enabled ([#147489](https://github.com/pytorch/pytorch/pull/147489))
