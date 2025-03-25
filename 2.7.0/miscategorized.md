@@ -13,3 +13,7 @@ Handle any commits that actually do belong to your domain and remove them from t
 - Implement blend operation for float, double, int in VEC ATen backend for SVE (#146479)
 
 - Improve KleidiAI 4 bit kernel performance (#146476)
+
+## python_frontend
+- Add warning to torch.jit.load ([#143403](https://github.com/pytorch/pytorch/pull/143403))
+- Make record/storage alignment in torch.save configurable ([#147788](https://github.com/pytorch/pytorch/pull/147788))
