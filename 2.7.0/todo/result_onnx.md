@@ -1,4 +1,3 @@
-
 # Release Notes worksheet onnx
 
 The main goal of this process is to rephrase all the commit messages below to make them **clear and easy to read** by the end user. You should follow the following instructions to do so:
@@ -26,15 +25,23 @@ The categories below are as follows:
 * not user facing: All commits that are not public end-user facing and hence should be dropped from the release notes
 
 ## onnx
+
 ### bc breaking
+
 - [ONNX] Set USE_EXPERIMENTAL_LOGIC to True ([#137296](https://github.com/pytorch/pytorch/pull/137296))
+
 ### deprecation
+
 - [ONNX] Create deprecation warning on dynamo_export ([#146003](https://github.com/pytorch/pytorch/pull/146003))
 - [ONNX] Create deprecation warning on dynamo_export ([#146425](https://github.com/pytorch/pytorch/pull/146425))
 - [ONNX] Adjust and add deprecation messages ([#146639](https://github.com/pytorch/pytorch/pull/146639))
+
 ### new features
+
 - [ONNX] Support custom axis name through dynamic_shapes ([#146321](https://github.com/pytorch/pytorch/pull/146321))
+
 ### improvements
+
 - [ONNX] Automatically convert dynamic_axes to dynamic_shapes with torch.export.Dim.AUTO ([#143158](https://github.com/pytorch/pytorch/pull/143158))
 - [onnx] Fix bug for exporting torch.cdist into onnx and support 'compute_mode' ([#144213](https://github.com/pytorch/pytorch/pull/144213))
 - [ONNX] Use python_dispatcher in type promotion ([#144801](https://github.com/pytorch/pytorch/pull/144801))
@@ -44,23 +51,31 @@ The categories below are as follows:
 - [ONNX] Pick up missing types in dynamic shapes renaming ([#147407](https://github.com/pytorch/pytorch/pull/147407))
 - [ONNX] Update saved exported program in debugging report if the exporting passes run_decomposition() ([#148617](https://github.com/pytorch/pytorch/pull/148617))
 - [ONNX] Use torch export to get dynamic shapes for JIT convert strategy ([#148627](https://github.com/pytorch/pytorch/pull/148627))
+- [ONNX] Use torch.export.Dim.AUTO in dynamo_export ([#144356](https://github.com/pytorch/pytorch/pull/144356))
+- [ONNX] Support complex comparison when verify=True ([#148619](https://github.com/pytorch/pytorch/pull/148619))
+
 ### bug fixes
+
 - [ONNX] Support subgraphs with 1+ outputs ([#145860](https://github.com/pytorch/pytorch/pull/145860))
 - [ONNX] Delete `rename_dynamic_shapes_with_model_inputs` ([#146002](https://github.com/pytorch/pytorch/pull/146002))
 - [ONNX] Handle number of outputs in builder ([#147164](https://github.com/pytorch/pytorch/pull/147164))
 - [ONNX] Fix missed None type support in dyamic shapes string cases ([#148025](https://github.com/pytorch/pytorch/pull/148025))
+
 ### performance
+
 ### docs
+
 - Update TorchDynamo-based ONNX Exporter memory usage example code. ([#144139](https://github.com/pytorch/pytorch/pull/144139))
 - [ONNX] Deprecation message follow up ([#147005](https://github.com/pytorch/pytorch/pull/147005))
+
 ### devs
+
 ### Untopiced
-- [ONNX] Use torch.export.Dim.AUTO in dynamo_export ([#144356](https://github.com/pytorch/pytorch/pull/144356))
+
 - [ONNX][reland2] Create deprecation warning on dynamo_export ([#146923](https://github.com/pytorch/pytorch/pull/146923))
-- [BE][Ez]: Apply FURB188: use str remove(pre|suf)fix ([#146997](https://github.com/pytorch/pytorch/pull/146997))
-- Consistently use load_torchbind_test_lib in tests ([#148082](https://github.com/pytorch/pytorch/pull/148082))
-- [ONNX] Support complex comparison when verify=True ([#148619](https://github.com/pytorch/pytorch/pull/148619))
+
 ### not user facing
+
 - Fix a misspelling [ONNX] ([#143301](https://github.com/pytorch/pytorch/pull/143301))
 - remove allow-untyped-defs from onnx/_internal/_lazy_import.py ([#143943](https://github.com/pytorch/pytorch/pull/143943))
 - remove allow-untyped-defs from torch/onnx/operators.py ([#144133](https://github.com/pytorch/pytorch/pull/144133))
@@ -82,4 +97,5 @@ The categories below are as follows:
 - [ONNX] Improve verify_onnx_program to use VerificationInterpreter ([#148706](https://github.com/pytorch/pytorch/pull/148706))
 - [ONNX] Handle error in verification interpreter ([#148730](https://github.com/pytorch/pytorch/pull/148730))
 - [ONNX] Remove inaccurate test comment ([#148813](https://github.com/pytorch/pytorch/pull/148813))
+
 ### security
