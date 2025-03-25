@@ -29,7 +29,6 @@ The categories below are as follows:
 ### bc breaking
 ### deprecation
 ### new features
-- Add tlparse for draft export (#145810)
 ### improvements
 - Support slice operations with SymInt indices in non-strict export (#143217)
 - Add float8 support in serialization schema (#143343)
@@ -43,6 +42,7 @@ The categories below are as follows:
 - Report frequency of data-dependent errors in draft export (#145030)
 - Report LOC for data-dependent errors in draft export (#145443)
 - Allow `builtin` bitshift ops in verifier (#145802)
+- Add tlparse for draft export (#145810)
 - Introduce `aoti_call_delegate` higher-order-op for eager-mode runnability (#145630)
 - Sync model container types to serialization schema (#145959)
 - Serialize pytree namedtuple field names in input spec (#145956)
