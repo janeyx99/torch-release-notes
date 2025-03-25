@@ -30,40 +30,32 @@ The categories below are as follows:
 ### deprecation
 
 ### New Features
-- [Intel GPU] Support AOT Inductor for Intel GPU ([#140269](https://github.com/pytorch/pytorch/pull/140269))
-- [Intel GPU] Support AOTI package load for Intel GPU ([#140664](https://github.com/pytorch/pytorch/pull/140664))
-- [Intel GPU] Enable SDPA on XPU ([#147614](https://github.com/pytorch/pytorch/pull/147614))
-- [Intel GPU] Add SDPA implementation on XPU with OneDNN ([#147612](https://github.com/pytorch/pytorch/pull/147612))
-- [CD] Enable Triton XPU Windows build ([#147637](https://github.com/pytorch/pytorch/pull/147637))
-- [CD] Enable profiling for XPU Windows nightly wheels ([#144316](https://github.com/pytorch/pytorch/pull/144316))
-- [XPU] Enable FSDP2 on XPU device ([#143737](https://github.com/pytorch/pytorch/pull/143737))
+- Add AOT Inductor support for Intel GPU ([#140269](https://github.com/pytorch/pytorch/pull/140269), [#140664](https://github.com/pytorch/pytorch/pull/140664))
+- Optimize SDPA Inference Performance for XPU ([#147614](https://github.com/pytorch/pytorch/pull/147614), [#147612](https://github.com/pytorch/pytorch/pull/147612))
+- Support `torch.compile` on Windows Platform for XPU ([#147637](https://github.com/pytorch/pytorch/pull/147637), [#144316](https://github.com/pytorch/pytorch/pull/144316))
 - [XPU] Support SYCL with `torch.utils.cpp_extension` APIs ([#132945](https://github.com/pytorch/pytorch/pull/132945))
 
 ### Improvements
-- [Intel GPU] Enable BUILD_GRAPH for xpu_mkldnn ([#147608](https://github.com/pytorch/pytorch/pull/147608))
 - [Intel GPU] Enable FP64 GEMM ([#140677](https://github.com/pytorch/pytorch/pull/140677))
 - [Intel GPU] allow_tf32 for oneDNN backend - XPU part ([#137570](https://github.com/pytorch/pytorch/pull/137570))
 - [Intel GPU] Support SparseCsrXPU codegen ([#144722](https://github.com/pytorch/pytorch/pull/144722))
-- [XPU] Add get_stream_from_external API for XPU backend ([#141123](https://github.com/pytorch/pytorch/pull/141123))
+- [XPU] Add the API to get Stream from external libraries for XPU backend ([#141123](https://github.com/pytorch/pytorch/pull/141123))
 - [XPU] Add low priority XPU Stream ([#141119](https://github.com/pytorch/pytorch/pull/141119))
 - [XPU] Enable XPU for Inductor MM Triton Kernel Benchmark ([#148237](https://github.com/pytorch/pytorch/pull/148237))
 - [Intel GPU] Decompose Intel GPU oneDNN from other backends ([#147926](https://github.com/pytorch/pytorch/pull/147926))
 - [Intel GPU] Avoid including CPU oneDNN header files for Intel GPU ([#147969](https://github.com/pytorch/pytorch/pull/147969))
 - [Intel GPU] Align XPU convolution_backward output layout between fake tensor and real output tensor ([#146880](https://github.com/pytorch/pytorch/pull/146880))
 - [XPU] Improve error handling and reporting in CMake files ([#149353](https://github.com/pytorch/pytorch/pull/149353))
-- [XPU] Update filter out of DG2 AOT target ([#148677](https://github.com/pytorch/pytorch/pull/148677))
 - [XPU] Refine XPU oneDNN context manager API ([#147349](https://github.com/pytorch/pytorch/pull/147349))
 - [XPU] Refine XPU external Stream ([#142347](https://github.com/pytorch/pytorch/pull/142347))
 - [XPU] Refine torch.xpu.get_device_properties API error message ([#144379](https://github.com/pytorch/pytorch/pull/144379))
 - [Intel GPU] Add XPU device to nested_layer_norm ([#148593](https://github.com/pytorch/pytorch/pull/148593))
 - [XPU] Generalize `is_big_gpu()` check in Inductor ([#143491](https://github.com/pytorch/pytorch/pull/143491))
-- [XPU] Allow coalescing path on XPU and dispatch to XPU tensor barrier if XCCL backend is specified ([#143735](https://github.com/pytorch/pytorch/pull/143735))
 
 ### Bug Fixes
 - [Intel GPU] Fix SDPA dummy LSE output to match meta function ([#148652](https://github.com/pytorch/pytorch/pull/148652))
 - [Intel GPU] Fix memory leak in deconv backward ([#144385](https://github.com/pytorch/pytorch/pull/144385))
 - [Intel GPU] Fix bug: use zero-point to decide conv src zp mask ([#149473](https://github.com/pytorch/pytorch/pull/149473))
-- [XPU] Fix `TRITON_XPU_BUILD_FROM_SOURCE` ([#142850](https://github.com/pytorch/pytorch/pull/142850))
 - [XPU] Fix issue #143489 in torch.utils._content_store hash storage ([#147785](https://github.com/pytorch/pytorch/pull/147785))
 - [XPU] Fix Inductor UT failures introduced from community ([#146762](https://github.com/pytorch/pytorch/pull/146762))
 - [XPU] Fix broken XPU CI introduced by community changes ([#145058](https://github.com/pytorch/pytorch/pull/145058))
@@ -71,6 +63,7 @@ The categories below are as follows:
 - [XPU] Fix missing `model_container_runner_xpu.cpp` in `libtorch_xpu.so` ([#149175](https://github.com/pytorch/pytorch/pull/149175))
 
 ### Performance
+- [Intel GPU] Optimize SDPA Inference Performance for XPU ([#147614](https://github.com/pytorch/pytorch/pull/147614), [#147612](https://github.com/pytorch/pytorch/pull/147612))
 - [Intel GPU] Improve zero-point memory creation ([#148640](https://github.com/pytorch/pytorch/pull/148640))
 - [Intel GPU] Optimize qlinear.pointwise with mixed dtype support ([#136753](https://github.com/pytorch/pytorch/pull/136753))
 - [Intel GPU] Optimize qconv.pointwise with mixed dtype XPU support ([#135465](https://github.com/pytorch/pytorch/pull/135465))
