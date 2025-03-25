@@ -57,6 +57,9 @@ The categories below are as follows:
   - Enabled sharding prop to handle cross mesh computation ([#147869](https://github.com/pytorch/pytorch/pull/147869))
   - Added CuDNN SDPA op support to DTensor ([#148537](https://github.com/pytorch/pytorch/pull/148537))
   - Optimized `shard_dim_alltoall` to use `alltoall_single` ([#148868](https://github.com/pytorch/pytorch/pull/148868))
+  - deprecate _shard_tensor to use src_data_rank=None ([#144171](https://github.com/pytorch/pytorch/pull/144171))
+  - Add pointwise ops strategy for `aten.minimum` ([#145816](https://github.com/pytorch/pytorch/pull/145816))
+
 - FullyShardedDataParallel2 (FSDP2)
   - Clamp `reduce_dtype` in lazy init ([#143297](https://github.com/pytorch/pytorch/pull/143297))
   - Enabled FSDP2 on XPU device ([#143737](https://github.com/pytorch/pytorch/pull/143737))
@@ -94,6 +97,9 @@ The categories below are as follows:
 - DTensor
   - Fixed `torch.distributed._functional_collectives.AsyncCollectiveTensor` for `aten.to`. ([#134661](https://github.com/pytorch/pytorch/pull/134661))
   - Deferred DTensor RNG state sync until first random op call or manual_seed call to support more flexible OffsetBasedRNGTracker init ([#147025](https://github.com/pytorch/pytorch/pull/147025))
+  - Fix _scaled_dot_product_flash_attention sharding ([#148125](https://github.com/pytorch/pytorch/pull/148125))
+  - Fix redistribution cost for all-reduce ([#148761](https://github.com/pytorch/pytorch/pull/148761))
+
 - FullyShardedDataParallel2 (FSDP2)
   - Rooted fix for FP8 tensor ([#143248](https://github.com/pytorch/pytorch/pull/143248))
   - Added workaround to fix `buffer_dtype` without root parameters ([#143989](https://github.com/pytorch/pytorch/pull/143989))
@@ -135,6 +141,8 @@ The categories below are as follows:
   - Caught c10 error and log message inside monitoring thread ([#145413](https://github.com/pytorch/pytorch/pull/145413))
   - Added an API to get the status/error code at the PG level ([#144498](https://github.com/pytorch/pytorch/pull/144498))
   - Moved record param for init to the right place ([#148571](https://github.com/pytorch/pytorch/pull/148571))
+  - Tests Generelization for multiple accelerator devices ([#139749](https://github.com/pytorch/pytorch/pull/139749))
+
 - FullyShardedDataParallel2 (FSDP2)
   - Enabled the typing of `fully_shard` so that the return value can be chained with typing enabled ([#147489](https://github.com/pytorch/pytorch/pull/147489))
 - TensorParallel
@@ -161,7 +169,6 @@ The categories below are as follows:
 - Remove unnecessary once flag usage ([#143255](https://github.com/pytorch/pytorch/pull/143255))
 - Drop unused num_elements variable ([#144723](https://github.com/pytorch/pytorch/pull/144723))
 - Avoid running helper functions as test ([#144544](https://github.com/pytorch/pytorch/pull/144544))
-- [dtensor] deprecate _shard_tensor to use src_data_rank=None ([#144171](https://github.com/pytorch/pytorch/pull/144171))
 - [PTD] Dump rcclexp proxy trace in pytorch ([#143678](https://github.com/pytorch/pytorch/pull/143678))
 - Enable more C++ warnings ([#143099](https://github.com/pytorch/pytorch/pull/143099))
 - [PGNCCL] Move NCCLComm impl to cpp ([#142826](https://github.com/pytorch/pytorch/pull/142826))
@@ -206,7 +213,6 @@ The categories below are as follows:
 - remove allow-untyped-defs from torch/distributed/_shard/sharded_tensor/shard.py ([#144623](https://github.com/pytorch/pytorch/pull/144623))
 - remove allow-untyped-defs from torch/distributed/checkpoint/api.py ([#144653](https://github.com/pytorch/pytorch/pull/144653))
 - ROCm: Skip tests in elastic/utils/distributed_test ([#144692](https://github.com/pytorch/pytorch/pull/144692))
-- Tests Generelization for multiple accelerator devices ([#139749](https://github.com/pytorch/pytorch/pull/139749))
 - [Pipelining] Refactor common utils from test_pp_dp ([#144596](https://github.com/pytorch/pytorch/pull/144596))
 - [Pipelining] fix test_schedule.py (missing destroy_process_group ([#144734](https://github.com/pytorch/pytorch/pull/144734))
 - XFAIL test_save_load_checkpoint ([#144927](https://github.com/pytorch/pytorch/pull/144927))
@@ -230,7 +236,6 @@ The categories below are as follows:
 - Remove det_singular OpInfo ([#145533](https://github.com/pytorch/pytorch/pull/145533))
 - functional compiled autograd ([#144707](https://github.com/pytorch/pytorch/pull/144707))
 - Updates NCCL user buffer registration test for NCCL 2.24.3 ([#145285](https://github.com/pytorch/pytorch/pull/145285))
-- [DTensor] Add pointwise ops strategy for `aten.minimum` ([#145816](https://github.com/pytorch/pytorch/pull/145816))
 - [OSS] Add no dist as an argument to DCP top level apis ([#145754](https://github.com/pytorch/pytorch/pull/145754))
 - [PGNCCL] Correct some ifdef's ([#145893](https://github.com/pytorch/pytorch/pull/145893))
 - [async-TP] Fix scheduling in matmul+reduce-scatter for 2 ranks ([#145846](https://github.com/pytorch/pytorch/pull/145846))
@@ -265,12 +270,10 @@ The categories below are as follows:
 - [BE][Ez]: Remove extra copy in dtensor parallel loss ([#148096](https://github.com/pytorch/pytorch/pull/148096))
 - [BE][PYFMT] migrate PYFMT for `torch.{distributed,distributions}` to `ruff format` ([#144547](https://github.com/pytorch/pytorch/pull/144547))
 - Build a storage reader/writer to write checkpoints in HF format ([#148089](https://github.com/pytorch/pytorch/pull/148089))
-- [dtensor][fix] fix _scaled_dot_product_flash_attention sharding ([#148125](https://github.com/pytorch/pytorch/pull/148125))
 - [DTensor][Test] Add a test to demonstrate current dtensor view behavior if redistribution happens ([#148015](https://github.com/pytorch/pytorch/pull/148015))
 - HSDP custom hook UTs are multi-threaded - can't set device rank ([#148099](https://github.com/pytorch/pytorch/pull/148099))
 - [Dyamo] Replace unimplemented with unimplemented_v2 for variables/distributed ([#148500](https://github.com/pytorch/pytorch/pull/148500))
 - [CUDA Graphs][NCCL] Set event queries to happen under thread-local mode in `ProcessGroupNCCL.cpp` ([#148594](https://github.com/pytorch/pytorch/pull/148594))
-- Fix redistribution cost for all-reduce ([#148761](https://github.com/pytorch/pytorch/pull/148761))
 - Skip distributed subprocess test internally as they don't work ([#148909](https://github.com/pytorch/pytorch/pull/148909))
 - Fix DCP link ([#148974](https://github.com/pytorch/pytorch/pull/148974))
 ### security
