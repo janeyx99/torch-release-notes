@@ -30,6 +30,21 @@ The categories below are as follows:
 ### deprecation
 ### new features
 ### improvements
+- Introduce a new API isAcceleratorExcluded ([#144959](https://github.com/pytorch/pytorch/pull/144959))
+- Support libtorch-agnostic extensions with stable torch ABI ([#148892](https://github.com/pytorch/pytorch/pull/148892), [#148832](https://github.com/pytorch/pytorch/pull/148832), [#148124](https://github.com/pytorch/pytorch/pull/148124))
+### bug fixes
+- Fix Apple Clang ICE when building with -march=armv8.6a ([#142879](https://github.com/pytorch/pytorch/pull/142879))
+- Fix inductor regression on aarch64 neoverse-v1 with gcc10.2 by disabling tree vectorization ([#148489](https://github.com/pytorch/pytorch/pull/148489))
+### performance
+### docs
+### devs
+### Untopiced
+### not user facing
+- [codemod] Fix a few unused-variable issues in pytorch ([#143517](https://github.com/pytorch/pytorch/pull/143517))
+- [rpc] Fix unit test after c10::nullopt removal ([#143690](https://github.com/pytorch/pytorch/pull/143690))
+- [codemod] Remove unused-variable in caffe2/aten/src/ATen/native/quantized/cpu/fbgemm_utils.cpp +1 ([#144783](https://github.com/pytorch/pytorch/pull/144783))
+- [codemod] Fix unused-value issue in caffe2/aten/src/ATen/cuda/detail/CUDAHooks.cpp +4 ([#147555](https://github.com/pytorch/pytorch/pull/147555))
+- [codemod] Remove unused-variable in caffe2/torch/csrc/distributed/c10d/cuda/AsyncMM.cu ([#148501](https://github.com/pytorch/pytorch/pull/148501))
 - c10::optional -> std::optional ([#142514](https://github.com/pytorch/pytorch/pull/142514))
 - c10::string_view -> std::string_view in more places ([#142517](https://github.com/pytorch/pytorch/pull/142517))
 - Disable c10::optional macros ([#138912](https://github.com/pytorch/pytorch/pull/138912))
@@ -37,13 +52,6 @@ The categories below are as follows:
 - Fix issue with setAttribute and int8_t vs int32_t variables ([#143693](https://github.com/pytorch/pytorch/pull/143693))
 - c10::string_view -> std::string_view in Device.cpp ([#144178](https://github.com/pytorch/pytorch/pull/144178))
 - c10::optional -> std::optional in a few places ([#144340](https://github.com/pytorch/pytorch/pull/144340))
-### bug fixes
-- Fix Apple Clang ICE when building with -march=armv8.6a ([#142879](https://github.com/pytorch/pytorch/pull/142879))
-- Disable some SVE autovec  ([#148489](https://github.com/pytorch/pytorch/pull/148489))
-### performance
-### docs
-### devs
-### Untopiced
 - [4/N] Apply bugprone-unchecked-optional-access  ([#142832](https://github.com/pytorch/pytorch/pull/142832))
 - Fix old-compiler-unfriendly zero init of bfloat16_t array ([#143504](https://github.com/pytorch/pytorch/pull/143504))
 - Enable more readability-redundant checks ([#143963](https://github.com/pytorch/pytorch/pull/143963))
@@ -51,16 +59,7 @@ The categories below are as follows:
 - [18/N] Fix extra warnings brought by clang-tidy-17 ([#144014](https://github.com/pytorch/pytorch/pull/144014))
 - [19/N] Fix extra warnings brought by clang-tidy-17 ([#144448](https://github.com/pytorch/pytorch/pull/144448))
 - Enable bugprone-unchecked-optional-access ([#144226](https://github.com/pytorch/pytorch/pull/144226))
-- Remove C10_EMBEDDED ([#144808](https://github.com/pytorch/pytorch/pull/144808))
-- Fix erroneous at_vreinterpretq_u16_bf16 call ([#144883](https://github.com/pytorch/pytorch/pull/144883))
-- Introduce a new API isAcceleratorExcluded ([#144959](https://github.com/pytorch/pytorch/pull/144959))
 - [2/N] Remove NOLINT suppressions ([#146402](https://github.com/pytorch/pytorch/pull/146402))
-- Introduce TORCH_ABI_VERSION and a runtime aoti_torch_abi_version C shim ABI ([#148892](https://github.com/pytorch/pytorch/pull/148892))
-- Add shim.h C API to call dispatcher on our own aten ops ([#148832](https://github.com/pytorch/pytorch/pull/148832))
-### not user facing
-- [codemod] Fix a few unused-variable issues in pytorch ([#143517](https://github.com/pytorch/pytorch/pull/143517))
-- [rpc] Fix unit test after c10::nullopt removal ([#143690](https://github.com/pytorch/pytorch/pull/143690))
-- [codemod] Remove unused-variable in caffe2/aten/src/ATen/native/quantized/cpu/fbgemm_utils.cpp +1 ([#144783](https://github.com/pytorch/pytorch/pull/144783))
-- [codemod] Fix unused-value issue in caffe2/aten/src/ATen/cuda/detail/CUDAHooks.cpp +4 ([#147555](https://github.com/pytorch/pytorch/pull/147555))
-- [codemod] Remove unused-variable in caffe2/torch/csrc/distributed/c10d/cuda/AsyncMM.cu ([#148501](https://github.com/pytorch/pytorch/pull/148501))
+- Fix erroneous at_vreinterpretq_u16_bf16 call ([#144883](https://github.com/pytorch/pytorch/pull/144883))
+- Remove C10_EMBEDDED ([#144808](https://github.com/pytorch/pytorch/pull/144808))
 ### security
