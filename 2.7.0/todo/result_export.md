@@ -29,8 +29,11 @@ The categories below are as follows:
 ### bc breaking
 ### deprecation
 ### new features
+- Support module inputs for non strict mode. (#143925)
 ### improvements
 ### bug fixes
+- Fix non-strict pre_dispatch exporting while_loop (#145762)
+- Fix constants with non-functional operators (#145593)
 ### performance
 ### docs
 ### devs

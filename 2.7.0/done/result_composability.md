@@ -65,6 +65,13 @@ We made many improvements and bugfixes to dynamic shapes in torch.compile
 * dynamic shape support for `interpolate(antialias=True)` backward (#141198)
 * Better unbacked symint handling in the partitioner (#143877)
 * Support dynamic shape inputs to `nonzer_static` (#146006)
+* Improve logging in the symbolic shapes framework (provenance tracking, error messages) (#143378, #146625, #146583, #146532, #145354, #146858, #146939, #146955, #147240,#146413m  #145848, #147836, #146298)
+* Simplify and speed up _compute_symbolic_stride() (#138844)
+* Add max kwarg to torch._check (#144471)
+* Apply hints to symbol not expr when materializing unbacked tensor intermediates in the partitioner (#144097)
+* Add backed_size_oblivious config (#148696)
+* Add mark_unbacked strict mode (#147333, #147342)
+
 
 ### bug fixes
 ### performance
@@ -84,4 +91,9 @@ We made many improvements and bugfixes to dynamic shapes in torch.compile
 - [opcheck] Improve error reporting; allow atol/rtol overrides ([#146488](https://github.com/pytorch/pytorch/pull/146488))
 - Back out "Fix undesired specialization on slice after split. (#142372)" ([#143356](https://github.com/pytorch/pytorch/pull/143356))
 - Update decompositions_for_jvp.py ([#148821](https://github.com/pytorch/pytorch/pull/148821))
+- Refactor _create_symbolic_sizes_strides_storage_offset (#138843)
+- Don't overspecialize float when propagating cache guards to ShapeEnv (#145078)
+- Unconditionally exclude upper bound in all size oblivious tests (#144867)
+- Propagate unbacked hint when creating mod replacement (#146381)
+- Introduce dynamism library (#147981)
 ### security
