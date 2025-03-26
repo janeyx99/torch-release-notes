@@ -39,9 +39,11 @@ The categories below are as follows:
 ### bug fixes
 - TunableOp use thread-safe getenv functions (#142274)
 - fix torch.layer_norm invalid configuration problem when input is large tensor (#144007)
+- [Inductor][CK] hackfix for segfault in addmm op (#144519)
 ### performance
 - Improve backwards indexing when stride is not one (#147630)
 - Improvements for vectorized elementwise kernels (#143269)
+- Skip L1 cache for single-use buffers in tl.load (#143115)
 - Improve performance of reduce sum for 3D shapes (#143137)
 - Enable `_load_dwordx4` ISA for BFloat16 and Half (#141397)
 - Improve reduce sum calculation for low CU count (#141378)
