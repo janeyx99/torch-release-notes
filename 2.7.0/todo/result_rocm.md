@@ -37,7 +37,7 @@ The categories below are as follows:
 ### bug fixes
 - TunableOp use thread-safe getenv functions (#142274)
 ### performance
-??? - Improve backwards indexing when stride is not one (#147630)
+- Improve backwards indexing when stride is not one (#147630)
 ### docs
 ### devs
 ### Untopiced
