@@ -66,11 +66,11 @@ We made many improvements and bugfixes to dynamic shapes in torch.compile
 * Better unbacked symint handling in the partitioner (#143877)
 * Support dynamic shape inputs to `nonzer_static` (#146006)
 * Improve logging in the symbolic shapes framework (provenance tracking, error messages) (#143378, #146625, #146583, #146532, #145354, #146858, #146939, #146955, #147240,#146413m  #145848, #147836, #146298)
-* Simplify and speed up _compute_symbolic_stride() (#138844)
-* Add max kwarg to torch._check (#144471)
+* Simplify and speed up `_compute_symbolic_stride()` (#138844)
+* Add max kwarg to `torch._check` (#144471)
 * Apply hints to symbol not expr when materializing unbacked tensor intermediates in the partitioner (#144097)
-* Add backed_size_oblivious config (#148696)
-* Add mark_unbacked strict mode (#147333, #147342)
+* Add `backed_size_oblivious` config (#148696)
+* Add `mark_unbacked` strict mode (#147333, #147342)
 
 
 ### bug fixes

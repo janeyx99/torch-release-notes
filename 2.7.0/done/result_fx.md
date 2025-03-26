@@ -34,7 +34,7 @@ The categories below are as follows:
 - Improve error message to include entire GraphModule (#146197, #148090)
 - Allow overriding of ShapeProp (#148784)
 ### bug fixes
-- Fix get_source_partitions when weights are tied (#142446)
+- Fix `get_source_partitions` when weights are tied (#142446)
 - Prevent DCE of ATen rng nodes (#144319)
 - Fix incorrect type comparison (#145449)
 - Fix DCE of setitem node (#145714)
@@ -52,7 +52,7 @@ The categories below are as follows:
 ### devs
 - Downgrade some logs (#147538, #145075)
 - Refactor immutable collections implementation (#144640)
-- Make fx.node.map_arg() and .map_aggregate() generic (#146248)
+- Make `fx.node.map_arg()` and `.map_aggregate()` generic (#146248)
 ### Untopiced
 
 
