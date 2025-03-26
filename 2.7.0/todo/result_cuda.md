@@ -47,7 +47,7 @@ The categories below are as follows:
 - `Int64` indexing fix for `UpSampleNearest3D` ([#144865](https://github.com/pytorch/pytorch/pull/144865))
 - Fix printing of the number of GPUs when certain asserts are raised ([#146838](https://github.com/pytorch/pytorch/pull/146838))
 - Update the number of threads in `avg_pool2d` backward for SM 10.0 to prevent runtime crash ([#145669](https://github.com/pytorch/pytorch/pull/145669))
-- Only use `f8f8bf16` rowwise scaled matmul to SM 9.0 (preceeds's #148421 adding of kernel) ([#145728](https://github.com/pytorch/pytorch/pull/145728))
+- Only use `f8f8bf16` rowwise scaled matmul to SM 9.0 (precedes #148421 adding of kernel) ([#145728](https://github.com/pytorch/pytorch/pull/145728))
 ### performance
 - Add option to limit number of SMs used by matmul kernels ([#144974](https://github.com/pytorch/pytorch/pull/144974))
 - Add option to limit number of SMs used by matmul kernels ([#147966](https://github.com/pytorch/pytorch/pull/147966))
