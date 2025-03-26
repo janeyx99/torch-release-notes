@@ -42,10 +42,10 @@ The categories below are as follows:
 - Enable Sparse CSR support ([#144722](https://github.com/pytorch/pytorch/pull/144722))
 - Improve XPU Stream implemenation([#141123](https://github.com/pytorch/pytorch/pull/141123),[#141119](https://github.com/pytorch/pytorch/pull/141119),[#142347](https://github.com/pytorch/pytorch/pull/142347))
 - Enable XPU for Inductor MM Triton Kernel Benchmark ([#148237](https://github.com/pytorch/pytorch/pull/148237))
-- Align XPU convolution_backward output layout between fake tensor and real output tensor ([#146880](https://github.com/pytorch/pytorch/pull/146880))
+- Align XPU `convolution_backward` output layout between fake tensor and real output tensor ([#146880](https://github.com/pytorch/pytorch/pull/146880))
 - Improve error handling and reporting in CMake files ([#149353](https://github.com/pytorch/pytorch/pull/149353))
-- Refine torch.xpu.get_device_properties API error message ([#144379](https://github.com/pytorch/pytorch/pull/144379))
-- Enable nested_layer_norm support for XPU ([#148593](https://github.com/pytorch/pytorch/pull/148593))
+- Refine `torch.xpu.get_device_properties` API error message ([#144379](https://github.com/pytorch/pytorch/pull/144379))
+- Enable `nested_layer_norm` support for XPU ([#148593](https://github.com/pytorch/pytorch/pull/148593))
 - Generalize `is_big_gpu()` check in Inductor ([#143491](https://github.com/pytorch/pytorch/pull/143491))
 
 ### Bug Fixes
