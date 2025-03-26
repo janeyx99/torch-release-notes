@@ -30,14 +30,21 @@ The categories below are as follows:
 ### deprecation
 ### new features
 - CK Memory-Efficient Attention (attention bias support) (#147778)
-- Enhanced Windows support for PyTorch on ROCm (#148563)
+- CK Flash Attention Backend (#143695)
+- Enhanced Windows support for PyTorch on ROCm (#148563, #144098)
 - Support for gfx1102 arch (Navi33) in wheel builds (#147761)
+- hipblaslt rowwise f8 gemm (#144432)
 ### improvements
 - Fix TunableOp UTs: Rotating Buffer (#143172)
 ### bug fixes
 - TunableOp use thread-safe getenv functions (#142274)
+- fix torch.layer_norm invalid configuration problem when input is large tensor (#144007)
 ### performance
 - Improve backwards indexing when stride is not one (#147630)
+- Improvements for vectorized elementwise kernels (#143269)
+- Improve performance of reduce sum for 3D shapes (#143137)
+- Enable `_load_dwordx4` ISA for BFloat16 and Half (#141397)
+- Improve reduce sum calculation for low CU count (#141378)
 ### docs
 ### devs
 ### Untopiced
