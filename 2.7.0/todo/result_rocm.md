@@ -29,15 +29,17 @@ The categories below are as follows:
 ### bc breaking
 ### deprecation
 ### new features
+- CK Memory-Efficient Attention (attention bias support) (#147778)
+- Enhanced Windows support for PyTorch on ROCm (#148563)
+- Support for gfx1102 arch (Navi33) in wheel builds (#147761)
 ### improvements
+- Fix TunableOp UTs: Rotating Buffer (#143172)
 ### bug fixes
+- TunableOp use thread-safe getenv functions (#142274)
 ### performance
+??? - Improve backwards indexing when stride is not one (#147630)
 ### docs
 ### devs
 ### Untopiced
-- [ROCm] Improve backwards indexing when stride is not one ([#147630](https://github.com/pytorch/pytorch/pull/147630))
-- [ROCm] TunableOp use thread-safe getenv functions ([#142274](https://github.com/pytorch/pytorch/pull/142274))
-- [ROCm] Fix TunableOp UTs: Rotating Buffer ([#143172](https://github.com/pytorch/pytorch/pull/143172))
-- [ROCm] Fix unit test: matmul_offline_mgpu_tunableop ([#143507](https://github.com/pytorch/pytorch/pull/143507))
 ### not user facing
 ### security
