@@ -26,6 +26,9 @@ Handle any commits that actually do belong to your domain and remove them from t
 
 - Improve KleidiAI 4 bit kernel performance (#146476)
 
+- Use structure binding ([#144524](https://github.com/pytorch/pytorch/pull/144524))
+
+
 ## python_frontend
 - Add warning to torch.jit.load ([#143403](https://github.com/pytorch/pytorch/pull/143403))
 - Make record/storage alignment in torch.save configurable ([#147788](https://github.com/pytorch/pytorch/pull/147788))
