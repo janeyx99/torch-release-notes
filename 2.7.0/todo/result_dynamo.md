@@ -29,7 +29,7 @@ The categories below are as follows:
 ### bc breaking
 ### deprecation
 - Dropped support for Python < 3.9 (#147097)
-
+- Compiled Autograd dropped annotation requirements for custom autograd functions (#146229, #146720)
 ### new features
 - Support tracing `contextlib.contextmanager` in Dynamo (#136033)
 - `nonstrict_trace` escape hatch to apply non-strict tracing to difficult-to-compile code (#146367)
@@ -50,7 +50,8 @@ The categories below are as follows:
 ### bug fixes
 - Guard on global autocast state (#143592)
 - Fix some internal crashes involving undefined names (#144784)
-
+- Multiple silent incorrectness fixes for Compiled Autograd (#144707)
+- Fix graph break in FlexAttention when using Compiled Autograd (#144533)
 
 ### performance
 - Implement dynamic shape guards in C++ (#139899)
