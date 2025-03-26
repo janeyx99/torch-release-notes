@@ -28,25 +28,55 @@ The categories below are as follows:
 
 ### bc breaking
 
-- Set `USE_EXPERIMENTAL_LOGIC` to True (#137296)
+#### `torch.onnx.dynamo_export` now uses the ExportedProgram logic path (#137296)
+
+Users using the `torch.onnx.dynamo_export` API may see some `ExportOptions` become
+unsupported due to an internal switch to use `torch.onnx.export(..., dynamo=True)`.
+
+Users should move to use the `dynamo=True` option on `torch.onnx.export` as
+`torch.onnx.dynamo_export` is now deprecated.
+
+Version 2.6
+
+```py
+torch.onnx.dynamo_export(model, *args, **kwargs)
+```
+
+Version 2.7
+
+```py
+torch.onnx.export(model, args, kwargs=kwargs, dynamo=True)
+```
 
 ### deprecation
 
-- Create deprecation warning on `dynamo_export` (#146003)
-- Create deprecation warning on `dynamo_export` (#146425)
-- Adjust and add deprecation messages (#146639)
+#### `torch.onnx.dynamo_export` is deprecated (#146425, #146639, #146923)
+
+Users should use the `dynamo=True` option on `torch.onnx.export`.
+
+Version 2.6
+
+```py
+torch.onnx.dynamo_export(model, *args, **kwargs)
+```
+
+Version 2.7
+
+```py
+torch.onnx.export(model, args, kwargs=kwargs, dynamo=True)
+```
 
 ### new features
 
 - Support custom axis name through `dynamic_shapes` (#146321)
+- `torch.onnx.export(dynamo=True)` now optimizes the output model by default (#146187)
 
 ### improvements
 
+- Dynamic shapes support is improved (#144801)
 - Automatically convert `dynamic_axes` to `dynamic_shapes` with `torch.export.Dim.AUTO` (#143158)
 - Fix bug for exporting `torch.cdist` into onnx and support 'compute_mode' (#144213)
-- Use `python_dispatcher` in type promotion (#144801)
 - Remove `LegacyDynamoStrategy` (#145442)
-- `torch.onnx.export(dynamo=True)` changes optimization to default (#146187)
 - Set warning stacklevel so it appears at the `torch.onnx` call site (#147165)
 - Pick up missing types in `dynamic_shapes` renaming (#147407)
 - Update saved exported program in debugging report if the exporting passes `run_decomposition()` (#148617)
@@ -71,8 +101,6 @@ The categories below are as follows:
 ### devs
 
 ### Untopiced
-
-- Create deprecation warning on `dynamo_export` (#146923)
 
 ### not user facing
 
