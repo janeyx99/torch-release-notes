@@ -22,15 +22,15 @@ class MyPrintObserver(GraphTransformObserver):
  - Support fusion of pointwise ops into Template Prologs. Setting `TORCHINDUCTOR_PROLOGUE_FUSION` enables this feature ([#147008](https://github.com/pytorch/pytorch/pull/147008)).
  - Add instantiation level for generating configs in the CUTLASS backend. Set `TORCHINDUCTOR_CUTLASS_INSTANTIATION_LEVEL`. See config docstring for information ([#146230](https://github.com/pytorch/pytorch/pull/146230)).
  - Add L2 Swizzle config for CUTLASS backend: `cuda.cutlass_max_profiling_swizzle_options` ([#146088](https://github.com/pytorch/pytorch/pull/146088)).
+ - Enable non power-of-2 `head_dim` for FlexAttention ([#133495](https://github.com/pytorch/pytorch/pull/133495)).
+ - Add FlexAttention kernel parameter tuning options: `num_warps` and `num_stages` ([#139639](https://github.com/pytorch/pytorch/pull/139639)).
  - Support vectorization for score and mask in FlexAttention CPU ([#143638](https://github.com/pytorch/pytorch/pull/143638)).
  - Emit a CMakeLists.txt when package_cpp_only is specified in AOTI ([#143352](https://github.com/pytorch/pytorch/pull/143352)).
  - One Dynamo graph can now map to multiple inductor graphs with different `graph_partition` functions. Set the `graph_partition` in inductor config to enable ([#147038](https://github.com/pytorch/pytorch/pull/147038)).
 ### improvements
 
- - Add profiling support for codegened CPU Flex attention kernels ([#145894](https://github.com/pytorch/pytorch/pull/145894)).
- - Add FlexAttention kernel parameter tuning options ([#139639](https://github.com/pytorch/pytorch/pull/139639)).
- - Enable non power of 2 head_dim for FlexAttention ([#133495](https://github.com/pytorch/pytorch/pull/133495)).
- - Other FlexAttention improvements ([#147765](https://github.com/pytorch/pytorch/pull/147765)) ([#147435](https://github.com/pytorch/pytorch/pull/147435)) ([#147010](https://github.com/pytorch/pytorch/pull/147010)) ([#146657](https://github.com/pytorch/pytorch/pull/146657)) ([#145059](https://github.com/pytorch/pytorch/pull/145059)) ([#144938](https://github.com/pytorch/pytorch/pull/144938)) ([#143299](https://github.com/pytorch/pytorch/pull/143299)) ([#142281](https://github.com/pytorch/pytorch/pull/142281)) ([#147918](https://github.com/pytorch/pytorch/pull/147918)) ([#148857](https://github.com/pytorch/pytorch/pull/148857))
+ - Add profiling support for codegened CPU FlexAttention kernels ([#145894](https://github.com/pytorch/pytorch/pull/145894)).
+ - Other FlexAttention improvements: ([#147765](https://github.com/pytorch/pytorch/pull/147765)) ([#147435](https://github.com/pytorch/pytorch/pull/147435)) ([#147010](https://github.com/pytorch/pytorch/pull/147010)) ([#146657](https://github.com/pytorch/pytorch/pull/146657)) ([#145059](https://github.com/pytorch/pytorch/pull/145059)) ([#144938](https://github.com/pytorch/pytorch/pull/144938)) ([#143299](https://github.com/pytorch/pytorch/pull/143299)) ([#142281](https://github.com/pytorch/pytorch/pull/142281)) ([#147918](https://github.com/pytorch/pytorch/pull/147918)) ([#148857](https://github.com/pytorch/pytorch/pull/148857)).
  - Add Inductor support for non-power-of-2 cooperative RSPLIT ([#145689](https://github.com/pytorch/pytorch/pull/145689)).
  - Add Cutlass support for runtime param choices, starting with `swizzle` ([#147223](https://github.com/pytorch/pytorch/pull/147223)).
  - Make Inductor cpp backend enable_floating_point_contract_flag take string. Previously, the only options were "on" or "off". Now the value of `INDUCTOR_CPP_ENABLE_FLOATING_POINT_CONTRACT_FLAG` will be passed to `ffp-contract` ([#143450](https://github.com/pytorch/pytorch/pull/143450)).
