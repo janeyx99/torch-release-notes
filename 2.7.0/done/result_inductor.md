@@ -1,7 +1,20 @@
 ## inductor
 ### bc breaking
  - New interface for `GraphTransformObserver` to enable Node Level provenance tracking. We now track a mapping between the nodes in the pre_grad and post_grad graph. See the issue for an example frontend to visalize the transformations. To update your `GraphTransformObserver` subclasses, instead of overriding `on_node_creation` and `on_node_erase`, there are new functions `get_node_creation_hook`, `get_node_erase_hook`, `get_node_replace_hook` and `get_deepcopy_hook`. These are registered on the `GraphModule` member of the `GraphTransformObserver` upon entry and exit of a with block ([#144277](https://github.com/pytorch/pytorch/pull/144277)).
-- Rename `use_absolute_path` to `use_relative_path` in AOTI. This reflects the option's true purpose: compile a cpp file using its basename instead of the its full path ([#147805](https://github.com/pytorch/pytorch/pull/147805)).
+Before:
+```python
+class MyPrintObserver(GraphTransformObserver):
+    def on_node_creation(self, node: torch.fx.Node):
+        print(node)
+```
+After:
+```python
+class MyPrintObserver(GraphTransformObserver):
+    def get_node_creation_hook(self) -> Callable[[torch.fx.Node], None]:
+        def hook(node: torch.fx.Node):
+            print(node)
+        return hook
+```
 ### deprecations
  - Drop support for Triton versions without ASTSource (around Triton version 2.2.0) ([#143817](https://github.com/pytorch/pytorch/pull/143817)).
 ### new features
