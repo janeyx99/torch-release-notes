@@ -1,5 +1,5 @@
 
-# Release Notes worksheet nested tensor_frontend
+# Release Notes worksheet dynamo
 
 The main goal of this process is to rephrase all the commit messages below to make them **clear and easy to read** by the end user. You should follow the following instructions to do so:
 
@@ -25,25 +25,49 @@ The categories below are as follows:
 * Developers: All commits that are not end-user facing but still impact people that compile from source, develop into pytorch, extend pytorch, etc
 * not user facing: All commits that are not public end-user facing and hence should be dropped from the release notes
 
-## nested tensor_frontend
+## dynamo
 ### bc breaking
 ### deprecation
+- Dropped support for Python < 3.9 (#147097)
+- Compiled Autograd dropped annotation requirements for custom autograd functions (#146229, #146720)
 ### new features
+- Support tracing `contextlib.contextmanager` in Dynamo (#136033)
+- `nonstrict_trace` escape hatch to apply non-strict tracing to difficult-to-compile code (#146367)
+- Delayed compile for dynamic shapes (#147983)
+- Support tracing generators (#141055)
+- Whitelist of source files to apply dynamic shapes to (#147979)
+- Support tracing `list` subclasses (#146819)
+
+
 ### improvements
-- Support NJT chunk() backward on batch dim ([#144584](https://github.com/pytorch/pytorch/pull/144584))
-- Support remaining *_like factory functions for NJT ([#144889](https://github.com/pytorch/pytorch/pull/144889))
+- Better tracing support for user-defined `dict` subclasses (#143548)
+- Improved graph break messages for some common graph break sites (#146525)
+- Improved tracing of exceptions (#146492)
+- Remove a number of builtin and third-party modules from `trace_rules.py` skipfiles (#145856)
+- Remove some specialized variables for specific third-party classes (e.g. `transformers` `ModelOutput`) (#143567)
+
+
 ### bug fixes
-- Fix NJT min / max backward() for non-ragged reductions ([#144583](https://github.com/pytorch/pytorch/pull/144583))
-- Fix NJT frexp() to handle both outputs ([#144585](https://github.com/pytorch/pytorch/pull/144585))
-- Fix NJT fill.Scalar for contiguous inputs ([#144586](https://github.com/pytorch/pytorch/pull/144586))
-- Implement backward for NJT matmul ([#144587](https://github.com/pytorch/pytorch/pull/144587))
-- Small improvements to NJT matrix multiplies ([#146405](https://github.com/pytorch/pytorch/pull/146405))
-- [NJT] Fix inference mode for composite implicit ops without nested-specific kernel ([#146633](https://github.com/pytorch/pytorch/pull/146633))
-- [NJT] fix flop counter for SDPA & test ([#147032](https://github.com/pytorch/pytorch/pull/147032))
+- Guard on global autocast state (#143592)
+- Fix some internal crashes involving undefined names (#144784)
+- Multiple silent incorrectness fixes for Compiled Autograd (#144707)
+- Fix graph break in FlexAttention when using Compiled Autograd (#144533)
+
 ### performance
+- Implement dynamic shape guards in C++ (#139899)
+- Directly access Python frame locals in guard checks (#140063)
+- Misc. Dynamo tracing time improvements (#143066)
+
+
 ### docs
-- Update OSS nested tensor docs to focus on NJT ([#145402](https://github.com/pytorch/pytorch/pull/145402))
+- Remove the suggestion to use `suppress_errors` on compiler error (#146553)
+- Automatically generated Dynamo docs (#146736)
+
 ### devs
+- New internal graph break API that enforces better error messages (#146525)
+- Replace internal calls to `torch._dynamo.optimize()` with `torch.compile()` (#142451)
+
+
 ### Untopiced
 ### not user facing
 ### security
