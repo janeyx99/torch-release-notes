@@ -1,5 +1,5 @@
 
-# Release Notes worksheet nested tensor_frontend
+# Release Notes worksheet fx
 
 The main goal of this process is to rephrase all the commit messages below to make them **clear and easy to read** by the end user. You should follow the following instructions to do so:
 
@@ -25,25 +25,56 @@ The categories below are as follows:
 * Developers: All commits that are not end-user facing but still impact people that compile from source, develop into pytorch, extend pytorch, etc
 * not user facing: All commits that are not public end-user facing and hence should be dropped from the release notes
 
-## nested tensor_frontend
+## fx
 ### bc breaking
 ### deprecation
 ### new features
 ### improvements
-- Support NJT chunk() backward on batch dim ([#144584](https://github.com/pytorch/pytorch/pull/144584))
-- Support remaining *_like factory functions for NJT ([#144889](https://github.com/pytorch/pytorch/pull/144889))
+- Fix subgraph rewriter to support matched pattern with no users (#143842)
+- Improve error message to include entire GraphModule (#146197, #148090)
+- Allow overriding of ShapeProp (#148784)
 ### bug fixes
-- Fix NJT min / max backward() for non-ragged reductions ([#144583](https://github.com/pytorch/pytorch/pull/144583))
-- Fix NJT frexp() to handle both outputs ([#144585](https://github.com/pytorch/pytorch/pull/144585))
-- Fix NJT fill.Scalar for contiguous inputs ([#144586](https://github.com/pytorch/pytorch/pull/144586))
-- Implement backward for NJT matmul ([#144587](https://github.com/pytorch/pytorch/pull/144587))
-- Small improvements to NJT matrix multiplies ([#146405](https://github.com/pytorch/pytorch/pull/146405))
-- [NJT] Fix inference mode for composite implicit ops without nested-specific kernel ([#146633](https://github.com/pytorch/pytorch/pull/146633))
-- [NJT] fix flop counter for SDPA & test ([#147032](https://github.com/pytorch/pytorch/pull/147032))
+- Fix `get_source_partitions` when weights are tied (#142446)
+- Prevent DCE of ATen rng nodes (#144319)
+- Fix incorrect type comparison (#145449)
+- Fix DCE of setitem node (#145714)
+- Fix pytree.register_constant to be usable in export (#147533)
+- Fix edge case in translation validation bisector (#145414)
 ### performance
+- Micro-optimization in `Graph.nodes.__iter__` (#144631)
+- Micro-optimization in `map_aggregate(immutable_dict)` (#147691)
+- Move DCE rand check to import time (#145118)
 ### docs
-- Update OSS nested tensor docs to focus on NJT ([#145402](https://github.com/pytorch/pytorch/pull/145402))
+- Improve logging for splitter (#143771)
+- Update literal typing for torch/fx/graph nodelist (#144650)
+- Improve typing for torch/fx/_pytree.py and torch/utils/_pytree.py (#145173)
+- Fix minor mistake in docstring of replace_pattern (#147611)
 ### devs
+- Downgrade some logs (#147538, #145075)
+- Refactor immutable collections implementation (#144640)
+- Make `fx.node.map_arg()` and `.map_aggregate()` generic (#146248)
 ### Untopiced
+
+
+
+
 ### not user facing
+- Use custom stream logger in draft-export (#146533, #146534, #148231)
+- Avoid using unbacked_renamings in export (#147574)
+- Fix AttrProxy slicing (#148507)
+- Add files to uninteresting_files (#142984, #143209)
+- Remove allow-untyped-defs for files (#143439, #143602, #143868)
+- Don't 1 specialize if stride is contiguous (#143365)
+- Unbacked SymInt fixes for subclasses + data-dependent slice() bounds (#143526, #142062)
+- Add logging for tensorify (#143391)
+- Detect fake mode in proxy_tensor creation in make_fx (#144168)
+- Fix deepcopy hooks (#144531)
+- Make a SymbolInfo NamedTuple (#144745)
+- PEP585 update of torch/fx (#145166)
+- Allow replacing unbacked with very large upperbound by returning no-op for FloorToInt(int) (#146001)
+- Add node mapping processing (#146103)
+- Support size oblivious max equation (#147344)
+- Improve type annotations in _inductor/pattern_matcher.py (#146626)
+- Add self to CODEOWNERS for fx/proxy.py; warn against adding new node arg types (#147031)
+
 ### security

@@ -1,5 +1,5 @@
 
-# Release Notes worksheet xpu
+# Release Notes worksheet nested tensor_frontend
 
 The main goal of this process is to rephrase all the commit messages below to make them **clear and easy to read** by the end user. You should follow the following instructions to do so:
 
@@ -25,29 +25,24 @@ The categories below are as follows:
 * Developers: All commits that are not end-user facing but still impact people that compile from source, develop into pytorch, extend pytorch, etc
 * not user facing: All commits that are not public end-user facing and hence should be dropped from the release notes
 
-## xpu
+## nested tensor_frontend
 ### bc breaking
 ### deprecation
 ### new features
 ### improvements
-- Fix torch.accelerator api abort when passing invaild device ([#143550](https://github.com/pytorch/pytorch/pull/143550))
+- Support NJT chunk() backward on batch dim ([#144584](https://github.com/pytorch/pytorch/pull/144584))
+- Support remaining *_like factory functions for NJT ([#144889](https://github.com/pytorch/pytorch/pull/144889))
+- Improve matmul with NJTs via backward support and composition with dense tensors ([#144587](https://github.com/pytorch/pytorch/pull/144587), [#146405](https://github.com/pytorch/pytorch/pull/146405))
 ### bug fixes
+- Fix NJT min / max backward() for non-ragged reductions ([#144583](https://github.com/pytorch/pytorch/pull/144583))
+- Fix NJT frexp() to handle both outputs ([#144585](https://github.com/pytorch/pytorch/pull/144585))
+- Fix NJT fill.Scalar for contiguous inputs ([#144586](https://github.com/pytorch/pytorch/pull/144586))
+- Fix inference mode for composite implicit ops without nested-specific kernel ([#146633](https://github.com/pytorch/pytorch/pull/146633))
+- Fix flop counter for SDPA and test ([#147032](https://github.com/pytorch/pytorch/pull/147032))
 ### performance
 ### docs
+- Update OSS nested tensor docs to focus on NJT ([#145402](https://github.com/pytorch/pytorch/pull/145402))
 ### devs
 ### Untopiced
-- Refine XPU external Stream ([#142347](https://github.com/pytorch/pytorch/pull/142347))
-- Add low priority XPU Stream ([#141119](https://github.com/pytorch/pytorch/pull/141119))
-- Add get_stream_from_external API for XPU backend ([#141123](https://github.com/pytorch/pytorch/pull/141123))
-- Friendly handle mem_get_info's runtime error message ([#146899](https://github.com/pytorch/pytorch/pull/146899))
-- [Intel GPU] fix memory leak in deconv backward ([#144385](https://github.com/pytorch/pytorch/pull/144385))
-- [Intel GPU] allow_tf32 for oneDNN backend - XPU part ([#137570](https://github.com/pytorch/pytorch/pull/137570))
-- [Intel GPU] Enable fp64 GEMM ([#140677](https://github.com/pytorch/pytorch/pull/140677))
-- doc/xpu: align description of SyclExtension with CPP/CUDA ([#147988](https://github.com/pytorch/pytorch/pull/147988))
-- Use oneDNN v3.7.1 for Intel GPU ([#148403](https://github.com/pytorch/pytorch/pull/148403))
 ### not user facing
-- Refine torch.xpu.get_device_properties API error message ([#144379](https://github.com/pytorch/pytorch/pull/144379))
-- Filter out iGPU if dGPU is found on XPU ([#144378](https://github.com/pytorch/pytorch/pull/144378))
-- Add XPU to is_compile_supported to support roi_align op in torchvision ([#147541](https://github.com/pytorch/pytorch/pull/147541))
-- xpu: torch.xpu.get_arch_list() to return [] if xpu not compiled ([#147431](https://github.com/pytorch/pytorch/pull/147431))
 ### security
