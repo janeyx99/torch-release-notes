@@ -27,11 +27,11 @@ class MyPrintObserver(GraphTransformObserver):
  - Enable non power-of-2 `head_dim` for FlexAttention ([#133495](https://github.com/pytorch/pytorch/pull/133495)).
  - Add FlexAttention kernel parameter tuning options: `num_warps` and `num_stages` ([#139639](https://github.com/pytorch/pytorch/pull/139639)).
  - Support vectorization for score and mask in FlexAttention CPU ([#143638](https://github.com/pytorch/pytorch/pull/143638)).
- - Config Fuzzer: a new debugging tool designed to fuzz Torch compile configurations. Given a test function, it will identify combinations of configs that throw errors during compilation and execution ([#139736](https://github.com/pytorch/pytorch/pull/139736)) ([#145565](https://github.com/pytorch/pytorch/pull/145565)).
- - Support fusion of pointwise ops into Template Prologs. Setting `TORCHINDUCTOR_PROLOGUE_FUSION` enables this feature ([#147008](https://github.com/pytorch/pytorch/pull/147008)).
- - Add instantiation level for generating configs in the CUTLASS backend. Set `TORCHINDUCTOR_CUTLASS_INSTANTIATION_LEVEL`. See config docstring for information ([#146230](https://github.com/pytorch/pytorch/pull/146230)).
+ - `ConfigFuzzer`: a new debugging tool designed to fuzz Torch compile configurations. Given a test function, it will identify combinations of configs that throw errors during compilation and execution ([#139736](https://github.com/pytorch/pytorch/pull/139736)) ([#145565](https://github.com/pytorch/pytorch/pull/145565)).
+ - Support fusion of pointwise ops into Template Prologs. `TORCHINDUCTOR_PROLOGUE_FUSION` enables this feature ([#147008](https://github.com/pytorch/pytorch/pull/147008)).
+ - Add instantiation level for generating configs in the CUTLASS backend. Set `TORCHINDUCTOR_CUTLASS_INSTANTIATION_LEVEL`. Consult config.py for information ([#146230](https://github.com/pytorch/pytorch/pull/146230)).
  - Add L2 Swizzle config for CUTLASS backend: `cuda.cutlass_max_profiling_swizzle_options` ([#146088](https://github.com/pytorch/pytorch/pull/146088)).
- - Emit a CMakeLists.txt when package_cpp_only is specified in AOTI ([#143352](https://github.com/pytorch/pytorch/pull/143352)).
+ - Emit a CMakeLists.txt when `package_cpp_only` is specified in AOTI ([#143352](https://github.com/pytorch/pytorch/pull/143352)).
  - One Dynamo graph can now map to multiple inductor graphs with different `graph_partition` functions. Set the `graph_partition` in inductor config to enable ([#147038](https://github.com/pytorch/pytorch/pull/147038)).
 
 ### improvements
