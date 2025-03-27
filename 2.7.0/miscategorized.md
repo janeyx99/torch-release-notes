@@ -26,15 +26,10 @@ Handle any commits that actually do belong to your domain and remove them from t
 
 - Improve KleidiAI 4 bit kernel performance (#146476)
 
-- cpp_wrapper: enable in aarch64 and x86 nightly dashboard performance runs ([#145791](https://github.com/pytorch/pytorch/pull/145791))
-- cpp_wrapper: fix set_.source_Tensor lowering ([#145654](https://github.com/pytorch/pytorch/pull/145654))
-- cpp_wrapper: enable all CPU repro tests ([#145655](https://github.com/pytorch/pytorch/pull/145655))
-- cpp_wrapper: handle mixed-device C-shim fallbacks ([#146449](https://github.com/pytorch/pytorch/pull/146449))
-- cpp_wrapper: fix CPU cpp_wrapper and max-autotune tests ([#145683](https://github.com/pytorch/pytorch/pull/145683))
+- Fix block pointer test module for triton CPU and add to CI ([#144474](https://github.com/pytorch/pytorch/pull/144474))
+- Relax aten.to restriction ([#142420](https://github.com/pytorch/pytorch/pull/142420))
 - Update fuzzer guidance to include rng ([#145962](https://github.com/pytorch/pytorch/pull/145962))
 - Update to remind users to use torch.compile template ([#145960](https://github.com/pytorch/pytorch/pull/145960))
-- ir.ExternKernel: correctly handle kwarg default arguments ([#141371](https://github.com/pytorch/pytorch/pull/141371))
-- cpp_wrapper: Use runtime dispatched fallbacks for complex ops ([#143223](https://github.com/pytorch/pytorch/pull/143223))
 - [reland] Kill capture_pre_autograd_graph API ([#143426](https://github.com/pytorch/pytorch/pull/143426))
 - parallelize sort ([#142391](https://github.com/pytorch/pytorch/pull/142391))
 
