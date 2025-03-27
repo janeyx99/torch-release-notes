@@ -72,7 +72,6 @@ torch.onnx.export(model, args, kwargs=kwargs, dynamo=True)
 
 A new verification API `torch.onnx.verification.verify_onnx_program` can now be used to verify numerical accuracy of the exported ONNX model. Users can use the `compare_intermediates` option to identify any operator that causes numerical discrepancies in intermediate tensors. It is possible to use a tool like [model-explorer](https://github.com/justinchuby/model-explorer-onnx) to visualize the verification results.
 
-- Handle error in `verification_interpreter` (#148730)
 - Support custom axis name through `dynamic_shapes` (#146321)
 - `torch.onnx.export(dynamo=True)` now optimizes the output model by default (#146187)
 
