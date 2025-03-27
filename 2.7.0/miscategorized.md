@@ -29,3 +29,15 @@ Handle any commits that actually do belong to your domain and remove them from t
 ## python_frontend
 - Add warning to torch.jit.load ([#143403](https://github.com/pytorch/pytorch/pull/143403))
 - Make record/storage alignment in torch.save configurable ([#147788](https://github.com/pytorch/pytorch/pull/147788))
+
+## autograd
+- Add determinmistic kernel for `reflection_pad2d_backward` ([#136241](https://github.com/pytorch/pytorch/pull/136241))
+- Fix boundary conditions for hardswish backward ([#143899](https://github.com/pytorch/pytorch/pull/143899))
+- [pytorch][cuda] Improve softmax backward pass native CUDA implementation ([#145866](https://github.com/pytorch/pytorch/pull/145866))
+- Use float data type for Half sum in fallback implementation of batchnorm backward on CPU ([#147353](https://github.com/pytorch/pytorch/pull/147353))
+
+## cuda
+- Fix 64-bit indexing for Upsample2D on CUDA ([#141923](https://github.com/pytorch/pytorch/pull/141923))
+
+## ROCm
+- Fix torch.layer_norm invalid configuration on RoCM when input is large tensor ([#144007](https://github.com/pytorch/pytorch/pull/144007))

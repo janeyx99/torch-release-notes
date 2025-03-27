@@ -30,32 +30,27 @@ The categories below are as follows:
 ### deprecation
 ### new features
 ### improvements
-- Add strict kwarg to `nn.Module.set_submodule` and fix bug for non dot delineated strings ([#143455](https://github.com/pytorch/pytorch/pull/143455))
+- Add `strict` kwarg to `nn.Module.set_submodule` and fix bug for non dot-delineated strings ([#143455](https://github.com/pytorch/pytorch/pull/143455))
+- Improve input dimensions check for `reflection_pad1d`, `reflection_pad2d` and `reflection_pad3d` ([#141670](https://github.com/pytorch/pytorch/pull/141670))
 ### bug fixes
 - Fix broken meta function for flex-attention backwards ([#146563](https://github.com/pytorch/pytorch/pull/146563))
 ### performance
 ### docs
-- torch/nn/modules/linear.py: docs: improvements ([#138484](https://github.com/pytorch/pytorch/pull/138484))
+- Add clarification for target types in `CrossEntropyLoss` doc ([#145444](https://github.com/pytorch/pytorch/pull/145444))
 ### devs
 ### Untopiced
-- [ROCm] fix torch.layer_norm invalid configuration problem when input is large tensor ([#144007](https://github.com/pytorch/pytorch/pull/144007))
-- [5/N] Apply Ruff fixes and pyupgrade to Python 3.9 ([#144205](https://github.com/pytorch/pytorch/pull/144205))
-- [ROCm] hipblaslt rowwise f8 gemm ([#144432](https://github.com/pytorch/pytorch/pull/144432))
-- [inductor triton] Disable incorrect TF32 usage on CUDA capability < 8 ([#145684](https://github.com/pytorch/pytorch/pull/145684))
-- Add determinmistic kernel for reflection2d ([#136241](https://github.com/pytorch/pytorch/pull/136241))
-- [ROCm] miopen benchmark behavior now better aligns with cudnn ([#145294](https://github.com/pytorch/pytorch/pull/145294))
-- [pytorch][cuda] Improve softmax backward pass native CUDA implementation ([#145866](https://github.com/pytorch/pytorch/pull/145866))
-- Generalize mixed precision in DDP ([#146808](https://github.com/pytorch/pytorch/pull/146808))
-- Use float data type for Half sum in fallback implementation of batchnorm backward on CPU ([#147353](https://github.com/pytorch/pytorch/pull/147353))
 ### not user facing
-- Improve input dimensions check for reflection_pad1d, reflection_pad2d and reflection_pad3d ([#141670](https://github.com/pytorch/pytorch/pull/141670))
-- [64-bit][CUDA] Upsample2D 64-bit indexing fix attempt 2 ([#141923](https://github.com/pytorch/pytorch/pull/141923))
 - [CUDA] Check `size` calculation in `ilpReduce` for `softmax` ([#144009](https://github.com/pytorch/pytorch/pull/144009))
 - [CUDA][TF32] Add some missing TF32 decorators to `test_nn.py` ([#144592](https://github.com/pytorch/pytorch/pull/144592))
-- Fix boundary conditions for hardswish backward ([#143899](https://github.com/pytorch/pytorch/pull/143899))
 - [Easy] Replace paper description with link to make a concise description. ([#145031](https://github.com/pytorch/pytorch/pull/145031))
-- [Docs] Add clarification for target types in CrossEntropyLoss doc ([#145444](https://github.com/pytorch/pytorch/pull/145444))
 - Fix torch.nn.functional.one_hot param num_classes optional description ([#146470](https://github.com/pytorch/pytorch/pull/146470))
 - Optimize param `prepend` class reference `torch.nn.Module` ([#148304](https://github.com/pytorch/pytorch/pull/148304))
 - Fix rms_norm in fp16/bf16 ([#147203](https://github.com/pytorch/pytorch/pull/147203))
+- torch/nn/modules/linear.py: docs: improvements ([#138484](https://github.com/pytorch/pytorch/pull/138484))
+- [5/N] Apply Ruff fixes and pyupgrade to Python 3.9 ([#144205](https://github.com/pytorch/pytorch/pull/144205))
+- [ROCm] hipblaslt rowwise f8 gemm ([#144432](https://github.com/pytorch/pytorch/pull/144432))
+- [inductor triton] Disable incorrect TF32 usage on CUDA capability < 8 ([#145684](https://github.com/pytorch/pytorch/pull/145684))
+- [ROCm] miopen benchmark behavior now better aligns with cudnn ([#145294](https://github.com/pytorch/pytorch/pull/145294))
+- Generalize mixed precision in DDP ([#146808](https://github.com/pytorch/pytorch/pull/146808))
+
 ### security
