@@ -29,14 +29,13 @@ The categories below are as follows:
 ### bc breaking
 ### deprecation
 ### new features
-- [DCP] Cache save plans: planner helpers and interface updates ([#147116](https://github.com/pytorch/pytorch/pull/147116))
-- [DCP] Cache save plans in default planner ([#147343](https://github.com/pytorch/pytorch/pull/147343))
+- Cache save plans: to mitigate overhead from planning steps ([#147116](https://github.com/pytorch/pytorch/pull/147116), [#147343](https://github.com/pytorch/pytorch/pull/147343))
 - Build a storage reader/writer to write checkpoints in HF format ([#148089](https://github.com/pytorch/pytorch/pull/148089))
 ### improvements
 ### bug fixes
-- [DCP] fix dcp gather_object/scatter_object_list ([#147675](https://github.com/pytorch/pytorch/pull/147675))
+- fix dcp gather_object/scatter_object_list ([#147675](https://github.com/pytorch/pytorch/pull/147675))
 ### performance
-- [DCP] Introduce process based async checkpointing ([#147039](https://github.com/pytorch/pytorch/pull/147039))
+- Introduce process based async checkpointing ([#147039](https://github.com/pytorch/pytorch/pull/147039))
 ### docs
 ### devs
 ### Untopiced
