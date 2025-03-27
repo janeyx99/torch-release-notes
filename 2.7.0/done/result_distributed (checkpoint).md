@@ -29,21 +29,23 @@ The categories below are as follows:
 ### bc breaking
 ### deprecation
 ### new features
+- Cache save plans: to mitigate overhead from planning steps ([#147116](https://github.com/pytorch/pytorch/pull/147116), [#147343](https://github.com/pytorch/pytorch/pull/147343))
+- Build a storage reader/writer to write checkpoints in HF format ([#148089](https://github.com/pytorch/pytorch/pull/148089))
 ### improvements
 ### bug fixes
+- fix dcp gather_object/scatter_object_list ([#147675](https://github.com/pytorch/pytorch/pull/147675))
 ### performance
+- Introduce process based async checkpointing ([#147039](https://github.com/pytorch/pytorch/pull/147039))
 ### docs
 ### devs
 ### Untopiced
 ### not user facing
 - Fix staging for CPU tensors in OSS DCP async_save (881eb86692a)
 - [DCP] Remove all-gather of state dict keys ([#145998](https://github.com/pytorch/pytorch/pull/145998))
-- [DCP] Save Plan Caching: Fix the missing all_plans update in the cache. ([#148577](https://github.com/pytorch/pytorch/pull/148577))
 - [dcp] Add extension mechanism ([#143358](https://github.com/pytorch/pytorch/pull/143358))
 - [dcp] Integrate stream extensions into DCP impl ([#143359](https://github.com/pytorch/pytorch/pull/143359))
 - [Torch][#142396]Resolve Failure When Uploading To Remote Storage ([#143046](https://github.com/pytorch/pytorch/pull/143046))
 - Use Python 3.9 typing ([#148157](https://github.com/pytorch/pytorch/pull/148157))
-- [DCP] Introduce process based async checkpointing ([#147039](https://github.com/pytorch/pytorch/pull/147039))
 - Add new hf storage class  to torch.distributed package ([#148361](https://github.com/pytorch/pytorch/pull/148361))
-- [DCP] fix dcp gather_object/scatter_object_list ([#147675](https://github.com/pytorch/pytorch/pull/147675))
+- [DCP] Save Plan Caching: Fix the missing all_plans update in the cache. ([#148577](https://github.com/pytorch/pytorch/pull/148577))
 ### security
