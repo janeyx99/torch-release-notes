@@ -24,8 +24,8 @@ class MyPrintObserver(GraphTransformObserver):
 
 ### new features
 
- - Config Fuzzer: This is a new debugging tool designed to fuzz Torch compile configurations. Given a test function, it will identify combinations of configs that throw errors during compilation and execution ([#139736](https://github.com/pytorch/pytorch/pull/139736)) ([#145565](https://github.com/pytorch/pytorch/pull/145565)).
  - Support fusion of pointwise ops into Template Prologs. Setting `TORCHINDUCTOR_PROLOGUE_FUSION` enables this feature ([#147008](https://github.com/pytorch/pytorch/pull/147008)).
+ - Config Fuzzer: a new debugging tool designed to fuzz Torch compile configurations. Given a test function, it will identify combinations of configs that throw errors during compilation and execution ([#139736](https://github.com/pytorch/pytorch/pull/139736)) ([#145565](https://github.com/pytorch/pytorch/pull/145565)).
  - Add instantiation level for generating configs in the CUTLASS backend. Set `TORCHINDUCTOR_CUTLASS_INSTANTIATION_LEVEL`. See config docstring for information ([#146230](https://github.com/pytorch/pytorch/pull/146230)).
  - Add L2 Swizzle config for CUTLASS backend: `cuda.cutlass_max_profiling_swizzle_options` ([#146088](https://github.com/pytorch/pytorch/pull/146088)).
  - Enable non power-of-2 `head_dim` for FlexAttention ([#133495](https://github.com/pytorch/pytorch/pull/133495)).
