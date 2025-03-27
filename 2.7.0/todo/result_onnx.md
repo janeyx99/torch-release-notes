@@ -31,10 +31,10 @@ The categories below are as follows:
 #### `torch.onnx.dynamo_export` now uses the ExportedProgram logic path (#137296)
 
 Users using the `torch.onnx.dynamo_export` API may see some `ExportOptions` become
-unsupported due to an internal switch to use `torch.onnx.export(..., dynamo=True)`.
+unsupported due to an internal switch to use `torch.onnx.export(..., dynamo=True)`: `diagnostic_options`, `fake_context` and `onnx_registry` are removed/ignored by `ExportOptions`. Only `dynamic_shapes` is retained.
 
 Users should move to use the `dynamo=True` option on `torch.onnx.export` as
-`torch.onnx.dynamo_export` is now deprecated.
+`torch.onnx.dynamo_export` is now deprecated. Leverage the [`dynamic_shapes`](https://pytorch.org/docs/stable/export.html#torch.export.export) argument in `torch.onnx.export` for specifying dynamic shapes on the model.
 
 Version 2.6
 
@@ -68,6 +68,11 @@ torch.onnx.export(model, args, kwargs=kwargs, dynamo=True)
 
 ### new features
 
+### `torch.onnx.verification.verify_onnx_program` (#148396, #148706, #148730, #148707)
+
+A new verification API `torch.onnx.verification.verify_onnx_program` can now be used to verify numerical accuracy of the exported ONNX model. Users can use the `compare_intermediates` option to identify any operator that causes numerical discrepancies in intermediate tensors. It is possible to use a tool like [model-explorer](https://github.com/justinchuby/model-explorer-onnx) to visualize the verification results.
+
+- Handle error in `verification_interpreter` (#148730)
 - Support custom axis name through `dynamic_shapes` (#146321)
 - `torch.onnx.export(dynamo=True)` now optimizes the output model by default (#146187)
 
@@ -118,11 +123,8 @@ torch.onnx.export(model, args, kwargs=kwargs, dynamo=True)
 - Refactor dispatcher and registry (#147396)
 - Add scaffolding for onnx decomp and logic for op tests (#147392)
 - Update ruff linter for PEP585 (#147540)
-- Create `VerificationInterpreter` (#148396)
 - Use `onnxscript` apis for 2.7 (#148453)
 - Assert capture strategy in tests (#148348)
-- Improve `verify_onnx_program` to use `VerificationInterpreter` (#148706)
-- Handle error in `verification_interpreter` (#148730)
 - Remove inaccurate test comment (#148813)
 
 ### security
