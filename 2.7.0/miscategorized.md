@@ -12,7 +12,7 @@ Handle any commits that actually do belong to your domain and remove them from t
 - [TorchRec][PT2] disable contextlib in PT2 train pipeline (85ea6798342)
 - [ROCm] CK SDPA - Move arch check to CK patch ([#144777](https://github.com/pytorch/pytorch/pull/144777))
 - [Reland][Environment Variable][4/N] Use thread-safe getenv functions ([#140593](https://github.com/pytorch/pytorch/pull/140593))
-- PEP585: Missed conversions ([#145342](https://github.com/pytorch/pytorch/pull/145342))
+
 - update _unsafe_set_version_counter to accept lists of tensors ([#137921](https://github.com/pytorch/pytorch/pull/137921))
 - [BE][Ez]: ISC001 Auto concatenate implicit one line strings ([#146408](https://github.com/pytorch/pytorch/pull/146408))
 - Update ck ([#144799](https://github.com/pytorch/pytorch/pull/144799))
@@ -25,6 +25,18 @@ Handle any commits that actually do belong to your domain and remove them from t
 - Implement blend operation for float, double, int in VEC ATen backend for SVE (#146479)
 
 - Improve KleidiAI 4 bit kernel performance (#146476)
+
+- cpp_wrapper: enable in aarch64 and x86 nightly dashboard performance runs ([#145791](https://github.com/pytorch/pytorch/pull/145791))
+- cpp_wrapper: fix set_.source_Tensor lowering ([#145654](https://github.com/pytorch/pytorch/pull/145654))
+- cpp_wrapper: enable all CPU repro tests ([#145655](https://github.com/pytorch/pytorch/pull/145655))
+- cpp_wrapper: handle mixed-device C-shim fallbacks ([#146449](https://github.com/pytorch/pytorch/pull/146449))
+- cpp_wrapper: fix CPU cpp_wrapper and max-autotune tests ([#145683](https://github.com/pytorch/pytorch/pull/145683))
+- Update fuzzer guidance to include rng ([#145962](https://github.com/pytorch/pytorch/pull/145962))
+- Update to remind users to use torch.compile template ([#145960](https://github.com/pytorch/pytorch/pull/145960))
+- ir.ExternKernel: correctly handle kwarg default arguments ([#141371](https://github.com/pytorch/pytorch/pull/141371))
+- cpp_wrapper: Use runtime dispatched fallbacks for complex ops ([#143223](https://github.com/pytorch/pytorch/pull/143223))
+- [reland] Kill capture_pre_autograd_graph API ([#143426](https://github.com/pytorch/pytorch/pull/143426))
+- parallelize sort ([#142391](https://github.com/pytorch/pytorch/pull/142391))
 
 ## python_frontend
 - Add warning to torch.jit.load ([#143403](https://github.com/pytorch/pytorch/pull/143403))
