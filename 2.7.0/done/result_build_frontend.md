@@ -17,7 +17,7 @@ The categories below are as follows:
 
 * BC breaking: All commits that are BC-breaking. These are the most important commits. If any pre-sorted commit is actually BC-breaking, do move it to this section. Each commit should contain a paragraph explaining the rational behind the change as well as an example for how to update user code [BC-Guidelines](https://docs.google.com/document/d/14OmgGBr1w6gl1VO47GGGdwrIaUNr92DFhQbY_NEk8mQ/edit#heading=h.a9htwgvvec1m).
 * Deprecations: All commits introducing deprecation. Each commit should include a small example explaining what should be done to update user code.
-* new_features: All commits introducing a new feature (new functions, new submodule, new supported platform etc)
+* new\_features: All commits introducing a new feature (new functions, new submodule, new supported platform etc)
 * improvements: All commits providing improvements to existing feature should be here (new backend for a function, new argument, better numerical stability)
 * bug fixes: All commits that fix bugs and behaviors that do not match the documentation
 * performance: All commits that are added mainly for performance (we separate this from improvements above to make it easier for users to look for it)
@@ -25,26 +25,24 @@ The categories below are as follows:
 * Developers: All commits that are not end-user facing but still impact people that compile from source, develop into pytorch, extend pytorch, etc
 * not user facing: All commits that are not public end-user facing and hence should be dropped from the release notes
 
-## build_frontend
+## build\_frontend
 ### bc breaking
 ### deprecation
 ### new features
 ### improvements
-- [CMake] Find HomeBrew OpenMP on MacOS ([#145870](https://github.com/pytorch/pytorch/pull/145870))
-- [CMake] Find HomeBrew OpenMP on MacOS ([#145870](https://github.com/pytorch/pytorch/pull/145870))
+- Make PyTorch with HomeBrew installed OpenMP ([#145870](https://github.com/pytorch/pytorch/pull/145870))
 - Enable onednn in pytorch for ppc64le architecture ([#143743](https://github.com/pytorch/pytorch/pull/143743))
-- Enable onednn in pytorch for ppc64le architecture ([#143743](https://github.com/pytorch/pytorch/pull/143743))
+- Enable build for Blackwell GPU family ([#145436](https://github.com/pytorch/pytorch/pull/145436))
+- Fix OOM whle building on RasberryPi by sharding codegenerated files ([#144364](https://github.com/pytorch/pytorch/pull/144364))
 ### bug fixes
-- Fix not inlining functions used in metal files ([#146316](https://github.com/pytorch/pytorch/pull/146316))
-- [BE] Use `C10_DIAGNOSTIC_PUSH_AND_IGNORED_IF_DEFINED` ([#148354](https://github.com/pytorch/pytorch/pull/148354))
-- Fix condition for `CONVERT_NON_VECTORIZED_INIT` invocation ([#148362](https://github.com/pytorch/pytorch/pull/148362))
+- Fix unbalanced `#pragma diagnostic pop` in VecLib ([#148354](https://github.com/pytorch/pytorch/pull/148354))
 ### performance
 ### docs
 ### devs
 ### Untopiced
-- torchgen: move dispatch_helpers out of RegisterDispatchDefinitions.ini ([#144363](https://github.com/pytorch/pytorch/pull/144363))
-- Shard RegisterDispatchKey ([#144364](https://github.com/pytorch/pytorch/pull/144364))
-- [NVIDIA] Full Family Blackwell Support codegen ([#145436](https://github.com/pytorch/pytorch/pull/145436))
 ### not user facing
+- torchgen: move dispatch\_helpers out of RegisterDispatchDefinitions.ini ([#144363](https://github.com/pytorch/pytorch/pull/144363))
+- Fix not inlining functions used in metal files ([#146316](https://github.com/pytorch/pytorch/pull/146316))
 - Use c10 version of half/bfloat16 in executorch ([#144111](https://github.com/pytorch/pytorch/pull/144111))
+- Fix condition for `CONVERT_NON_VECTORIZED_INIT` invocation ([#148362](https://github.com/pytorch/pytorch/pull/148362))
 ### security
