@@ -30,11 +30,11 @@ The categories below are as follows:
 ### deprecation
 ### new features
 ### improvements
+- Update cuDNN-frontend submodule to 1.10.0, used by cuDNN convolution and SDPA integrations ([#145780](https://github.com/pytorch/pytorch/pull/145780))
 ### bug fixes
 ### performance
 ### docs
 ### devs
 ### Untopiced
 ### not user facing
-- Update CUDNN frontend submodule to 1.10.0 ([#145780](https://github.com/pytorch/pytorch/pull/145780))
 ### security
