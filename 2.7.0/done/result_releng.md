@@ -2,7 +2,7 @@
 ## releng
 ### bc breaking
 
-- Use Manylinux 2.28 and CXX11_ABI=1 for following all released Linux wheel builds (#143423) (##146200) (#148028) (#148135) (#148195) (#148129)
+- Use Manylinux 2.28 and CXX11_ABI=1 for following all released Linux wheel builds. With Migration to manylinux_2_28 (AlmaLinux 8 based) we would not be able to support OS distros with glibc2_26, these include popular Amazon Linux 2 and CentOS 7. (#143423) (##146200) (#148028) (#148135) (#148195) (#148129)
 
 ### deprecation
 
@@ -33,9 +33,6 @@
 - Add perf testing on H100 (#146868) (#147947)
 
 ### docs
-- Update bug-report.yml to make it not look weird (6b902e6e1ab)
-- Update documentation.yml to request english (1ff8a1c4ebe)
-- Update documentation.yml (9ec8ecea714)
 
 ### devs
 
@@ -48,6 +45,9 @@
 -  Set use-ephemeral runners for windows nightly cpu test jobs (#149001)
 
 ### not user facing - cleanup
+- Update bug-report.yml to make it not look weird (6b902e6e1ab)
+- Update documentation.yml to request english (1ff8a1c4ebe)
+- Update documentation.yml (9ec8ecea714)
 - [CD] Run smoke tests on MacOS wheel ([#143393](https://github.com/pytorch/pytorch/pull/143393))
 - [BE] [CD] Remove pygit2 dep for aarch64_wheel build ([#144716](https://github.com/pytorch/pytorch/pull/144716))
 - [CD] Install OpenMP from homebrew ([#145889](https://github.com/pytorch/pytorch/pull/145889))
