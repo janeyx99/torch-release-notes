@@ -29,15 +29,26 @@ The categories below are as follows:
 ### bc breaking
 ### deprecation
 ### new features
+- CK Memory-Efficient Attention (attention bias support) (#147778)
+- CK Flash Attention Backend (#143695)
+- Enhanced Windows support for PyTorch on ROCm (#148563, #144098)
+- Support for gfx1102 arch (Navi33) in wheel builds (#147761)
+- hipblaslt rowwise f8 gemm (#144432)
 ### improvements
+- Fix TunableOp UTs: Rotating Buffer (#143172)
 ### bug fixes
+- TunableOp use thread-safe getenv functions (#142274)
+- fix torch.layer_norm invalid configuration problem when input is large tensor (#144007)
+- [Inductor][CK] hackfix for segfault in addmm op (#144519)
 ### performance
+- Improve backwards indexing when stride is not one (#147630)
+- Improvements for vectorized elementwise kernels (#143269)
+- Skip L1 cache for single-use buffers in tl.load (#143115)
+- Improve performance of reduce sum for 3D shapes (#143137)
+- Enable `_load_dwordx4` ISA for BFloat16 and Half (#141397)
+- Improve reduce sum calculation for low CU count (#141378)
 ### docs
 ### devs
 ### Untopiced
-- [ROCm] Improve backwards indexing when stride is not one ([#147630](https://github.com/pytorch/pytorch/pull/147630))
-- [ROCm] TunableOp use thread-safe getenv functions ([#142274](https://github.com/pytorch/pytorch/pull/142274))
-- [ROCm] Fix TunableOp UTs: Rotating Buffer ([#143172](https://github.com/pytorch/pytorch/pull/143172))
-- [ROCm] Fix unit test: matmul_offline_mgpu_tunableop ([#143507](https://github.com/pytorch/pytorch/pull/143507))
 ### not user facing
 ### security
