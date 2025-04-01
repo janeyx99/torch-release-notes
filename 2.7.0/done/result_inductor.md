@@ -118,4 +118,4 @@ class MyPrintObserver(GraphTransformObserver):
  - Separate unary post op fusion and lowering for `qlinear` ([#143903](https://github.com/pytorch/pytorch/pull/143903)).
  - New classes to help with kernel memory analysis in heuristics ([#142026](https://github.com/pytorch/pytorch/pull/142026)).
  - Move ir_pre_fusion.txt and ir_post_fusion.txt from `TORCH_COMPILE_DEBUG` to TORCH_LOGS. For example, `TORCH_LOGS="+ir_pre_fusion"` ([#147248](https://github.com/pytorch/pytorch/pull/147248)).
- - Implement deepcopy for AOTICompiledModel ([#145423](https://github.com/pytorch/pytorch/pull/145423))
+ - Implement `deepcopy` for AOTICompiledModel ([#145423](https://github.com/pytorch/pytorch/pull/145423))
