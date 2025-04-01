@@ -47,6 +47,7 @@ This function was always creating the new Tensor on the "cpu" device and will no
 - Add support for serialization for uintx/intx in weights_only ([#147500](https://github.com/pytorch/pytorch/pull/147500))
 - Add warning to `torch.jit.load` ([#143403](https://github.com/pytorch/pytorch/pull/143403))
 - Make record/storage alignment in `torch.save` configurable ([#147788](https://github.com/pytorch/pytorch/pull/147788))
+- Support `with` statement on torch.Stream ([#140138](https://github.com/pytorch/pytorch/pull/140138))
 
 
 ### bug fixes
