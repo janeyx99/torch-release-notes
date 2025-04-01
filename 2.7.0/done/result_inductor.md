@@ -53,7 +53,7 @@ class MyPrintObserver(GraphTransformObserver):
  - Support dynamic shape constraints in Export ([#146044](https://github.com/pytorch/pytorch/pull/146044)).
  - Handle MLIR scf.yield more accurately in user Triton code ([#147762](https://github.com/pytorch/pytorch/pull/147762)).
  - Add a global_scratch arg to support Triton 3.3 ([#148051](https://github.com/pytorch/pytorch/pull/148051)).
- - Removed an unnecessarily struct runtime alignment assertion, allowing more flexible usecases of AOTI ([#143236](https://github.com/pytorch/pytorch/pull/143236)).
+ - Removed an unnecessarily struct runtime alignment assertion, allowing more flexible use cases of AOTI ([#143236](https://github.com/pytorch/pytorch/pull/143236)).
  - Support `_int_mm` in AOTI ([#144571](https://github.com/pytorch/pytorch/pull/144571)).
  - Support AOTI + CUDAGraphs when calling from Python ([#148601](https://github.com/pytorch/pytorch/pull/148601)).
  - New post grad pass to remove `torch.ops.aten._assert_tensor_metadata.default` for AOTI ([#145028](https://github.com/pytorch/pytorch/pull/145028)).
