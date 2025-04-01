@@ -63,7 +63,7 @@ class MyPrintObserver(GraphTransformObserver):
 ### bug fixes
 
  - Fix a bug where the options dictionary on torch.compile calls was ignored ([#145131](https://github.com/pytorch/pytorch/pull/145131)).
- - Inductor now supports nanj in cpp wrapper CPU ([#144064](https://github.com/pytorch/pytorch/pull/144064)).
+ - Inductor now supports `nanj` in cpp wrapper CPU ([#144064](https://github.com/pytorch/pytorch/pull/144064)).
  - Fix a bug in the `fractional_max_pool` lowering in Inductor ([#144395](https://github.com/pytorch/pytorch/pull/144395)).
  - FlexAttention: Fix a few more symbolic shape issues ([#142816](https://github.com/pytorch/pytorch/pull/142816)).
  - Fix a bug in `associative_scan` ([#143048](https://github.com/pytorch/pytorch/pull/143048)).
