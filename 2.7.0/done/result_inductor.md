@@ -72,7 +72,7 @@ class MyPrintObserver(GraphTransformObserver):
  - Fix bug in integer `avg_pool` that was causing 0 rounding ([#144059](https://github.com/pytorch/pytorch/pull/144059)).
  - Change `avg_pool` with `uint` to match eager ([#144313](https://github.com/pytorch/pytorch/pull/144313)).
  - Fix bug in max-autotune on smaller GPUs (<68 SMs) ([#145133](https://github.com/pytorch/pytorch/pull/145133)).
- - Fix bug in torch.logit decomposition ([#145576](https://github.com/pytorch/pytorch/pull/145576)).
+ - Fix bug in `torch.logit` decomposition ([#145576](https://github.com/pytorch/pytorch/pull/145576)).
  - Fix bug in the strides when lowering custom op ([#148367](https://github.com/pytorch/pytorch/pull/148367)).
  - Update triton support to account for changes in AttrsDescriptor ([#145051](https://github.com/pytorch/pytorch/pull/145051)) ([#145348](https://github.com/pytorch/pytorch/pull/145348)) ([#145575](https://github.com/pytorch/pytorch/pull/145575)) ([#145583](https://github.com/pytorch/pytorch/pull/145583)) ([#145515](https://github.com/pytorch/pytorch/pull/145515)).
  - Fix bug where the `benchmark_harness` isn't generated, but is called in some cases ([#145532](https://github.com/pytorch/pytorch/pull/145532)).
