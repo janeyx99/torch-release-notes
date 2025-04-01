@@ -39,7 +39,8 @@ The categories below are as follows:
 ### bug fixes
 - TunableOp use thread-safe getenv functions (#142274)
 - fix torch.layer_norm invalid configuration problem when input is large tensor (#144007)
-- [Inductor][CK] hackfix for segfault in addmm op (#144519)
+- [Inductor][CK] hackfix for segfault in `addmm` op (#144519)
+- Fix `torch.layer_norm` invalid configuration when input is large tensor ([#144007](https://github.com/pytorch/pytorch/pull/144007))
 ### performance
 - Improve backwards indexing when stride is not one (#147630)
 - Improvements for vectorized elementwise kernels (#143269)
@@ -51,4 +52,6 @@ The categories below are as follows:
 ### devs
 ### Untopiced
 ### not user facing
+- Update ck ([#144799](https://github.com/pytorch/pytorch/pull/144799))
+- CK SDPA - Move arch check to CK patch ([#144777](https://github.com/pytorch/pytorch/pull/144777))
 ### security

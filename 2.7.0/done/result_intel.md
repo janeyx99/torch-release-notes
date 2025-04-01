@@ -32,12 +32,17 @@ The categories below are as follows:
 ### improvements
 - Add support for int8 `brgemm` (#143384)
 - Upgrade submodule oneDNN to v3.7.1 (#148293)
+- Implement blend operation for float, double, int in VEC ATen backend for SVE (#146479)
 ### bug fixes
 - Constrain the shape of other tensor for `Conv/Linear` + broadcast `add` fusion (#141759)
 - Use sleef implementation for CPP backend `asinh` codegen (#142360)
 ### performance
 - Set `prop_kind` to `forward_inference` when grad is not needed for `mkldnn_convolution_pointwise` (#142855)
 - Support reduce ops for `add` and `max` (#144065)
+- Simplify vec128 bfloat16/half fmadds (#144486)
+- Parallelize `sort` (#142391)
+- Improve KleidiAI 4 bit kernel performance (#146476)
+
 ### docs
 ### devs
 ### Untopiced
