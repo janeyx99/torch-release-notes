@@ -35,6 +35,5 @@ The categories below are as follows:
 ### docs
 ### devs
 ### Untopiced
-- Simplify vec128 bfloat16/half fmadds ([#144486](https://github.com/pytorch/pytorch/pull/144486))
 ### not user facing
 ### security

@@ -39,6 +39,7 @@ The categories below are as follows:
 - Fix linter warnings ([#147386](https://github.com/pytorch/pytorch/pull/147386))
 - Change behavior of pinning memory so it does not init a cuda context if one is not already present ([#145752](https://github.com/pytorch/pytorch/pull/145752))
 - Add cutlass kernel for rowwise scaled mm on SM 10.0 (blackwell) ([#148421](https://github.com/pytorch/pytorch/pull/148421))
+- Add `get_stream_from_external` API for CUDA backend ([#143799](https://github.com/pytorch/pytorch/pull/143799))
 ### bug fixes
 - Let `PYTORCH_NO_CUDA_MEMORY_CACHING` has effect only when value is 1 ([#145905](https://github.com/pytorch/pytorch/pull/145905))
 - Fix race condition in cuda initialization ([#143238](https://github.com/pytorch/pytorch/pull/143238))
@@ -48,6 +49,7 @@ The categories below are as follows:
 - Fix printing of the number of GPUs when certain asserts are raised ([#146838](https://github.com/pytorch/pytorch/pull/146838))
 - Update the number of threads in `avg_pool2d` backward for SM 10.0 to prevent runtime crash ([#145669](https://github.com/pytorch/pytorch/pull/145669))
 - Only use `f8f8bf16` rowwise scaled matmul to SM 9.0 (precedes #148421 adding of kernel) ([#145728](https://github.com/pytorch/pytorch/pull/145728))
+- Fix 64-bit indexing for `Upsample2D` ([#141923](https://github.com/pytorch/pytorch/pull/141923))
 ### performance
 - Add option to limit number of SMs used by matmul kernels ([#144974](https://github.com/pytorch/pytorch/pull/144974)), ([#147966](https://github.com/pytorch/pytorch/pull/147966))
 - Improve softmax's perf in cuda ([#144679](https://github.com/pytorch/pytorch/pull/144679))
@@ -56,17 +58,7 @@ The categories below are as follows:
 - Correct docs for clock_rate to MHz, fixes #147098 ([#147393](https://github.com/pytorch/pytorch/pull/147393))
 ### devs
 ### Untopiced
-- [ROCm] Improve performance of reduce sum for 3D shapes ([#143137](https://github.com/pytorch/pytorch/pull/143137))
-- [ROCm][NFC] Fix condition for small tensor tuning ([#144087](https://github.com/pytorch/pytorch/pull/144087))
-- [torch] Make amdsmi cdll hook private ([#147207](https://github.com/pytorch/pytorch/pull/147207))
-- Add get_stream_from_external API for CUDA backend ([#143799](https://github.com/pytorch/pytorch/pull/143799))
-- Support with statement on torch.Stream ([#140138](https://github.com/pytorch/pytorch/pull/140138))
 
 ### not user facing
-- [ROCM] Enable *_load_dwordx4 ISA for BFloat16 and Half. ([#141397](https://github.com/pytorch/pytorch/pull/141397))
-- [ROCm] Tune 3d tensor sums when not using fastest dimension ([#146170](https://github.com/pytorch/pytorch/pull/146170))
-- [ROCm][Windows] Fix isnan integer overload errors on MS STL ([#146605](https://github.com/pytorch/pytorch/pull/146605))
-- [cuda] Simplify the sinc function a bit. ([#146774](https://github.com/pytorch/pytorch/pull/146774))
-- [ROCm] Optimize the stride one indexing backwards kernel ([#146420](https://github.com/pytorch/pytorch/pull/146420))
-- [ROCm] Use IPT=8 for block radix sort ([#147657](https://github.com/pytorch/pytorch/pull/147657))
+
 ### security

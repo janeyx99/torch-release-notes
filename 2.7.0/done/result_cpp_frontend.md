@@ -29,9 +29,10 @@ The categories below are as follows:
 ### bc breaking
 ### deprecation
 ### new features
-### improvements
-- Introduce a new API isAcceleratorExcluded ([#144959](https://github.com/pytorch/pytorch/pull/144959))
 - Support libtorch-agnostic extensions with stable torch ABI ([#148892](https://github.com/pytorch/pytorch/pull/148892), [#148832](https://github.com/pytorch/pytorch/pull/148832), [#148124](https://github.com/pytorch/pytorch/pull/148124))
+### improvements
+- Introduce a new API `isAcceleratorExcluded` ([#144959](https://github.com/pytorch/pytorch/pull/144959))
+
 ### bug fixes
 - Fix Apple Clang ICE when building with -march=armv8.6a ([#142879](https://github.com/pytorch/pytorch/pull/142879))
 - Fix inductor regression on aarch64 neoverse-v1 with gcc10.2 by disabling tree vectorization ([#148489](https://github.com/pytorch/pytorch/pull/148489))

@@ -35,8 +35,8 @@ The categories below are as follows:
 ### docs
 ### devs
 ### Untopiced
-- Add HPU to fused kernels supported devices (#148666)
 ### not user facing
 - PEP585 update - torch/_higher_order_ops torch/_subclasses torch/backends torch/compiler torch/cuda torch/masked torch/mtia torch/nested (#145202)
 - PEP585 update - torch/utils (#145201)
+- Add HPU to fused kernels supported devices (#148666)
 ### security

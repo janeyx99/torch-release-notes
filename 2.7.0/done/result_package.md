@@ -30,12 +30,12 @@ The categories below are as follows:
 ### deprecation
 ### new features
 ### improvements
+- Add support for UntypedStorage tensors (#143930)
 ### bug fixes
 ### performance
 ### docs
 ### devs
 ### Untopiced
-- Add support for UntypedStorage tensors (#143930)
 ### not user facing
 - Remove outdated test skipif conditions for Python3.9 ([#146144](https://github.com/pytorch/pytorch/pull/146144))
 ### security

@@ -36,7 +36,6 @@ The categories below are as follows:
 ### docs
 ### devs
 ### Untopiced
-- Allow XPU device in sparse compressed tensor factory functions (#147306)
 
 ### not user facing
 - [CUDA][64-bit indexing] Fix some existing problematic `int64_t _ = blockIdx.* * blockDim.*` code ([#142010](https://github.com/pytorch/pytorch/pull/142010))

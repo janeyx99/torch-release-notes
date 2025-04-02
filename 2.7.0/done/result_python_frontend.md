@@ -45,6 +45,9 @@ This function was always creating the new Tensor on the "cpu" device and will no
 - Add support for CPU scalar in `torch.addcmul` ([#143264](https://github.com/pytorch/pytorch/pull/143264))
 - Set `-DPy_LIMITED_API` flag for `py_limited_api=True` cpp_extensions ([#145764](https://github.com/pytorch/pytorch/pull/145764))
 - Add support for serialization for uintx/intx in weights_only ([#147500](https://github.com/pytorch/pytorch/pull/147500))
+- Add warning to `torch.jit.load` ([#143403](https://github.com/pytorch/pytorch/pull/143403))
+- Make record/storage alignment in `torch.save` configurable ([#147788](https://github.com/pytorch/pytorch/pull/147788))
+- Support `with` statement on torch.Stream ([#140138](https://github.com/pytorch/pytorch/pull/140138))
 
 
 ### bug fixes
@@ -71,10 +74,10 @@ This function was always creating the new Tensor on the "cpu" device and will no
 
 ### devs
 - Collect packages with importlib in collect_env ([#144616](https://github.com/pytorch/pytorch/pull/144616))
+- added `__add__` and `__mul__` hints to `torch.Size` ([#144322](https://github.com/pytorch/pytorch/pull/144322))
 
 
 ### Untopiced
-
 
 ### not user facing
 - Fix potentially undefined behaviour in index_put sample input ([#143116](https://github.com/pytorch/pytorch/pull/143116))

@@ -36,10 +36,15 @@ The categories below are as follows:
 - hipblaslt rowwise f8 gemm (#144432)
 ### improvements
 - Fix TunableOp UTs: Rotating Buffer (#143172)
+- Enable *_load_dwordx4 ISA for BFloat16 and Half. ([#141397](https://github.com/pytorch/pytorch/pull/141397))
+- Fix condition for small tensor tuning ([#144087](https://github.com/pytorch/pytorch/pull/144087))
+
 ### bug fixes
 - TunableOp use thread-safe getenv functions (#142274)
 - fix torch.layer_norm invalid configuration problem when input is large tensor (#144007)
-- [Inductor][CK] hackfix for segfault in addmm op (#144519)
+- [Inductor][CK] hackfix for segfault in `addmm` op (#144519)
+- Fix `torch.layer_norm` invalid configuration when input is large tensor ([#144007](https://github.com/pytorch/pytorch/pull/144007))
+- Fix `isnan` integer overload errors on MicroSoft STL ([#146605](https://github.com/pytorch/pytorch/pull/146605))
 ### performance
 - Improve backwards indexing when stride is not one (#147630)
 - Improvements for vectorized elementwise kernels (#143269)
@@ -47,8 +52,18 @@ The categories below are as follows:
 - Improve performance of reduce sum for 3D shapes (#143137)
 - Enable `_load_dwordx4` ISA for BFloat16 and Half (#141397)
 - Improve reduce sum calculation for low CU count (#141378)
+- Tune 3d tensor sums when not using fastest dimension ([#146170](https://github.com/pytorch/pytorch/pull/146170))
+- Optimize the stride one indexing backwards kernel ([#146420](https://github.com/pytorch/pytorch/pull/146420))
+- Use IPT=8 for block radix sort ([#147657](https://github.com/pytorch/pytorch/pull/147657))
+- Improve performance of reduce sum for 3D shapes ([#143137](https://github.com/pytorch/pytorch/pull/143137))
+
 ### docs
 ### devs
 ### Untopiced
+
 ### not user facing
+- Update ck ([#144799](https://github.com/pytorch/pytorch/pull/144799))
+- CK SDPA - Move arch check to CK patch ([#144777](https://github.com/pytorch/pytorch/pull/144777))
+- Simplify the `sinc` function a bit. ([#146774](https://github.com/pytorch/pytorch/pull/146774))
+- Make amdsmi cdll hook private ([#147207](https://github.com/pytorch/pytorch/pull/147207))
 ### security

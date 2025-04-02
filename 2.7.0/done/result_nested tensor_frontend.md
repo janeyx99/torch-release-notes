@@ -30,13 +30,13 @@ The categories below are as follows:
 ### deprecation
 ### new features
 ### improvements
-- Support NJT chunk() backward on batch dim ([#144584](https://github.com/pytorch/pytorch/pull/144584))
-- Support remaining *_like factory functions for NJT ([#144889](https://github.com/pytorch/pytorch/pull/144889))
-- Improve matmul with NJTs via backward support and composition with dense tensors ([#144587](https://github.com/pytorch/pytorch/pull/144587), [#146405](https://github.com/pytorch/pytorch/pull/146405))
+- Support NJT `chunk()` backward on batch dim ([#144584](https://github.com/pytorch/pytorch/pull/144584))
+- Support remaining `*_like` factory functions for NJT ([#144889](https://github.com/pytorch/pytorch/pull/144889))
+- Improve `matmul` with NJTs via backward support and composition with dense tensors ([#144587](https://github.com/pytorch/pytorch/pull/144587), [#146405](https://github.com/pytorch/pytorch/pull/146405))
 ### bug fixes
-- Fix NJT min / max backward() for non-ragged reductions ([#144583](https://github.com/pytorch/pytorch/pull/144583))
-- Fix NJT frexp() to handle both outputs ([#144585](https://github.com/pytorch/pytorch/pull/144585))
-- Fix NJT fill.Scalar for contiguous inputs ([#144586](https://github.com/pytorch/pytorch/pull/144586))
+- Fix NJT `min` / `max` backward() for non-ragged reductions ([#144583](https://github.com/pytorch/pytorch/pull/144583))
+- Fix NJT `frexp()` to handle both outputs ([#144585](https://github.com/pytorch/pytorch/pull/144585))
+- Fix NJT `fill.Scalar` for contiguous inputs ([#144586](https://github.com/pytorch/pytorch/pull/144586))
 - Fix inference mode for composite implicit ops without nested-specific kernel ([#146633](https://github.com/pytorch/pytorch/pull/146633))
 - Fix flop counter for SDPA and test ([#147032](https://github.com/pytorch/pytorch/pull/147032))
 ### performance

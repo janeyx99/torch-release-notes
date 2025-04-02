@@ -32,8 +32,16 @@ The categories below are as follows:
 ### improvements
 - Allow `torch.autograd.graph.GradientEdge` as `torch.autograd.backward` outputs #144744
 - Implement gradient for the `residuals` of `torch.linalg.lstsq` #148526
+- Add deterministic kernel for `reflection_pad2d_backward` ([#136241](https://github.com/pytorch/pytorch/pull/136241))
+- Improve softmax backward pass native CUDA implementation ([#145866](https://github.com/pytorch/pytorch/pull/145866))
+- Improve Pareto frontier plot for AutoAC ([#148678](https://github.com/pytorch/pytorch/pull/148678))
+
 ### bug fixes
 - Fix `torch.autograd.graph.allow_mutation_on_saved_tensors` for inplace foreach ops #145520
+- Fix boundary conditions for `hardswish` backward (#143899)
+- Use float data type for Half sum in fallback implementation of `batchnorm` backward on CPU ([#147353](https://github.com/pytorch/pytorch/pull/147353))
+- Fix `torch.compile` + ddp + non-reentrant AC pack hook firing count ([#144271](https://github.com/pytorch/pytorch/pull/144271))
+
 ### performance
 ### docs
 - Suppress vmap warning from `torch.autograd.gradcheck` #144287
