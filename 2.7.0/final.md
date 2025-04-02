@@ -1,4 +1,4 @@
-# PyTorch 2.7 Release Notes
+# PyTorch 2.7.0 Release Notes
 - [Highlights](#highlights)
 - [Backwards Incompatible Changes](#backwards-incompatible-changes)
 - [Deprecations](#deprecations)
