@@ -2,42 +2,42 @@
 ## releng
 ### bc breaking
 
-- Use Manylinux 2.28 and CXX11_ABI=1 for following all released Linux wheel builds. With Migration to manylinux_2_28 (AlmaLinux 8 based) we would not be able to support OS distros with glibc2_26, these include popular Amazon Linux 2 and CentOS 7. (#143423) (##146200) (#148028) (#148135) (#148195) (#148129)
+- Use Manylinux 2.28 and CXX11_ABI=1 for following all released Linux wheel builds. With Migration to manylinux_2_28 (AlmaLinux 8 based) we would not be able to support OS distros with glibc2_26, these include popular Amazon Linux 2 and CentOS 7. (#143423, ##146200, #148028, #148135, #148195, #148129)
 
 ### deprecation
 
-- Removed CUDA 12.4 support in CI/CD (#148895) (#142856) (#144118) (#145566) (#145844) (#148602) (#143076) (#148717)
-- Removed Anaconda support in CI/CD (#144870) (#145015) (#147792)
+- Removed CUDA 12.4 support in CI/CD (#148895, #142856, #144118, #145566, #145844, #148602, #143076, #148717)
+- Removed Anaconda support in CI/CD (#144870, #145015, #147792)
 
 ### new features
 
-- Added support for CUDA 12.8 in CI/CD  (#145567) (#145789) (#145792) (#145765) (#146019) (#146378) (#146957) (#147037) (#146265) (#147607) (#148000)
-- Added Python 3.13 and 3.13t support in CI/CD (#144698) (#143078) (#144697) (#143074) (#141806) (#146614)
-- Added aarch64 support for pytorch-triton package (#148768) (#148705)
-- Added support Windows XPU CI/CD (#148755) (#147637) (#148313) (#143185) (#148319) (#144316) (#144644) (#144034) (#145255)
-- Added support for ROCm MI300 CI/CD (#143673) (#145504) (#146675) (#147904) (#145398) (#145621) (#145829) (#145790) (#144594)
-- Added support for PEP585 (#145707) (#145177) (#145708) (#145342) (#145101)
+- Added support for CUDA 12.8 in CI/CD  (#145567, #145789, #145792, #145765, #146019, #146378, #146957, #147037, #146265, #147607, #148000)
+- Added Python 3.13 and 3.13t support in CI/CD (#144698, #143078, #144697, #143074, #141806, #146614)
+- Added aarch64 support for pytorch-triton package (#148768, #148705)
+- Added support Windows XPU CI/CD (#148755, #147637, #148313, #143185, #148319, #144316, #144644, #144034, #145255)
+- Added support for ROCm MI300 CI/CD (#143673, #145504, #146675, #147904, #145398, #145621, #145829, #145790, #144594)
+- Added support for PEP585 (#145707, #145177, #145708, #145342, #145101)
 - Added Windows Arm64 Nightly Builds (#139760)
 
 ### improvements
 
-- Added possibility to use different NCCL versions for different CUDA versions in CI/CD (#146073) (#146943)
-- Added TorchCache Benchmark tests (#147641) (#147688) (#147782) (#147780) (#147781) (#147783) (#147546)
-- Upgrade CI/CD to 6.3 for ROCm (#142152) (#142151) (#143613)
-- Add cufile to a dependency list for CUDA 12.x builds and enable use by default (#145748) (#148465) (#148137)
-- Add support for gfx1102 and gfx12 to ROCm  wheel and libtorch builds (#147761) (#148562)
-- Added Inductor dashboard benchmarks  (#144427) (#145791) (#145654) (#145655) (#146449) (#145683) (#141371) (#143223)
+- Added possibility to use different NCCL versions for different CUDA versions in CI/CD (#146073, #146943)
+- Added TorchCache Benchmark tests (#147641, #147688, #147782, #147780, #147781, #147783, #147546)
+- Upgrade CI/CD to 6.3 for ROCm (#142152, #142151, #143613)
+- Add cufile to a dependency list for CUDA 12.x builds and enable use by default (#145748, #148465, #148137)
+- Add support for gfx1102 and gfx12 to ROCm  wheel and libtorch builds (#147761, #148562)
+- Added Inductor dashboard benchmarks  (#144427, #145791, #145654, #145655, #146449, #145683, #141371, #143223)
 
 ### bug fixes
 ### performance
-- Add perf testing on H100 (#146868) (#147947)
+- Add perf testing on H100 (#146868, #147947)
 
 ### docs
 
 ### devs
 
-- Deprecate usage of pytorch/builder repository (#143776) (#144317)
-- Release engineering tooling, CI fixes and additional CI tests . Workflows, Trymerge, Bot Labeler, Mergebot (#145793) (#145763) (#147454) (#145863) (#147665) (#145966) (#143560) (#142869) (#141282) (#142854) (#143050) (#143052) (#143129) (#143201) (#141919) (#143316) (#143327) (#148469) (#143395) (#143511) (#143516) (#143512) (#129409) (#143513) (#147601) (#147228) (#144415) (#145012) (#144574)
+- Deprecate usage of pytorch/builder repository (#143776, #144317)
+- Release engineering tooling, CI fixes and additional CI tests . Workflows, Trymerge, Bot Labeler, Mergebot (#145793, #145763, #147454, #145863, #147665, #145966, #143560, #142869, #141282, #142854, #143050, #143052, #143129, #143201, #141919, #143316, #143327, #148469, #143395, #143511, #143516, #143512, #129409, #143513, #147601, #147228, #144415, #145012, #144574)
 
 ### Untopiced
 ### security
