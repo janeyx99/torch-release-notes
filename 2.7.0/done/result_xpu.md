@@ -47,6 +47,8 @@ The categories below are as follows:
 - Refine `torch.xpu.get_device_properties` API error message ([#144379](https://github.com/pytorch/pytorch/pull/144379))
 - Enable `nested_layer_norm` support for XPU ([#148593](https://github.com/pytorch/pytorch/pull/148593))
 - Generalize `is_big_gpu()` check in Inductor ([#143491](https://github.com/pytorch/pytorch/pull/143491))
+- Allow XPU device in sparse compressed tensor factory functions (#147306)
+
 
 ### Bug Fixes
 - Fix SDPA dummy log_sum_exmp output to match meta function ([#148652](https://github.com/pytorch/pytorch/pull/148652))

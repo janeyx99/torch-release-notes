@@ -1,5 +1,5 @@
 
-# Release Notes worksheet performance_as_product
+# Release Notes worksheet cuda
 
 The main goal of this process is to rephrase all the commit messages below to make them **clear and easy to read** by the end user. You should follow the following instructions to do so:
 
@@ -25,16 +25,40 @@ The categories below are as follows:
 * Developers: All commits that are not end-user facing but still impact people that compile from source, develop into pytorch, extend pytorch, etc
 * not user facing: All commits that are not public end-user facing and hence should be dropped from the release notes
 
-## performance_as_product
+## cuda
 ### bc breaking
 ### deprecation
 ### new features
+- RTX50 Blackwell Support codegen ([#145270](https://github.com/pytorch/pytorch/pull/145270))
+- Make `torch.cuda.gds` APIs public ([#147120](https://github.com/pytorch/pytorch/pull/147120))
 ### improvements
+- Refine CUDA Stream priority ([#143849](https://github.com/pytorch/pytorch/pull/143849))
+- Expose `sharedMemPerMultiprocessor` device property to python ([#143119](https://github.com/pytorch/pytorch/pull/143119))
+- Expose remaining sharedMem `cudaDeviceProps` to python ([#143226](https://github.com/pytorch/pytorch/pull/143226))
+- Add range check for embedding_bag on input `index >= 0` of cuda device ([#140791](https://github.com/pytorch/pytorch/pull/140791))
+- Fix linter warnings ([#147386](https://github.com/pytorch/pytorch/pull/147386))
+- Change behavior of pinning memory so it does not init a cuda context if one is not already present ([#145752](https://github.com/pytorch/pytorch/pull/145752))
+- Add cutlass kernel for rowwise scaled mm on SM 10.0 (blackwell) ([#148421](https://github.com/pytorch/pytorch/pull/148421))
+- Add `get_stream_from_external` API for CUDA backend ([#143799](https://github.com/pytorch/pytorch/pull/143799))
 ### bug fixes
+- Let `PYTORCH_NO_CUDA_MEMORY_CACHING` has effect only when value is 1 ([#145905](https://github.com/pytorch/pytorch/pull/145905))
+- Fix race condition in cuda initialization ([#143238](https://github.com/pytorch/pytorch/pull/143238))
+- Fix a few 64-bit indexing issues, account for number of threads in `complex128` scan ([#143401](https://github.com/pytorch/pytorch/pull/143401))
+- Fix acquire pattern (correctness with respect to memory model) in topk ([#144945](https://github.com/pytorch/pytorch/pull/144945))
+- `Int64` indexing fix for `UpSampleNearest3D` ([#144865](https://github.com/pytorch/pytorch/pull/144865))
+- Fix printing of the number of GPUs when certain asserts are raised ([#146838](https://github.com/pytorch/pytorch/pull/146838))
+- Update the number of threads in `avg_pool2d` backward for SM 10.0 to prevent runtime crash ([#145669](https://github.com/pytorch/pytorch/pull/145669))
+- Only use `f8f8bf16` rowwise scaled matmul to SM 9.0 (precedes #148421 adding of kernel) ([#145728](https://github.com/pytorch/pytorch/pull/145728))
+- Fix 64-bit indexing for `Upsample2D` ([#141923](https://github.com/pytorch/pytorch/pull/141923))
 ### performance
+- Add option to limit number of SMs used by matmul kernels ([#144974](https://github.com/pytorch/pytorch/pull/144974)), ([#147966](https://github.com/pytorch/pytorch/pull/147966))
+- Improve softmax's perf in cuda ([#144679](https://github.com/pytorch/pytorch/pull/144679))
+- Removes threadfence from topk kernel to improve AMD performance ([#145536](https://github.com/pytorch/pytorch/pull/145536))
 ### docs
+- Correct docs for clock_rate to MHz, fixes #147098 ([#147393](https://github.com/pytorch/pytorch/pull/147393))
 ### devs
 ### Untopiced
-- Simplify vec128 bfloat16/half fmadds ([#144486](https://github.com/pytorch/pytorch/pull/144486))
+
 ### not user facing
+
 ### security

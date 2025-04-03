@@ -87,6 +87,7 @@ The categories below are as follows:
 - Fix dynamic shape constraint checking when non-strict retracing (#143442)
 - Fix `._modules` corner case for `nn_module_stack` metadata in strict-mode (#142823)
 - Fix placeholder name ordering for kwargs in non-strict mode (#144278)
+- Extend support for distributed ops (`all_reduce`, `all_gather`, `all_gather_into_tensor`, `all_to_all_single`, `reduce_scatter_tensor`) in non-strict mode (#147133, #147417)
 - Fix error with unflattener submodule reordering (#146181)
 - Make `stack_trace` field optional in `insert_custom_op_guards` pass (#146438)
 - Differentiate `ScriptModules` and `ScriptObjects` for TorchBind (#147399)

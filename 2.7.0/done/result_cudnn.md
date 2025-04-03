@@ -1,5 +1,5 @@
 
-# Release Notes worksheet rocm
+# Release Notes worksheet cudnn
 
 The main goal of this process is to rephrase all the commit messages below to make them **clear and easy to read** by the end user. You should follow the following instructions to do so:
 
@@ -25,19 +25,16 @@ The categories below are as follows:
 * Developers: All commits that are not end-user facing but still impact people that compile from source, develop into pytorch, extend pytorch, etc
 * not user facing: All commits that are not public end-user facing and hence should be dropped from the release notes
 
-## rocm
+## cudnn
 ### bc breaking
 ### deprecation
 ### new features
 ### improvements
+- Update cuDNN-frontend submodule to 1.10.0, used by cuDNN convolution and SDPA integrations ([#145780](https://github.com/pytorch/pytorch/pull/145780))
 ### bug fixes
 ### performance
 ### docs
 ### devs
 ### Untopiced
-- [ROCm] Improve backwards indexing when stride is not one ([#147630](https://github.com/pytorch/pytorch/pull/147630))
-- [ROCm] TunableOp use thread-safe getenv functions ([#142274](https://github.com/pytorch/pytorch/pull/142274))
-- [ROCm] Fix TunableOp UTs: Rotating Buffer ([#143172](https://github.com/pytorch/pytorch/pull/143172))
-- [ROCm] Fix unit test: matmul_offline_mgpu_tunableop ([#143507](https://github.com/pytorch/pytorch/pull/143507))
 ### not user facing
 ### security
