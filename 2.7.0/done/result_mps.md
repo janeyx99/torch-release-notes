@@ -37,7 +37,7 @@ The categories below are as follows:
 
 ### improvements
 
-- Adding support to MPS for operators: `angle`, `entr`, `spherical\_bessel\_j0`,`xlog1py`,` sinc`,`round.decimals`, `linalg.det`,` cholesky.ex`,` bilineard2d\_aa`,`linalg.solve`, `zeta`, `cholesky`, `fused\_rms\_norm`, `lu\_unpack`, `lu\_factor\_ex`, `slogdet` and `logdet`, ([\#143449](https://github.com/pytorch/pytorch/pull/143449), [\#147948](https://github.com/pytorch/pytorch/pull/147948), [\#146818](https://github.com/pytorch/pytorch/pull/146818), [\#147687](https://github.com/pytorch/pytorch/pull/147687), [\#146539](https://github.com/pytorch/pytorch/pull/146539), [\#147266](https://github.com/pytorch/pytorch/pull/147266), [\#146279](https://github.com/pytorch/pytorch/pull/146279), [\#146799](https://github.com/pytorch/pytorch/pull/146799), [\#145526](https://github.com/pytorch/pytorch/pull/145526), [\#146531](https://github.com/pytorch/pytorch/pull/146531), [\#146465](https://github.com/pytorch/pytorch/pull/146465), [\#145701](https://github.com/pytorch/pytorch/pull/145701), [\#145301](https://github.com/pytorch/pytorch/pull/145301), [\#146681](https://github.com/pytorch/pytorch/pull/146681), [\#144651](https://github.com/pytorch/pytorch/pull/144651), [\#145341](https://github.com/pytorch/pytorch/pull/145341), [\#146771](https://github.com/pytorch/pytorch/pull/146771), [\#147914](https://github.com/pytorch/pytorch/pull/147914))
+- Adding support to MPS for operators: `angle`, `entr`, `spherical_bessel_j0`,`xlog1py`,` sinc`,`round.decimals`, `linalg.det`,` cholesky.ex`,` bilineard2d_aa`,`linalg.solve`, `zeta`, `cholesky`, `fused\_rms\_norm`, `lu_unpack`, `lu_factor_ex`, `slogdet` and `logdet`, ([\#143449](https://github.com/pytorch/pytorch/pull/143449), [\#147948](https://github.com/pytorch/pytorch/pull/147948), [\#146818](https://github.com/pytorch/pytorch/pull/146818), [\#147687](https://github.com/pytorch/pytorch/pull/147687), [\#146539](https://github.com/pytorch/pytorch/pull/146539), [\#147266](https://github.com/pytorch/pytorch/pull/147266), [\#146279](https://github.com/pytorch/pytorch/pull/146279), [\#146799](https://github.com/pytorch/pytorch/pull/146799), [\#145526](https://github.com/pytorch/pytorch/pull/145526), [\#146531](https://github.com/pytorch/pytorch/pull/146531), [\#146465](https://github.com/pytorch/pytorch/pull/146465), [\#145701](https://github.com/pytorch/pytorch/pull/145701), [\#145301](https://github.com/pytorch/pytorch/pull/145301), [\#146681](https://github.com/pytorch/pytorch/pull/146681), [\#144651](https://github.com/pytorch/pytorch/pull/144651), [\#145341](https://github.com/pytorch/pytorch/pull/145341), [\#146771](https://github.com/pytorch/pytorch/pull/146771), [\#147914](https://github.com/pytorch/pytorch/pull/147914))
 - Extending data type support for angle and atan2 for `torch.long, torch.special.sinc` to complex, `torch.mm`/`torch.bmm` to integral types   ([\#149017](https://github.com/pytorch/pytorch/pull/149017), [\#146648](https://github.com/pytorch/pytorch/pull/146648), [\#145809](https://github.com/pytorch/pytorch/pull/145809), [\#147526](https://github.com/pytorch/pytorch/pull/147526))
 - Support torch.accelerator.synchronize() on mps ([\#143171](https://github.com/pytorch/pytorch/pull/143171))
 - Add error checking when dispatching kernel ([\#146458](https://github.com/pytorch/pytorch/pull/146458))
@@ -46,11 +46,11 @@ The categories below are as follows:
   * Fix multi rangevar kernel invocation ([\#144050](https://github.com/pytorch/pytorch/pull/144050))
   * Better error when kernel fails to compile ([\#144649](https://github.com/pytorch/pytorch/pull/144649))
   * Fix large prod and sum reductions ([\#148975](https://github.com/pytorch/pytorch/pull/148975))
-  * Adding support to MPSInductor for operators: `gamma`, `zeta`, `sinc`, `spherical\_bessel\_j0`, `entr` ([\#145341](https://github.com/pytorch/pytorch/pull/145341), [\#146465](https://github.com/pytorch/pytorch/pull/146465), [\#146539](https://github.com/pytorch/pytorch/pull/146539), [\#147650](https://github.com/pytorch/pytorch/pull/147650), [\#148128](https://github.com/pytorch/pytorch/pull/148128))
+  * Adding support to MPSInductor for operators: `gamma`, `zeta`, `sinc`, `spherical_bessel_j0`, `entr` ([\#145341](https://github.com/pytorch/pytorch/pull/145341), [\#146465](https://github.com/pytorch/pytorch/pull/146465), [\#146539](https://github.com/pytorch/pytorch/pull/146539), [\#147650](https://github.com/pytorch/pytorch/pull/147650), [\#148128](https://github.com/pytorch/pytorch/pull/148128))
 
 ### bug fixes
 
-- Workaround for `gather\_out` in MPS backend ([\#135543](https://github.com/pytorch/pytorch/pull/135543))  
+- Workaround for `gather_out` in MPS backend ([\#135543](https://github.com/pytorch/pytorch/pull/135543))  
 - Fix fmin/fmax for scalar argument ([\#143934](https://github.com/pytorch/pytorch/pull/143934))  
 - Fix crash when mm is invoked with mixed dtypes ([\#143948](https://github.com/pytorch/pytorch/pull/143948))  
 - Fix `torch.add(x,y, alpha=2)` crash ([\#143949](https://github.com/pytorch/pytorch/pull/143949))  
@@ -59,21 +59,21 @@ The categories below are as follows:
 - Make MPSProfiler usable from C++ ([\#144560](https://github.com/pytorch/pytorch/pull/144560))  
 - Fix regression in con-contiguous bitwise ops ([\#146085](https://github.com/pytorch/pytorch/pull/146085))  
 - Fix lu factor for large tensors with bs\>1 ([\#146753](https://github.com/pytorch/pytorch/pull/146753))  
-- Ensure 4d input in \_scaled\_dot\_product\_attention\_math\_mps ([\#146623](https://github.com/pytorch/pytorch/pull/146623))  
-- Fix cholesky\_ex for empty inputs ([\#147159](https://github.com/pytorch/pytorch/pull/147159))  
+- Ensure 4d input in `_scaled_dot_product_attention_math_mps` ([\#146623](https://github.com/pytorch/pytorch/pull/146623))  
+- Fix `cholesky_ex` for empty inputs ([\#147159](https://github.com/pytorch/pytorch/pull/147159))  
 - Fix attention for \>4d tensors ([\#147545](https://github.com/pytorch/pytorch/pull/147545))  
 - Fix empty placeholder error for smooth l1 loss ([\#148133](https://github.com/pytorch/pytorch/pull/148133))  
 - Fix sqrt and other for `torch.chalf` ([\#148285](https://github.com/pytorch/pytorch/pull/148285))  
-- Fix unary\_kernel\_strided logic ([\#148512](https://github.com/pytorch/pytorch/pull/148512))  
+- Fix `unary_kernel_strided` logic ([\#148512](https://github.com/pytorch/pytorch/pull/148512))  
 - Fix scalar to tensors bitshifts ([\#148686](https://github.com/pytorch/pytorch/pull/148686))  
 - Fix multinomial sampling for non-contiguous tensors ([\#141515](https://github.com/pytorch/pytorch/pull/141515))  
 - Fix triangular for \>3D tensors ([\#144545](https://github.com/pytorch/pytorch/pull/144545))  
-- Fix missing autorelease in lstm\_mps causing leaked memory ([\#145503](https://github.com/pytorch/pytorch/pull/145503))  
+- Fix missing autorelease in `lstm_mps` causing leaked memory ([\#145503](https://github.com/pytorch/pytorch/pull/145503))  
 - Fix missing autoreleasepool around runUniqueGraph to prevent leaks ([\#145512](https://github.com/pytorch/pytorch/pull/145512))  
 - Workaround rng bug for 5D tensors ([\#147667](https://github.com/pytorch/pytorch/pull/147667))  
 - Fix Wreorder-init-list ([\#148839](https://github.com/pytorch/pytorch/pull/148839))  
 - Fix invalid format string in libfmt calls ([\#148855](https://github.com/pytorch/pytorch/pull/148855))  
-- Fix `c0::metal::log_gamma` correctness on M4 ([\#145740](https://github.com/pytorch/pytorch/pull/145740))  
+- Fix `c10::metal::log_gamma` correctness on M4 ([\#145740](https://github.com/pytorch/pytorch/pull/145740))  
 - Fix lu factor for non contiguous tensors ([\#146279](https://github.com/pytorch/pytorch/pull/146279))  
 - In MPSInductor:  
   * Fix `min`/`max` reductions over large dims ([\#149004](https://github.com/pytorch/pytorch/pull/149004))  
@@ -88,8 +88,8 @@ The categories below are as follows:
 - Faster unary operations for strided tensors ([\#148350](https://github.com/pytorch/pytorch/pull/148350))  
 - Introduce strides unary op ([\#148468](https://github.com/pytorch/pytorch/pull/148468))  
 - Implemented `masked_fill_scalar` as shader ([\#147369](https://github.com/pytorch/pytorch/pull/147369))  
-- Implement bilineard2d as shader ([\#145581](https://github.com/pytorch/pytorch/pull/145581))  
-- Optimize cholesky ([\#145722](https://github.com/pytorch/pytorch/pull/145722))  
+- Implement `bilineard2d` as shader ([\#145581](https://github.com/pytorch/pytorch/pull/145581))  
+- Optimize Cholesky ([\#145722](https://github.com/pytorch/pytorch/pull/145722))  
 - Speedup interpolation ([\#148277](https://github.com/pytorch/pytorch/pull/148277))
 
 ### docs
