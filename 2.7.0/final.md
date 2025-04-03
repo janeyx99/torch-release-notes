@@ -18,7 +18,7 @@ Below are the full release notes for this release.
 
 # Backwards Incompatible Changes
 
-### New interface for `GraphTransformObserver` to enable Node Level provenance tracking (#144277)
+### New interface for `torch.fx.passes.graph_transform_observer.GraphTransformObserver` to enable Node Level provenance tracking (#144277)
 We now track a mapping between the nodes in the pre-grad and post-grad graph. See the issue for an example frontend to visualize the transformations. To update your `GraphTransformObserver` subclasses, instead of overriding `on_node_creation` and `on_node_erase`, there are new functions `get_node_creation_hook`, `get_node_erase_hook`, `get_node_replace_hook` and `get_deepcopy_hook`. These are registered on the `GraphModule` member of the `GraphTransformObserver` upon entry and exit of a `with` block
 
 Version 2.6.0
