@@ -72,6 +72,12 @@ torch.onnx.export(model, args, kwargs=kwargs, dynamo=True)
 ## Build Frontend
 ## C++ Frontend
 ## Distributed
+#### Distributed Checkpoint (DCP)
+#### DTensor
+#### c10d
+#### DistributedDataParallel (DDP)
+#### FullyShardedDataParallel2 (FSDP2)
+#### ...
 ## CPU
 ## Intel
 ## CUDA
@@ -79,9 +85,10 @@ torch.onnx.export(model, args, kwargs=kwargs, dynamo=True)
 ## ROCm
 ## XPU
 ## Profiler
-## Composability
-## torch.dynamo
-## torch.inductor
+## torch.compile
+#### Dynamo
+#### AOTDispatcher
+#### Inductor
 ## torch.fx
 ## torch.export
 ## Quantization
@@ -92,165 +99,18 @@ torch.onnx.export(model, args, kwargs=kwargs, dynamo=True)
 
 
 # Improvements
-
-## Release Engineering
-## Python Frontend
-## Autograd
-## Dataloader
-## Linear Algebra
-## Nested Tensor (NJT)
-## torch.nn
-## torch.optim
-## Build Frontend
-## C++ Frontend
-## Distributed
-## CPU
-## Intel
-## CUDA
-## MPS
-## ROCm
-## XPU
-## Profiler
-## Composability
-## torch.dynamo
-## torch.inductor
-## torch.fx
-## torch.export
-## Quantization
-## ONNX
-## JIT
-## Lazy Tensor
-## torch.package
-
+<same ordering as in new features>
 
 # Bug fixes
-
-## Release Engineering
-## Python Frontend
-## Autograd
-## Dataloader
-## Linear Algebra
-## Nested Tensor (NJT)
-## torch.nn
-## torch.optim
-## Build Frontend
-## C++ Frontend
-## Distributed
-## CPU
-## Intel
-## CUDA
-## MPS
-## ROCm
-## XPU
-## Profiler
-## Composability
-## torch.dynamo
-## torch.inductor
-## torch.fx
-## torch.export
-## Quantization
-## ONNX
-## JIT
-## Lazy Tensor
-## torch.package
+<same ordering as in new features>
 
 
 # Performance
-
-## Release Engineering
-## Python Frontend
-## Autograd
-## Dataloader
-## Linear Algebra
-## Nested Tensor (NJT)
-## torch.nn
-## torch.optim
-## Build Frontend
-## C++ Frontend
-## Distributed
-## CPU
-## Intel
-## CUDA
-## MPS
-## ROCm
-## XPU
-## Profiler
-## Composability
-## torch.dynamo
-## torch.inductor
-## torch.fx
-## torch.export
-## Quantization
-## ONNX
-## JIT
-## Lazy Tensor
-## torch.package
-
+<same ordering as in new features>
 
 
 # Documentation
-
-## Release Engineering
-## Python Frontend
-## Autograd
-## Dataloader
-## Linear Algebra
-## Nested Tensor (NJT)
-## torch.nn
-## torch.optim
-## Build Frontend
-## C++ Frontend
-## Distributed
-## CPU
-## Intel
-## CUDA
-## MPS
-## ROCm
-## XPU
-## Profiler
-## Composability
-## torch.dynamo
-## torch.inductor
-## torch.fx
-## torch.export
-## Quantization
-## ONNX
-## JIT
-## Lazy Tensor
-## torch.package
-
-
-# Developers
-
-## Release Engineering
-## Python Frontend
-## Autograd
-## Dataloader
-## Linear Algebra
-## Nested Tensor (NJT)
-## torch.nn
-## torch.optim
-## Build Frontend
-## C++ Frontend
-## Distributed
-## CPU
-## Intel
-## CUDA
-## MPS
-## ROCm
-## XPU
-## Profiler
-## Composability
-## torch.dynamo
-## torch.inductor
-## torch.fx
-## torch.export
-## Quantization
-## ONNX
-## JIT
-## Lazy Tensor
-## torch.package
-
+<same ordering as in new features>
 
 # Security
-
+<same ordering as in new features>
