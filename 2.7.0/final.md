@@ -178,7 +178,7 @@ m = prepare_pt2e(m, quantizer)
 
 # New features
 ## Release Engineering
-- Added support for CUDA 12.8 in CI/CD  (#145567, #145789, #145792, #145765, #146019, #146378, #146957, #147037, #146265, #147607, #148000)
+- Added support for CUDA 12.8 in CI/CD  (#145567, #145789, #145792, #145765, #146019, #146378, #146957, #147037, #146265, #147607, #148000, #149584)
 - Added Python 3.13 and 3.13t support in CI/CD (#144698, #143078, #144697, #143074, #141806, #146614)
 - Added aarch64 support for pytorch-triton package (#148768, #148705)
 - Added support Windows XPU CI/CD (#148755, #147637, #148313, #143185, #148319, #144316, #144644, #144034, #145255)
@@ -193,7 +193,7 @@ m = prepare_pt2e(m, quantizer)
 - Add support for `__torch_function__` handler on dtype arguments, similar to subclass objects ([#145085](https://github.com/pytorch/pytorch/pull/145085))
 
 ## C++ Extensions
-- Support libtorch-agnostic extensions with stable torch ABI ([#148892](https://github.com/pytorch/pytorch/pull/148892), [#148832](https://github.com/pytorch/pytorch/pull/148832), [#148124](https://github.com/pytorch/pytorch/pull/148124))
+- Support libtorch-agnostic extensions with stable torch ABI ([#148892](https://github.com/pytorch/pytorch/pull/148892), [#148832](https://github.com/pytorch/pytorch/pull/148832), [#148124](https://github.com/pytorch/pytorch/pull/148124), #149208, #149052)
 
 ## Distributed
 ### Context Parallel
@@ -223,7 +223,7 @@ m = prepare_pt2e(m, quantizer)
 
 ## XPU
 - Add AOT Inductor support for Intel GPU ([#140269](https://github.com/pytorch/pytorch/pull/140269), [#140664](https://github.com/pytorch/pytorch/pull/140664), [#149175](https://github.com/pytorch/pytorch/pull/149175))
-- Support `torch.compile` on Windows Platform for XPU ([#147637](https://github.com/pytorch/pytorch/pull/147637), [#144316](https://github.com/pytorch/pytorch/pull/144316))
+- Support `torch.compile` on Windows Platform for XPU ([#147637](https://github.com/pytorch/pytorch/pull/147637), [#144316](https://github.com/pytorch/pytorch/pull/144316), #149511)
 - Support SYCL with `torch.utils.cpp_extension` APIs ([#132945](https://github.com/pytorch/pytorch/pull/132945))
 - Enhance Intel GPU performance on PyTorch 2 Export Post Training Quantization ([#136753](https://github.com/pytorch/pytorch/pull/136753), [#135465](https://github.com/pytorch/pytorch/pull/135465),[#135337](https://github.com/pytorch/pytorch/pull/135337), [#135189](https://github.com/pytorch/pytorch/pull/135189))
 - Enable windows Kineto profiler([#148319](https://github.com/pytorch/pytorch/pull/148319))
@@ -373,7 +373,7 @@ A new verification API `torch.onnx.verification.verify_onnx_program` can now be 
 - Expose remaining sharedMem `cudaDeviceProps` to python ([#143226](https://github.com/pytorch/pytorch/pull/143226))
 - Add range check for embedding_bag on input `index >= 0` of cuda device ([#140791](https://github.com/pytorch/pytorch/pull/140791))
 - Fix linter warnings ([#147386](https://github.com/pytorch/pytorch/pull/147386))
-- Change behavior of pinning memory so it does not init a cuda context if one is not already present ([#145752](https://github.com/pytorch/pytorch/pull/145752))
+- Change behavior of pinning memory so it does not init a cuda context if one is not already present ([#145752](https://github.com/pytorch/pytorch/pull/145752), #149033)
 - Add cutlass kernel for rowwise scaled mm on SM 10.0 (blackwell) ([#148421](https://github.com/pytorch/pytorch/pull/148421))
 - Add `get_stream_from_external` API for CUDA backend ([#143799](https://github.com/pytorch/pytorch/pull/143799))
 - Update cuDNN-frontend submodule to 1.10.0, used by cuDNN convolution and SDPA integrations ([#145780](https://github.com/pytorch/pytorch/pull/145780))
@@ -466,7 +466,7 @@ We made many improvements and bugfixes to dynamic shapes in torch.compile
 - Add an option to skip optimizing generated wrapper code. Set `AOT_INDUCTOR_COMPILE_WRAPPER_WITH_O0=1` ([#144866](https://github.com/pytorch/pytorch/pull/144866)).
 - Support dynamic shape constraints in Export ([#146044](https://github.com/pytorch/pytorch/pull/146044)).
 - Handle MLIR scf.yield more accurately in user Triton code ([#147762](https://github.com/pytorch/pytorch/pull/147762)).
-- Add a global_scratch arg to support Triton 3.3 ([#148051](https://github.com/pytorch/pytorch/pull/148051)).
+- Support Triton 3.3: add a `global_scratch` arg, fix cpp_wrapper ([#148051](https://github.com/pytorch/pytorch/pull/148051), #149973).
 - Removed an unnecessarily struct runtime alignment assertion, allowing more flexible use cases of AOTI ([#143236](https://github.com/pytorch/pytorch/pull/143236)).
 - Support `_int_mm` in AOTI ([#144571](https://github.com/pytorch/pytorch/pull/144571)).
 - Support AOTI + CUDAGraphs when calling from Python ([#148601](https://github.com/pytorch/pytorch/pull/148601)).
@@ -740,10 +740,10 @@ We made many improvements and bugfixes to dynamic shapes in torch.compile
 - Introduce process based async checkpointing ([#147039](https://github.com/pytorch/pytorch/pull/147039))
 ### c10d
 - Changed `ALLOC_BUFFER_SIZE` from 4000 to 4096 to be a power of 2 for TCPStore ([#145759](https://github.com/pytorch/pytorch/pull/145759))
-- Improved IPC tensor release performance by releasing the IpcMutex when deleting the `ExpandableSegements` object and the GIL in WorkNCCL destructor ([#148805](https://github.com/pytorch/pytorch/pull/148805))
+- Improved IPC tensor release performance by releasing the IpcMutex when deleting the `ExpandableSegments` object and the GIL in WorkNCCL destructor ([#148805](https://github.com/pytorch/pytorch/pull/148805))
 
 ## CPU
-- Simplify vec128 bfloat16/half fmadds (#144486)
+- Simplify vec128 bfloat16/half `fmadds` (#144486)
 - Parallelize `sort` (#142391)
 - Improve KleidiAI 4 bit kernel performance (#146476)
 ## Intel
@@ -861,8 +861,10 @@ We made many improvements and bugfixes to dynamic shapes in torch.compile
 - Correct docs for clock_rate to MHz, fixes #147098 ([#147393](https://github.com/pytorch/pytorch/pull/147393))
 
 ## XPU
-- Improve "Getting Started on Intel GPU" hardware requirements and notes([#147802](https://github.com/pytorch/pytorch/pull/147802), [#148168](https://github.com/pytorch/pytorch/pull/148168))
+- Improve "Getting Started on Intel GPU" hardware requirements and notes([#147802](https://github.com/pytorch/pytorch/pull/147802), [#148168](https://github.com/pytorch/pytorch/pull/148168), #150397)
 - Improve SYCL extension, source build and AOT Inductor documentation ([#147988](https://github.com/pytorch/pytorch/pull/147988), [#143476](https://github.com/pytorch/pytorch/pull/143476), [#149299](https://github.com/pytorch/pytorch/pull/149299))
+- Update Doc for Intel XPU Profiling (#134515)
+- Update CMAKE_PREFIX_PATH for XPU windows README (#148863)
 
 ## torch.dynamo
 - Remove the suggestion to use `suppress_errors` on compiler error (#146553)
