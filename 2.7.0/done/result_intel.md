@@ -43,7 +43,6 @@ The categories below are as follows:
 #### General
 - Simplify vec128 bfloat16/half fmadds (#144486)
 - Parallelize `sort` (#142391)
-- Improve KleidiAI 4 bit kernel performance (#146476)
 
 ### docs
 ### devs
