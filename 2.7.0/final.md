@@ -183,7 +183,7 @@ m = prepare_pt2e(m, quantizer)
 - Added aarch64 support for pytorch-triton package (#148768, #148705)
 - Added support Windows XPU CI/CD (#148755, #147637, #148313, #143185, #148319, #144316, #144644, #144034, #145255)
 - Added support for ROCm MI300 CI/CD (#143673, #145504, #146675, #147904, #145398, #145621, #145829, #145790, #144594)
-- Added support for PEP585 (#145707, #145177, #145708, #145342, #145101)
+- Added support for [PEP585](https://peps.python.org/pep-0585/), Type Hinting Generics In Standard Collections (#145707, #145177, #145708, #145342, #145101)
 - Added Windows Arm64 Nightly Builds (#139760)
 
 ## Python Frontend
@@ -268,9 +268,8 @@ A new verification API `torch.onnx.verification.verify_onnx_program` can now be 
 # Improvements
 
 ## Release Engineering
-- Added possibility to use different NCCL versions for different CUDA versions in CI/CD (#146073, #146943)
 - Added TorchCache Benchmark tests (#147641, #147688, #147782, #147780, #147781, #147783, #147546)
-- Upgrade CI/CD to 6.3 for ROCm (#142152, #142151, #143613)
+- Upgrade CD to 6.3 for ROCm (#142152, #142151, #143613)
 - Add cufile to a dependency list for CUDA 12.x builds and enable use by default (#145748, #148465, #148137)
 - Add support for gfx1102 and gfx12 to ROCm  wheel and libtorch builds (#147761, #148562)
 
@@ -689,7 +688,6 @@ Several general FakeTensor improvements
 - Fix SDPA dummy log_sum_exmp output to match meta function ([#148652](https://github.com/pytorch/pytorch/pull/148652))
 - Fix memory leak in deconv backward ([#144385](https://github.com/pytorch/pytorch/pull/144385))
 - Add XPU support to `torch.utils._content_store` to accelerate XPU tensor hashing for tensor serialization ([#147785](https://github.com/pytorch/pytorch/pull/147785))
-- Fix broken XPU CI introduced by community changes ([#145058](https://github.com/pytorch/pytorch/pull/145058))
 - Enabling XPU in `OffsetBasedRNGTracker` to unbreak `torch.distributed` (#148360)
 - `torch.backends.mkldnn.flags()` CM should not warn (#150358)
 
@@ -966,9 +964,6 @@ Several general FakeTensor improvements
 
 # Developers
 
-## Release Engineering
-- Deprecate usage of pytorch/builder repository (#143776, #144317)
-- Release engineering tooling, CI fixes and additional CI tests . Workflows, Trymerge, Bot Labeler, Mergebot (#145793, #145763, #147454, #145863, #147665, #145966, #143560, #142869, #141282, #142854, #143050, #143052, #143129, #143201, #141919, #143316, #143327, #148469, #143395, #143511, #143516, #143512, #129409, #143513, #147601, #147228, #144415, #145012, #144574)
 
 ## Python Frontend
 - Collect packages with importlib in collect_env ([#144616](https://github.com/pytorch/pytorch/pull/144616))
@@ -997,7 +992,6 @@ Several general FakeTensor improvements
 ## XPU
 - Reduce the binary size of the XPU Windows package ([#148313](https://github.com/pytorch/pytorch/pull/148313))
 - Add Python 3.13 build for XPU ([#146614](https://github.com/pytorch/pytorch/pull/146614))
-- Add XPU Linux build into pull workflow and unify XPU Windows CI/CD installation scripts([#145084](https://github.com/pytorch/pytorch/pull/145084), [#143185](https://github.com/pytorch/pytorch/pull/143185))
 - Make XPU Triton build supports manylinux 2.28 ([#148195](https://github.com/pytorch/pytorch/pull/148195))
 - Fix XPU builds inside venv (#150300)
 
@@ -1028,7 +1022,3 @@ Several general FakeTensor improvements
 - Make `fx.node.map_arg()` and `.map_aggregate()` generic (#146248)
 
 
-# Security
-
-## Release Engineering
--  Set use-ephemeral runners for windows nightly cpu test jobs (#149001)
