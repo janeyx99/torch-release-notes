@@ -98,16 +98,48 @@ m = prepare_pt2e(m, quantizer)
 
 ### new features
 
+- Enables kernel from KleidAI to run model that was quantized such that weights are in int4 (with symmetric quantization either using channel-wise or group-wise, with the group size being a multiple of 32), while at runtime the activations are dynamically quantized from fp32 to int8 and weights are upcast from int4 to int8 so that int8 matrix multiplication is executed. This dynamic quantization of activations and matrix multiplication is performed inside of function `torch.ops.aten._dyn_quant_matmul_4bit`, while the weights, scaled and optional bias are packed in `torch.ops.aten._dyn_quant_pack_4bit_weight`. To use it on your model you can quantize it using the following example that leverages `torchao`:
+```
+from torchao.dtypes import PlainLayout
+from torchao.experimental.packed_linear_int8_dynamic_activation_intx_weight_layout import (
+    PackedLinearInt8DynamicActivationIntxWeightLayout,
+)
+from torchao.experimental.quant_api import (
+    int8_dynamic_activation_intx_weight,
+)
+from torchao.quantization.granularity import (
+    PerGroup,
+    PerRow,
+)
+from torchao.quantization.quant_api import quantize_
+from torchao.quantization.quant_primitives import MappingType
+
+my_model = Model()
+
+quantize_(
+    my_model,
+    int8_dynamic_activation_intx_weight(
+        weight_dtype=torch.int4,
+        granularity=PerGroup(32), # PerRow() is also supported
+        has_weight_zeros=True, # Should be True
+        weight_mapping_type=MappingType.SYMMETRIC_NO_CLIPPING_ERR # MappingType.SYMMETRIC can also be used but increases error
+        layout=PackedLinearInt8DynamicActivationIntxWeightLayout(target="aten"),
+    ),
+)
+```
+
 ### improvements
 - Add an option `keep_original_weights` in `_lower_to_native_backend` (#141049)
 - Handle meta tensors in FX quantization (#144726)
 - Add fp8 support to index_cuda (#144747)
 - Add the `torch.float8_e8m0fnu` dtype to PyTorch (#147466)
-
+- Improve the performance of 8 bit quantized linear and addition operation on AArch64 by leveraging operations from Arm Compute Library (#148585)
+- Enables int 8 linear operations to use mkl-dnn when activations, weights and accumulation are all signed 8 bit integer (#139887)
 
 ### bug fixes
 ### performance
-- Add NEON implementation for 8 bit quantized embedding bag on aarch64 (#147322)
+- Improve KleidiAI 4 bit kernel performance (#146476)
+- Add NEON implementation for 8 bit quantized embedding bag on AArch64 to improve performance by ~5.5x on Neoverse V1 cores (#147322)
 ### docs
 - Add torchao docs link to PyTorch libraries (#145412)
 

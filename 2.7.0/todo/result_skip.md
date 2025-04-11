@@ -139,7 +139,6 @@ The categories below are as follows:
 - Revert "Fix torch.normal ignores default_device (d21738f24a6)
 - [AOTI] Add a boxed_run API ([#142213](https://github.com/pytorch/pytorch/pull/142213))
 - Revert "Increase C10_COMPILE_TIME_MAX_GPUS to 128 (bdd942efd76)
-- Enable s8s8s8 for qlinear with mkl-dnn ([#139887](https://github.com/pytorch/pytorch/pull/139887))
 - Revert "Removed unused _RequiredParameter (154185dcd0e)
 - Revert "Enable s8s8s8 for qlinear with mkl-dnn (443de667b1e)
 - Add generator parameter to rand*_like functions ([#136780](https://github.com/pytorch/pytorch/pull/136780))
