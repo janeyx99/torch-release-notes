@@ -68,6 +68,40 @@ lrsched = torch.optim.lr_scheduler.ReduceLROnPlateau(optim)
 print(lrsched.get_last_lr())
 ```
 
+### `XNNPACKQuantizer` is removed in PyTorch and moved to ExecuTorch, please use it from `executorch.backends.xnnpack.quantizer.xnnpack_quantizer` instead of `torch.ao.quantization.quantizer.xnnpack_quantizer`. (#144940)
+
+`XNNPACKQuantizer` is a quantizer for xnnpack that was added into pytorch/pytorch for initial development. However, as it is not related to our core quantization workflow, we have moved it to ExecuTorch instead. Please use it from `executorch.backends.xnnpack.quantizer.xnnpack_quantizer` instead of `torch.ao.quantization.quantizer.xnnpack_quantizer`.
+
+Version 2.6.0
+```python
+from torch._export import capture_pre_autograd_graph
+from torch.ao.quantization.quantize_pt2e import prepare_pt2e
+from torch.ao.quantization.quantizer.xnnpack_quantizer import (
+    XNNPACKQuantizer,
+    get_symmetric_quantization_config,
+)
+quantizer = XNNPACKQuantizer().set_global(
+    get_symmetric_quantization_config()
+)
+m = capture_pre_autograd_graph(m, *example_inputs)
+m = prepare_pt2e(m, quantizer)
+```
+Version 2.7.0
+```py
+# we also updated the export call
+from torch.export import export_for_training
+from torch.ao.quantization.quantize_pt2e import prepare_pt2e
+# please get xnnpack quantizer from executorch (https://github.com/pytorch/executorch/)
+from executorch.backends.xnnpack.quantizer.xnnpack_quantizer import (
+    XNNPACKQuantizer,
+    get_symmetric_quantization_config,
+)
+quantizer = XNNPACKQuantizer().set_global(
+    get_symmetric_quantization_config()
+)
+m = export_for_training(m, *example_inputs)
+m = prepare_pt2e(m, quantizer)
+```
 
 ### Please use `torch.export.export_for_training` instead of `capture_pre_autograd_graph` to export the model for pytorch 2 export quantization (#139505)
 
@@ -104,7 +138,7 @@ m = export_for_training(m, *example_inputs)
 m = prepare_pt2e(m, quantizer)
 ```
 
-### New interface for `GraphTransformObserver` to enable Node Level provenance tracking (#144277)
+### New interface for `torch.fx.passes.graph_transform_observer.GraphTransformObserver` to enable Node Level provenance tracking (#144277)
 We now track a mapping between the nodes in the pre-grad and post-grad graph. See the issue for an example frontend to visualize the transformations. To update your `GraphTransformObserver` subclasses, instead of overriding `on_node_creation` and `on_node_erase`, there are new functions `get_node_creation_hook`, `get_node_erase_hook`, `get_node_replace_hook` and `get_deepcopy_hook`. These are registered on the `GraphModule` member of the `GraphTransformObserver` upon entry and exit of a `with` block
 
 Version 2.6.0
@@ -141,41 +175,6 @@ Version 2.7.0
 torch.onnx.export(model, args, kwargs=kwargs, dynamo=True)
 ```
 
-### `XNNPACKQuantizer` is deprecated in pytorch and moved to ExecuTorch, please use it from `executorch.backends.xnnpack.quantizer.xnnpack_quantizer` instead of `torch.ao.quantization.quantizer.xnnpack_quantizer`. (#144940)
-
-`XNNPACKQuantizer` is a quantizer for xnnpack that was added into pytorch/pytorch for initial development. However, as it is not related to our core quantization workflow, we have moved it to ExecuTorch instead. Please use it from `executorch.backends.xnnpack.quantizer.xnnpack_quantizer` instead of `torch.ao.quantization.quantizer.xnnpack_quantizer`.
-
-Version 2.6.0
-```python
-from torch._export import capture_pre_autograd_graph
-from torch.ao.quantization.quantize_pt2e import prepare_pt2e
-from torch.ao.quantization.quantizer.xnnpack_quantizer import (
-    XNNPACKQuantizer,
-    get_symmetric_quantization_config,
-)
-quantizer = XNNPACKQuantizer().set_global(
-    get_symmetric_quantization_config()
-)
-m = capture_pre_autograd_graph(m, *example_inputs)
-m = prepare_pt2e(m, quantizer)
-```
-Version 2.7.0
-```py
-# we also updated the export call
-from torch.export import export_for_training
-from torch.ao.quantization.quantize_pt2e import prepare_pt2e
-# please get xnnpack quantizer from executorch (https://github.com/pytorch/executorch/)
-from executorch.backends.xnnpack.quantizer.xnnpack_quantizer import (
-    XNNPACKQuantizer,
-    get_symmetric_quantization_config,
-)
-quantizer = XNNPACKQuantizer().set_global(
-    get_symmetric_quantization_config()
-)
-m = export_for_training(m, *example_inputs)
-m = prepare_pt2e(m, quantizer)
-```
-
 # New features
 ## Release Engineering
 - Added support for CUDA 12.8 in CI/CD  (#145567, #145789, #145792, #145765, #146019, #146378, #146957, #147037, #146265, #147607, #148000, #149584)
@@ -209,7 +208,7 @@ m = prepare_pt2e(m, quantizer)
 - Build a storage reader/writer to write checkpoints in HF format ([#148089](https://github.com/pytorch/pytorch/pull/148089))
 
 ## CUDA
-- RTX50 Blackwell Support codegen ([#145270](https://github.com/pytorch/pytorch/pull/145270))
+- Blackwell support added across native kernels, CUDA math libraries, and `torch.compile` ([#145270](https://github.com/pytorch/pytorch/pull/145270))
 - Make `torch.cuda.gds` APIs public ([#147120](https://github.com/pytorch/pytorch/pull/147120))
 
 ## MPS

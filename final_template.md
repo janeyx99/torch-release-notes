@@ -79,7 +79,8 @@ torch.onnx.export(model, args, kwargs=kwargs, dynamo=True)
 #### FullyShardedDataParallel2 (FSDP2)
 #### ...
 ## CPU
-## Intel
+#### x86
+#### aarch64
 ## CUDA
 ## MPS
 ## ROCm
