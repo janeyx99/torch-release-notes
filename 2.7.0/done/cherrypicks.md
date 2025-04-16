@@ -47,8 +47,6 @@
 ## performance
 ### Intel
 - use zero-point to decide `conv` src zp mask (#149473)
-### Quantization
-- Enable fast qlinear static/dynamic path for AArch64 through ACL directly (#148585)
 ### Inductor 
 - Don't exclude `constant_pad_nd` in prologue fusion (#149947) - actually, reverted.
 ### ROCm
