@@ -103,6 +103,9 @@ m = export_for_training(m, *example_inputs)
 m = prepare_pt2e(m, quantizer)
 ```
 
+### libtorch_python.so symbols are now invisible by default on all platforms except Apple (#142214)
+Previously, the symbols in libtorch_python.so were exposed with default visibility. We have transitioned to being more intentional about what we expose as public symbols for our python API in C++. After #142214, public symbols will be marked explicitly while everything else will be hidden. Some extensions using private symbols will see linker failures with this change.
+
 ### Please use `torch.export.export_for_training` instead of `capture_pre_autograd_graph` to export the model for pytorch 2 export quantization (#139505)
 
 `capture_pre_autograd_graph` was a temporary API in `torch.export`. Since now we have a better longer term API: `export_for_training` available (starting from PyTorch 2.5), we can deprecate it.
@@ -155,6 +158,22 @@ class MyPrintObserver(GraphTransformObserver):
         def hook(node: torch.fx.Node):
             print(node)
         return hook
+```
+
+### `torch.ao.quantization.pt2e.graph_utils.get_control_flow_submodules` is no longer public (#141612)
+We are planning to make all functions under `torch.ao.quantization.pt2e.graph_utils` private. This update marks `get_control_flow_submodules` as a private API. If you have to or want to continue using `get_control_flow_submodules`, please make a private call by using `_get_control_flow_submodules`.
+
+**Example:**
+Version 2.6:
+```python
+>>> from torch.ao.quantization.pt2e.graph_utils import get_control_flow_submodules
+  ```
+
+Version 2.7:
+```python
+>>> from torch.ao.quantization.pt2e.graph_utils import get_control_flow_submodules
+ImportError: cannot import name 'get_control_flow_submodules' from 'torch.ao.quantization.pt2e.graph_utils'
+>>> from torch.ao.quantization.pt2e.graph_utils import _get_control_flow_submodules  # Note: Use _get_control_flow_submodules for private access
 ```
 
 # Deprecations
