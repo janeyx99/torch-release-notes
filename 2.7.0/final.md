@@ -226,7 +226,7 @@ torch.onnx.export(model, args, kwargs=kwargs, dynamo=True)
 - Build a storage reader/writer to write checkpoints in HF format ([#148089](https://github.com/pytorch/pytorch/pull/148089))
 
 ## CUDA
-- Blackwell support added across native kernels, CUDA math libraries, and `torch.compile` ([#145270](https://github.com/pytorch/pytorch/pull/145270))
+- Blackwell support (SM 10.0 and SM 12.0) added across native kernels, CUDA math libraries, and `torch.compile` ([#145270](https://github.com/pytorch/pytorch/pull/145270))
 - Make `torch.cuda.gds` APIs public ([#147120](https://github.com/pytorch/pytorch/pull/147120))
 
 ## MPS
