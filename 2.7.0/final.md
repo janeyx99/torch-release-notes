@@ -67,47 +67,12 @@ lrsched = torch.optim.lr_scheduler.ReduceLROnPlateau(optim)
 print(lrsched.get_last_lr())
 ```
 
-### `XNNPACKQuantizer` is removed in PyTorch and moved to ExecuTorch, please use it from `executorch.backends.xnnpack.quantizer.xnnpack_quantizer` instead of `torch.ao.quantization.quantizer.xnnpack_quantizer`. (#144940)
-
-`XNNPACKQuantizer` is a quantizer for xnnpack that was added into pytorch/pytorch for initial development. However, as it is not related to our core quantization workflow, we have moved it to ExecuTorch instead. Please use it from `executorch.backends.xnnpack.quantizer.xnnpack_quantizer` instead of `torch.ao.quantization.quantizer.xnnpack_quantizer`.
-
-Version 2.6.0
-```python
-from torch._export import capture_pre_autograd_graph
-from torch.ao.quantization.quantize_pt2e import prepare_pt2e
-from torch.ao.quantization.quantizer.xnnpack_quantizer import (
-    XNNPACKQuantizer,
-    get_symmetric_quantization_config,
-)
-quantizer = XNNPACKQuantizer().set_global(
-    get_symmetric_quantization_config()
-)
-m = capture_pre_autograd_graph(m, *example_inputs)
-m = prepare_pt2e(m, quantizer)
-```
-Version 2.7.0
-```py
-# we also updated the export call
-from torch.export import export_for_training
-from torch.ao.quantization.quantize_pt2e import prepare_pt2e
-# please get xnnpack quantizer from executorch (https://github.com/pytorch/executorch/)
-from executorch.backends.xnnpack.quantizer.xnnpack_quantizer import (
-    XNNPACKQuantizer,
-    get_symmetric_quantization_config,
-)
-quantizer = XNNPACKQuantizer().set_global(
-    get_symmetric_quantization_config()
-)
-m = export_for_training(m, *example_inputs)
-m = prepare_pt2e(m, quantizer)
-```
-
 ### libtorch_python.so symbols are now invisible by default on all platforms except Apple (#142214)
 Previously, the symbols in libtorch_python.so were exposed with default visibility. We have transitioned to being more intentional about what we expose as public symbols for our python API in C++. After #142214, public symbols will be marked explicitly while everything else will be hidden. Some extensions using private symbols will see linker failures with this change.
 
-### Please use `torch.export.export_for_training` instead of `capture_pre_autograd_graph` to export the model for pytorch 2 export quantization (#139505)
+### Please use `torch.export.export` instead of `capture_pre_autograd_graph` to export the model for pytorch 2 export quantization (#139505)
 
-`capture_pre_autograd_graph` was a temporary API in `torch.export`. Since now we have a better longer term API: `export_for_training` available (starting from PyTorch 2.5), we can deprecate it.
+`capture_pre_autograd_graph` was a temporary API in `torch.export`. Since now we have a better longer term API: `export` available, we can deprecate it.
 
 Version 2.6.0
 ```python
@@ -126,7 +91,7 @@ m = prepare_pt2e(m, quantizer)
 
 Version 2.7.0
 ```py
-from torch.export import export_for_training
+from torch.export import export
 from torch.ao.quantization.quantize_pt2e import prepare_pt2e
 # please get xnnpack quantizer from executorch (https://github.com/pytorch/executorch/)
 from executorch.backends.xnnpack.quantizer.xnnpack_quantizer import (
@@ -136,7 +101,7 @@ from executorch.backends.xnnpack.quantizer.xnnpack_quantizer import (
 quantizer = XNNPACKQuantizer().set_global(
     get_symmetric_quantization_config()
 )
-m = export_for_training(m, *example_inputs)
+m = export(m, *example_inputs)
 m = prepare_pt2e(m, quantizer)
 ```
 
@@ -191,6 +156,41 @@ Version 2.7.0
 
 ```py
 torch.onnx.export(model, args, kwargs=kwargs, dynamo=True)
+```
+
+### `XNNPACKQuantizer` is deprecated in PyTorch and moved to ExecuTorch, please use it from `executorch.backends.xnnpack.quantizer.xnnpack_quantizer` instead of `torch.ao.quantization.quantizer.xnnpack_quantizer`. (#144940)
+
+`XNNPACKQuantizer` is a quantizer for xnnpack that was added into pytorch/pytorch for initial development. However, as it is not related to our core quantization workflow, we have moved it to ExecuTorch instead. Please use it from `executorch.backends.xnnpack.quantizer.xnnpack_quantizer` instead of `torch.ao.quantization.quantizer.xnnpack_quantizer`.
+
+Version 2.6.0
+```python
+from torch._export import capture_pre_autograd_graph
+from torch.ao.quantization.quantize_pt2e import prepare_pt2e
+from torch.ao.quantization.quantizer.xnnpack_quantizer import (
+    XNNPACKQuantizer,
+    get_symmetric_quantization_config,
+)
+quantizer = XNNPACKQuantizer().set_global(
+    get_symmetric_quantization_config()
+)
+m = capture_pre_autograd_graph(m, *example_inputs)
+m = prepare_pt2e(m, quantizer)
+```
+Version 2.7.0
+```py
+# we also updated the export call
+from torch.export import export
+from torch.ao.quantization.quantize_pt2e import prepare_pt2e
+# please get xnnpack quantizer from executorch (https://github.com/pytorch/executorch/)
+from executorch.backends.xnnpack.quantizer.xnnpack_quantizer import (
+    XNNPACKQuantizer,
+    get_symmetric_quantization_config,
+)
+quantizer = XNNPACKQuantizer().set_global(
+    get_symmetric_quantization_config()
+)
+m = export(m, *example_inputs)
+m = prepare_pt2e(m, quantizer)
 ```
 
 # New features
