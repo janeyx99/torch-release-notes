@@ -39,13 +39,13 @@ Users should move to use the `dynamo=True` option on `torch.onnx.export` as
 
 Version 2.6.0
 
-```py
+```python
 torch.onnx.dynamo_export(model, *args, **kwargs)
 ```
 
 Version 2.7.0
 
-```py
+```python
 torch.onnx.export(model, args, kwargs=kwargs, dynamo=True)
 ```
 
@@ -54,14 +54,14 @@ torch.onnx.export(model, args, kwargs=kwargs, dynamo=True)
 Both APIs have been deprecated since 2.2. Please use `LRScheduler.get_last_lr()` to access the learning rate instead.`print_lr` and `verbose` were confusing, not properly documented and were little used, as described in #99270, so we deprecated them in 2.2. Now, we complete the deprecation by removing them completely. To access and print the learning rate of a LRScheduler:
 
 Version 2.6.0
-```
+```python
 optim = ...
 lrsched = torch.optim.lr_scheduler.ReduceLROnPlateau(optim, verbose=True)
-// lrsched will internally call print_lr
+// lrsched will internally call print_lr() and print the learning rate      
 ```
 
 Version 2.7.0
-```
+```python
 optim = ...
 lrsched = torch.optim.lr_scheduler.ReduceLROnPlateau(optim)
 print(lrsched.get_last_lr())
@@ -90,7 +90,7 @@ m = prepare_pt2e(m, quantizer)
 ```
 
 Version 2.7.0
-```py
+```python
 from torch.export import export
 from torch.ao.quantization.quantize_pt2e import prepare_pt2e
 # please get xnnpack quantizer from executorch (https://github.com/pytorch/executorch/)
@@ -148,13 +148,13 @@ Users should use the `dynamo=True` option on `torch.onnx.export`.
 
 Version 2.6.0
 
-```py
+```python
 torch.onnx.dynamo_export(model, *args, **kwargs)
 ```
 
 Version 2.7.0
 
-```py
+```python
 torch.onnx.export(model, args, kwargs=kwargs, dynamo=True)
 ```
 
@@ -177,7 +177,7 @@ m = capture_pre_autograd_graph(m, *example_inputs)
 m = prepare_pt2e(m, quantizer)
 ```
 Version 2.7.0
-```py
+```python
 # we also updated the export call
 from torch.export import export
 from torch.ao.quantization.quantize_pt2e import prepare_pt2e
@@ -274,7 +274,7 @@ m = prepare_pt2e(m, quantizer)
 
 ## Quantization
 - Enables kernel from KleidAI to run model that was quantized such that weights are in int4 (with symmetric quantization either using channel-wise or group-wise, with the group size being a multiple of 32), while at runtime the activations are dynamically quantized from fp32 to int8 and weights are upcast from int4 to int8 so that int8 matrix multiplication is executed. This dynamic quantization of activations and matrix multiplication is performed inside of function `torch.ops.aten._dyn_quant_matmul_4bit`, while the weights, scaled and optional bias are packed in `torch.ops.aten._dyn_quant_pack_4bit_weight`. To use it on your model you can quantize it using the following example that leverages `torchao`:
-```
+```python
 from torchao.dtypes import PlainLayout
 from torchao.experimental.packed_linear_int8_dynamic_activation_intx_weight_layout import (
     PackedLinearInt8DynamicActivationIntxWeightLayout,
@@ -410,9 +410,9 @@ A new verification API `torch.onnx.verification.verify_onnx_program` can now be 
 ## CPU
 #### General
 - Implement blend operation for float, double, int in VEC ATen backend for SVE (#146479)
+- Upgrade submodule oneDNN to v3.7.1 (#148293)
 #### x86
 - Add support for int8 `brgemm` (#143384)
-- Upgrade submodule oneDNN to v3.7.1 (#148293)
 
 ## CUDA
 - Refine CUDA Stream priority ([#143849](https://github.com/pytorch/pytorch/pull/143849))
