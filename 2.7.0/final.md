@@ -27,7 +27,7 @@ Below are the full release notes for this release.
 This function was always creating the new Tensor on the "cpu" device and will now use the same device as the current Tensor object. This behavior is now consistent with other `.new_*` methods.
 
 ### Use Manylinux 2.28 and CXX11_ABI=1 for future released Linux wheel builds. 
-With Migration to manylinux_2_28 (AlmaLinux 8 based), we can no longer support OS distros with glibc2_26. These include popular Amazon Linux 2 and CentOS 7. (#143423, ##146200, #148028, #148135, #148195, #148129)
+With Migration to manylinux_2_28 (AlmaLinux 8 based), we can no longer support OS distros with glibc2_26. These include popular Amazon Linux 2 and CentOS 7. (#143423, #146200, #148028, #148135, #148195, #148129)
 
 ### `torch.onnx.dynamo_export` now uses the ExportedProgram logic path (#137296)
 
@@ -1069,5 +1069,3 @@ Several general FakeTensor improvements
 - Downgrade some logs (#147538, #145075)
 - Refactor immutable collections implementation (#144640)
 - Make `fx.node.map_arg()` and `.map_aggregate()` generic (#146248)
-
-
