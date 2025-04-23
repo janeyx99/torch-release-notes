@@ -10,9 +10,64 @@
 - [Developers](#developers)
 
 # Highlights
-TODO @seemethere
+<table>
+  <tr>
+   <td><strong>Beta</strong>
+   </td>
+   <td><strong>Prototype</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>Torch.Compile support for Torch Function Modes
+   </td>
+   <td>NVIDIA Blackwell Architecture Support
+   </td>
+  </tr>
+  <tr>
+   <td>Mega Cache
+   </td>
+   <td>PyTorch Native Context Parallel
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>Enhancing Intel GPU Acceleration
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>FlexAttention LLM <span style="text-decoration:underline;">first token processing</span> on X86 CPUs 
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>FlexAttention LLM <span style="text-decoration:underline;">throughput mode optimization</span> on X86 CPUs
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>Foreach Map
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>Flex Attention for Inference
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>Prologue Fusion Support in Inductor
+   </td>
+  </tr>
+</table>
 
-For more details about these highlighted features, you can look at the release blogpost.
+For more details about these highlighted features, you can look at the [release blogpost](https://pytorch.org/blog/pytorch2-7/).
 Below are the full release notes for this release.
 
 # Backwards Incompatible Changes
@@ -320,7 +375,6 @@ A new verification API `torch.onnx.verification.verify_onnx_program` can now be 
 - Add support for gfx1102 and gfx12 to ROCm  wheel and libtorch builds (#147761, #148562)
 
 ## Python Frontend
-- Add a warning when a tensor with `requires_grad=True` is converted to a scalar (#143261)
 - Add support for CPU scalar in `torch.addcmul` (#143264)
 - Set `-DPy_LIMITED_API` flag for `py_limited_api=True` cpp_extensions (#145764)
 - Add support for serialization for uintx/intx in weights_only (#147500)
